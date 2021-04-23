@@ -1,3 +1,5 @@
+const Transaction = require('../../../models/Transaction');
+
 // POST new transaction
 function newTransaction(req, res){
     res.json({
