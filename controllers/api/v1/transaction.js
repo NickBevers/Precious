@@ -1,4 +1,4 @@
-const Transaction = require('../../../models/Transaction');
+const Transaction = require('../../../models/Transactions');
 
 // POST new transaction
 function newTransaction(req, res){
@@ -9,13 +9,13 @@ function newTransaction(req, res){
     transaction.message = req.body.message;
 
     transaction.save((err, doc) => {
-        if (err){
+        if(err){
             res.json({
                 status: "Error",
                 message: "Could not fulfill your transaction request"})
         }
 
-        if (!err){
+        if(!err){
             res.json({
                 status: "Succes",
                 message: "POSTING a new transaction",
@@ -29,9 +29,23 @@ function newTransaction(req, res){
 
 // GET all transactions from 1 user
 function getTransactions(req, res){
-    res.json({
-    status: "Succes",
-    message: `GETting all transactions from user`})
+    Transaction.find({recipient: "Gollum@student.thomasmore.be"}, (err, doc) => {
+        if(err){
+            res.json({
+                status: "Error",
+                message: "Could not fulfill your transaction request"})
+        }
+
+        if(!err){
+            res.json({
+                status: "Succes",
+                message: `GETting all transactions from user`,
+                data: {
+                    transaction: doc
+                }
+            })
+        }
+    }); 
 }
 
 // GET all details from specific transaction
