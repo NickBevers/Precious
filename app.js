@@ -8,6 +8,9 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const transactionRouter = require('./routes/api/v1/transaction')
 
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/transactions', {useNewUrlParser: true, useUnifiedTopology: true});
+
 var app = express();
 const cors = require("cors");
 
