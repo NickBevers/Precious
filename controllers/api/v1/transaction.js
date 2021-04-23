@@ -2,9 +2,29 @@ const Transaction = require('../../../models/Transaction');
 
 // POST new transaction
 function newTransaction(req, res){
-    res.json({
-        status: "Succes",
-        message: `POSTING a new transaction`})
+    let transaction = new Transaction();
+    transaction.recipient = req.body.recipient;
+    transaction.amount = req.body.amount;
+    transaction.reason = req.body.reason;
+    transaction.message = req.body.message;
+
+    transaction.save((err, doc) => {
+        if (err){
+            res.json({
+                status: "Error",
+                message: "Could not fulfill your transaction request"})
+        }
+
+        if (!err){
+            res.json({
+                status: "Succes",
+                message: "POSTING a new transaction",
+                data:{
+                    transaction:doc
+                }
+            })
+        }
+    })
 }
 
 // GET all transactions from 1 user
