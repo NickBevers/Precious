@@ -1,25 +1,11 @@
-const express = require("express");
-const router = express.Router();
+var express = require("express");
+var router = express.Router();
+const usersController = require("../../../controllers/api/v1/users");
 
-router.get("/", (req, res) => {
-    res.json({
-        "status": "success",
-        "user": "Gollum"
-    })
-});
+router.get("/", usersController.getAll);
 
-router.get("/login", (req, res) => {
-    res.json({
-        "status": "success",
-        "user": "Smeagol"
-    })
-});
+router.get("/login", usersController.login);
 
-router.get("/signup", (req, res) => {
-    res.json({
-        "status": "success",
-        "user": "Precious!"
-    });
-});
+router.get("/signup", usersController.signup);
 
 module.exports = router;
