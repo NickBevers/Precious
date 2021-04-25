@@ -1,13 +1,14 @@
 const User = require("../models/Users"); 
-const passport = require("../passport/passport");
 
 const postsignup = async (req, res, next) => {
     //signup
     //username uit request halen
     //password uit request halen
-    //email uit request halen
+    //email uit request halen?
     //bcrypt encrypt
     //databank
+    console.log(req.body);
+
     let username = req.body.username;
     let password = req.body.password;
 
@@ -24,4 +25,22 @@ const postsignup = async (req, res, next) => {
     });
 }
 
+const postlogin = async (req, res, next) => {
+    const user = await User.authenticate()(req.body.username, req.body.password).then(result => {
+        res.json({
+            "status": "success",
+            "data": {
+                "user": result
+            }
+        });
+    }).catch(error => {
+        res.json({
+            "status": "error",
+            "message": error
+        })
+    });
+} 
+
+
 module.exports.postsignup = postsignup;
+module.exports.postlogin = postlogin;
