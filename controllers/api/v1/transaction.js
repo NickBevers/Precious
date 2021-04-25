@@ -3,6 +3,7 @@ const Transaction = require('../../../models/Transactions');
 // POST new transaction
 function newTransaction(req, res){
     let transaction = new Transaction();
+    //transaction.sender = req.user.mail;
     transaction.recipient = req.body.recipient;
     transaction.amount = req.body.amount;
     transaction.reason = req.body.reason;
@@ -29,6 +30,7 @@ function newTransaction(req, res){
 
 // GET all transactions from 1 user
 function getTransactions(req, res){
+    // Transaction.find({'recipient': req.user.mail, 'sender': req.user.mail}, (err, doc) => {
     Transaction.find({recipient: "Gollum@student.thomasmore.be"}, (err, doc) => {
         if(err){
             res.json({
@@ -56,7 +58,7 @@ function getTransferById(req, res){
     message: `GETting transactions with id ${id} from user`})
 }
 
-// GET aal users with #coins per user
+// GET all users with #coins per user
 function getLeaderboard(req, res){
     res.json({
     status: "Succes",
