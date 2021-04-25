@@ -6,10 +6,11 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const transactionRouter = require('./routes/api/v1/transaction')
+const transactionRouter = require('./routes/api/v1/transaction');
+const userRouter = require("./routes/api/v1/users");
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/transactions', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://localhost:27017/precious', {useNewUrlParser: true, useUnifiedTopology: true});
 
 var app = express();
 const cors = require("cors");
@@ -30,6 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api/v1', transactionRouter);
+app.use("/api/v1", userRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -45,6 +47,10 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+app.listen(3000, function(){
+  console.log("start op 3000");
 });
 
 module.exports = app;
