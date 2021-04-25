@@ -10,6 +10,7 @@ const transactionRouter = require('./routes/api/v1/transaction');
 const userRouter = require("./routes/api/v1/users");
 
 const mongoose = require('mongoose');
+mongoose.set("useCreateIndex", true);
 mongoose.connect('mongodb://localhost:27017/precious', {useNewUrlParser: true, useUnifiedTopology: true});
 
 var app = express();
