@@ -1,4 +1,4 @@
-const User = require("../../../models/Users");
+const User = require("../../../models/Users"); 
 // const passport = require("passport");
 
 // // CHANGE: USE "createStrategy" INSTEAD OF "authenticate"
