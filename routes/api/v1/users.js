@@ -9,13 +9,6 @@ router.get("/login", usersController.login);
 
 router.get("/signup", usersController.signup);
 
-router.post("/signup", (req, res, next) => {
-    //signup
-    //username uit request halen
-    //password uit request halen
-    //email uit request halen
-    //bcrypt encrypt
-    //databank
-});
+router.post("/signup", authenticateController.postsignup);
 
 module.exports = router;
