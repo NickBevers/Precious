@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/all.min.css"> 
+    <link rel="stylesheet" href="/css/reset.css">
+    <!-- <link rel="stylesheet" href="/css/newTransaction.css"> -->
+    <title>Precious</title>
+</head>
+<body>
+    <!-- container -->
+    <div class="container">
+
+        <!-- Logo -->
+        <div class="logo">
+            <img src="/assets/logo.png" alt="Precious Coin" id="logo_vector">
+        </div>
+
+        <!-- Form for sending Precious -->
+        <div class="preciousForm">
+            
+            <input class="recipient" type="text" placeholder="Recipient" name="recipient" required>
+
+            <input class="amount" type="number" placeholder="Amount" name="amount" required>
+
+            <div class="customDrop">
+                <select name="reason" id="reason" required>
+                    <option value="" selected disabled hidden>Reason</option>
+                    <option value="dev_help">Development help</option><hr>
+                    <option value="design_help">Design help</option>
+                    <option value="feedback">Feedback</option>
+                    <option value="deadlines">Meeting deadlines</option>
+                    <option value="other">Other</option>
+                </select>
+                <span class="customDropArrow"></span>
+            </div>
+
+            <textarea class="message" name="message" id="message" placeholder="Message"></textarea>
+
+            <div class="discordMessage">
+                <input type="checkbox" name="share" id="share">
+                <label for="share">Share on Discord/Slack</label>
+            </div>
+            
+            <button class="sendTransaction">Send coins</button>
+        </div>
+        
+
+        <!-- Bottom navigation -->
+        <div class="nav">
+            <!-- logout -->
+            <a href="login.html" class="signout"><i class="fas fa-sign-out-alt fa-2x"></i></a>
+
+            <!-- homepage -->
+            <a href="home.html" class="home"><i class="fas fa-home fa-2x"></i></a>
+            
+            <!-- shop -->
+            <a href="store.html" class="store"><i class="fas fa-store fa-2x"></i></a>
+        </div>
+    </div>
+</body>
+<script src="javascript/newTransaction.js"></script>
+</html>
