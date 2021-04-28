@@ -1,11 +1,13 @@
-var express = require("express");
+var express = require('express');
 var router = express.Router();
-const usersController = require("../../../controllers/api/v1/users");
+const authenticateController = require("../../../controllers/api/v1/authenticate");
 
-router.get("/", usersController.getAll);
+/* GET users listing. */
+router.get('/', function(req, res, next) {
+  res.send('respond with a resource');
+});
 
-router.get("/login", usersController.login);
-
-router.get("/signup", usersController.signup);
+router.post("/signup", authenticateController.postsignup);
+router.post("/login", authenticateController.postlogin);
 
 module.exports = router;
