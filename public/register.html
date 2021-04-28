@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/all.min.css"> 
+    <link rel="stylesheet" href="/css/reset.css">
+    <!-- <link rel="stylesheet" href="/css/register.css"> -->
+    <title>Precious</title>
+</head>
+<body>
+    <!-- container -->
+    <div class="container">
+
+        <!-- Logo -->
+        <div class="logo">
+            <img src="/assets/logo.png" alt="Precious Coin" id="logo_vector">
+        </div>
+
+        <!-- Form for sending Precious -->
+        <form action="POST" class="register">
+            
+            <input type="text" placeholder="Name" name="name" required>
+
+            <input type="email" placeholder="E-mail" name="email" required>
+
+            <input type="password" placeholder="Password" name="password" required>
+
+            <input type="password" placeholder="Confirm password" name="password_confirm" required>
+
+            <div class="t_c">
+                <input type="checkbox" name="share" id="share">
+                <label for="share">Agree to terms & conditions</label>
+            </div>
+            
+            <button type="submit">Sign up</button>
+        </form>
+    </div>
+</body>
+</html>
