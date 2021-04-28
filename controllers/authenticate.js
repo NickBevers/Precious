@@ -9,10 +9,12 @@ const postsignup = async (req, res, next) => {
     //databank
     console.log(req.body);
 
-    let username = req.body.username;
+    let firstname = req.body.firstname;
+    let lastname = req.body.lastname;
+    let email = req.body.email;
     let password = req.body.password;
 
-    const user = new User({username: username});
+    const user = new User({firstname: firstname, lastname: lastname, email: email}); //username: username,  
     await user.setPassword(password);
     await user.save().then(result =>{
         res.json({
@@ -20,13 +22,17 @@ const postsignup = async (req, res, next) => {
         })
     }).catch(error => {
         res.json({
-            "status": "error"
+            "status": "error",
+            "message": error
         })
     });
 }
 
 const postlogin = async (req, res, next) => {
-    const user = await User.authenticate()(req.body.username, req.body.password).then(result => {
+    console.log("Gollum login?");
+    console.log(req.body.email, req.body.password);
+
+    const user = await User.authenticate()(req.body.email, req.body.password).then(result => {
         res.json({
             "status": "success",
             "data": {
