@@ -8,7 +8,8 @@ const User = new Schema({
     // email: {type: String, required:true, unique:true}
     firstname: String,
     lastname: String,
-    email: String
+    email: String,
+    coins: Number
 });
 
 User.plugin(passportLocalMongoose, {usernameField: "email"}); //
