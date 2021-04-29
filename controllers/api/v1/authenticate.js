@@ -13,8 +13,9 @@ const postsignup = async (req, res, next) => {
     let lastname = req.body.lastname;
     let email = req.body.email;
     let password = req.body.password;
+    let coins = 100;
 
-    const user = new User({firstname: firstname, lastname: lastname, email: email}); //username: username,  
+    const user = new User({firstname: firstname, lastname: lastname, email: email, coins: coins}); //username: username,  
     await user.setPassword(password);
     await user.save().then(result =>{
         res.json({
