@@ -1,4 +1,7 @@
+// const { token } = require("morgan");
 const User = require("../../../models/Users"); 
+const jwt = require("jsonwebtoken");
+
 
 const postsignup = async (req, res, next) => {
     //signup
@@ -15,11 +18,22 @@ const postsignup = async (req, res, next) => {
     let password = req.body.password;
     let coins = 100;
 
-    const user = new User({firstname: firstname, lastname: lastname, email: email, coins: coins}); //username: username,  
+    const user = new User({firstname: firstname, lastname: lastname, email: email, coins: coins}); 
     await user.setPassword(password);
     await user.save().then(result =>{
+        // console.log(result._id);
+        console.log(results.email);
+
+        let token = jwt.sign({
+            // uid: result._id,
+            email: result.email
+        }, "Precioussecret");
+
         res.json({
-            "status": "success"
+            "status": "success",
+            "data": {
+                "token": token
+            }
         })
     }).catch(error => {
         res.json({

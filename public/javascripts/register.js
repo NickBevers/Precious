@@ -1,6 +1,6 @@
 let signup = document.querySelector(".submitBtn").addEventListener("click", function(){
     let firstname = document.querySelector(".firstname").value;
-    let lastname = document.querySelector(".lastname").vallue;
+    let lastname = document.querySelector(".lastname").value;
     let email = document.querySelector(".email").value;
     let password = document.querySelector(".password").value;
     
