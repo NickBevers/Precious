@@ -21,23 +21,26 @@
         </div>
 
         <!-- Form for sending Precious -->
-        <form action="POST" class="register">
+        <div class="register">
             
-            <input type="text" placeholder="Name" name="name" required>
+            <input class="firstname" type="text" placeholder="Firstname" name="firstname" required>
 
-            <input type="email" placeholder="E-mail" name="email" required>
+            <input class="lastname" type="text" placeholder="Lastname" name="lastname" required>
 
-            <input type="password" placeholder="Password" name="password" required>
+            <input class="email" type="email" placeholder="E-mail" name="email" required>
 
-            <input type="password" placeholder="Confirm password" name="password_confirm" required>
+            <input class="password" type="password" placeholder="Password" name="password" required>
+
+            <input class="confirmpassword" type="password" placeholder="Confirm password" name="password_confirm" required>
 
             <div class="t_c">
                 <input type="checkbox" name="share" id="share">
                 <label for="share">Agree to terms & conditions</label>
             </div>
             
-            <button type="submit">Sign up</button>
-        </form>
+            <button class="submitBtn" type="submit">Sign up</button>
+        </div>
     </div>
 </body>
+<script src="./javascripts/register.js"></script>
 </html>
