@@ -1,0 +1,156 @@
+.logo--large {
+  grid-row: 1/span 4;
+  align-self: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.logo__vector--small {
+  width: 15%;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.logo__vector--large {
+  width: 35%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.form::placeholder {
+  opacity: 1;
+  color: white;
+}
+
+.form__input {
+  width: 80%;
+  height: 50px;
+  border: none;
+  background-color: #8478F5;
+  color: white;
+  text-align: center;
+  font-size: 25px;
+}
+
+.form__checkbox {
+  width: fit-content;
+  align-self: flex-start;
+  margin-left: 22%;
+  font-size: 20px;
+}
+
+.form__checkbox__input {
+  content: "";
+  background: url("../assets/check-circle-solid.svg");
+  background-position: center;
+  background-size: contain;
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  left: 50px;
+  top: 590px;
+  filter: grayscale(1);
+  transition: all 0.6s;
+}
+
+.form__checkbox__input:checked {
+  filter: grayscale(0);
+  transform: rotate(360deg);
+}
+
+:root {
+  --color--primary: #e7e7e7;
+  --color--secondary: #FF7446;
+  --color--background: #8478F5;
+}
+
+.list {
+  background-color: var(--color--background);
+  height: 105%;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+.list--standard {
+  grid-row: 6/span 6;
+}
+
+.list--large {
+  grid-row: 3/span 9;
+}
+
+.list__item {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 25px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: var(--color--primary);
+  font-family: "Lato", sans-serif;
+  font-weight: bolder;
+  justify-content: space-between;
+}
+
+.list__hr {
+  width: 90%;
+  border-width: 2px;
+  color: var(--color--primary);
+  border-color: var(--color--primary);
+}
+
+.list__item--amount {
+  width: 20%;
+}
+
+.list__item--amount--sent {
+  width: 20%;
+  color: var(--color--secondary);
+}
+
+.list__item--from-to {
+  width: 30%;
+}
+
+.list__item--date {
+  width: 35%;
+}
+
+.list__item--message {
+  color: var(--color--secondary);
+  width: 15%;
+  padding-left: 5%;
+}
+
+.container {
+  width: 400px;
+  height: 720px;
+  max-width: 400px;
+  max-height: 720px;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: repeat(12, 60px);
+  background-color: #e7e7e7;
+}
+
+.coins {
+  grid-row: 2/span 2;
+  font-size: 5em;
+  font-family: "Lato", sans-serif;
+  align-self: center;
+  justify-self: center;
+  color: #3A0CA3;
+}
+
+/*# sourceMappingURL=app.css.map */
