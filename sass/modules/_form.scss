@@ -1,0 +1,47 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.form::placeholder{
+    opacity: 1;
+    color: white;
+}
+
+.form__input{
+    width: 80%;
+    height: 50px;
+    border: none;
+    background-color: #8478F5;
+    color: white;
+    text-align: center;
+    font-size: 25px;
+}
+
+.form__checkbox{
+    width: fit-content;
+    align-self: flex-start;
+    margin-left: 22%;
+    font-size: 20px
+}
+
+.form__checkbox__input{
+    content: "";
+    background: url("../assets/check-circle-solid.svg");
+    background-position: center;
+    background-size: contain;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    left: 50px;
+    top: 590px;
+    filter: grayscale(1);
+    transition: all 0.6s;
+}
+
+.form__checkbox__input:checked{
+    filter: grayscale(0);
+    transform: rotate(360deg);
+}

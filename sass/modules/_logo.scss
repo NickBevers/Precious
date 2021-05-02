@@ -1,0 +1,17 @@
+.logo--large{
+    grid-row: 1 / span 4;
+    align-self: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.logo__vector--small{
+    width: 15%;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.logo__vector--large{
+    width: 35%;
+}

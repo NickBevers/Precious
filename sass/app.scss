@@ -1,3 +1,24 @@
 @import 'modules/logo';
-@import 'modules/form-input';
-@import 'modules/list-item';
+@import 'modules/form';
+@import 'modules/list';
+
+
+.container{
+    width: 400px;
+    height: 720px;
+    max-width: 400px;
+    max-height: 720px;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(12, 60px);
+    background-color: #e7e7e7;
+}
+
+.coins{
+    grid-row: 2 / span 2;
+    font-size: 5em;
+    font-family: 'Lato', sans-serif;
+    align-self: center;
+    justify-self: center;
+    color: #3A0CA3;
+}
