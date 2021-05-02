@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/all.min.css"> 
     <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="./stylesheets/app.css">
     <!-- <link rel="stylesheet" href="/css/register.css"> -->
     <title>Precious</title>
 </head>
@@ -16,26 +17,26 @@
     <div class="container">
 
         <!-- Logo -->
-        <div class="logo">
-            <img src="/assets/logo.png" alt="Precious Coin" id="logo_vector">
+        <div class="logo--large">
+            <img src="./assets/logo.png" alt="Precious Coin" class="logo__vector--large">
         </div>
 
         <!-- Form for sending Precious -->
-        <div class="register">
+        <div class="register form form--medium">
             
-            <input class="firstname" type="text" placeholder="Firstname" name="firstname" required>
+            <input class="form__input firstname" type="text" placeholder="Firstname" name="firstname" required>
 
-            <input class="lastname" type="text" placeholder="Lastname" name="lastname" required>
+            <input class="form__input lastname" type="text" placeholder="Lastname" name="lastname" required>
 
-            <input class="email" type="email" placeholder="E-mail" name="email" required>
+            <input class="form__input email" type="email" placeholder="E-mail" name="email" required>
 
-            <input class="password" type="password" placeholder="Password" name="password" required>
+            <input class="form__input password" type="password" placeholder="Password" name="password" required>
 
-            <input class="confirmpassword" type="password" placeholder="Confirm password" name="password_confirm" required>
+            <input class="form__input confirmpassword" type="password" placeholder="Confirm password" name="password_confirm" required>
 
-            <div class="t_c">
-                <input type="checkbox" name="share" id="share">
-                <label for="share">Agree to terms & conditions</label>
+            <div class="custom-checkbox">
+                <input class="custom-checkbox__input" type="checkbox" name="terms_conditions">
+                <label class="custom-checkbox__label" for="terms_conditions">Agree to terms & conditions</label>
             </div>
             
             <button class="submitBtn" type="submit">Sign up</button>
