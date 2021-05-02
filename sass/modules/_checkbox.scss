@@ -1,0 +1,32 @@
+.custom-checkbox{
+    width: fit-content;
+    align-self: flex-start;
+    margin-left: 22%;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.custom-checkbox__input{
+    -webkit-appearance: none;
+    appearance: none;
+    background: url("../assets/check-circle-solid.svg");
+    background-position: center;
+    margin-left: -40px;
+    background-size: contain;
+    width: 32px;
+    height: 32px;
+    filter: grayscale(1);
+    transition: all 0.6s;
+    cursor: pointer;
+}
+
+.custom-checkbox__input:checked{
+    filter: grayscale(0);
+    transform: rotate(360deg);
+}
+
+.custom-checkbox__label{
+    margin-left: 20px;
+}
