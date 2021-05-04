@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/all.min.css"> 
-    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="./stylesheets/all.min.css"> 
+    <link rel="stylesheet" href="./stylesheets/reset.css">
+    <link rel="stylesheet" href="./stylesheets/app.css">
     <!-- <link rel="stylesheet" href="/css/login.css"> -->
     <title>Precious</title>
 </head>
@@ -16,14 +17,14 @@
     <div class="container">
 
         <!-- Logo -->
-        <div class="logo">
-            <img src="/assets/logo.png" alt="Precious Coin" id="logo_vector">
+        <div class="logo--large">
+            <img src="./assets/logo.png" alt="Precious Coin" class="logo__vector--large">
         </div>
 
         <!-- Login form -->
-       <div class="loginform">
-            <input class="email" type="email" placeholder="E-mail" name="email" required>
-            <input class="password" type="password" placeholder="Password" name="password" required>
+       <div class="form form--small">
+            <input class="email form__input" type="email" placeholder="E-mail" name="email" required>
+            <input class="password form__input" type="password" placeholder="Password" name="password" required>
             <button type="submit" class="submitBtn">Login</button>
             <a href="./register.html" class="signup">Create precious account</a>
        </div>

@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/all.min.css"> 
-    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="./stylesheets/all.min.css"> 
+    <link rel="stylesheet" href="./stylesheets/reset.css">
+    <link rel="stylesheet" href="./stylesheets/app.css">
     <!-- <link rel="stylesheet" href="/css/trans_detail.css"> -->
     <title>Precious</title>
 </head>
@@ -17,15 +18,15 @@
 
         <!-- Logo -->
         <div class="logo">
-            <img src="/assets/logo.png" alt="Precious Coin" id="logo_vector">
+            <img src="./assets/logo.png" alt="Precious Coin" class="logo__vector--small">
         </div>
 
         <!-- Fields per transaction detail -->
-        <div class="transactionField">
-            <p class="recipient">From X to Y</p>
-            <p class="amount">Amount</p>
-            <p class="reason">Reason</p>
-            <p class="message">Message</p>
+        <div class="form form--large">
+            <p class="recipient form__input">From X to Y</p>
+            <p class="amount form__input">Amount</p>
+            <p class="reason form__input">Reason</p>
+            <p class="message form__textarea">Message</p>
             <a href="transactionlist.html" class="return">Return</a>
         </div>
 

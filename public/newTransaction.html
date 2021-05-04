@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/all.min.css"> 
-    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="./stylesheets/all.min.css"> 
+    <link rel="stylesheet" href="./stylesheets/reset.css">
+    <link rel="stylesheet" href="./stylesheets/app.css">
     <!-- <link rel="stylesheet" href="/css/newTransaction.css"> -->
     <title>Precious</title>
 </head>
@@ -17,18 +18,18 @@
 
         <!-- Logo -->
         <div class="logo">
-            <img src="/assets/logo.png" alt="Precious Coin" id="logo_vector">
+            <img src="./assets/logo.png" alt="Precious Coin" class="logo__vector--small">
         </div>
 
         <!-- Form for sending Precious -->
-        <div class="preciousForm">
+        <div class="form form--large">
             
-            <input class="recipient" type="text" placeholder="Recipient" name="recipient" required>
+            <input class="recipient form__input" type="text" placeholder="Recipient" name="recipient" required>
 
-            <input class="amount" type="number" placeholder="Amount" name="amount" required>
+            <input class="amount form__input form__input__number" type="number" placeholder="Amount" name="amount" required>
 
-            <div class="customDrop">
-                <select name="reason" id="reason" required>
+            <div class="form__input custom-dropdown__container">
+                <select name="reason" class="custom-dropdown" required>
                     <option value="" selected disabled hidden>Reason</option>
                     <option value="dev_help">Development help</option><hr>
                     <option value="design_help">Design help</option>
@@ -36,14 +37,14 @@
                     <option value="deadlines">Meeting deadlines</option>
                     <option value="other">Other</option>
                 </select>
-                <span class="customDropArrow"></span>
+                <span class="custom-dropdown__arrow"></span>
             </div>
 
-            <textarea class="message" name="message" id="message" placeholder="Message"></textarea>
+            <textarea class="message form__textarea" name="message" class="message" placeholder="Message"></textarea>
 
-            <div class="discordMessage">
-                <input type="checkbox" name="share" id="share">
-                <label for="share">Share on Discord/Slack</label>
+            <div class="custom-checkbox">
+                <input class="custom-checkbox__input" type="checkbox" name="terms_conditions">
+                <label class="custom-checkbox__label" for="terms_conditions">Share on Discord/Slack</label>
             </div>
             
             <button class="sendTransaction">Send coins</button>
