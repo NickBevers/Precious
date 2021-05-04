@@ -5,13 +5,21 @@
     justify-content: space-evenly;
 }
 
+.form--small{
+    grid-row: 5 / span 7;
+}
+
 .form--medium{
     grid-row: 5 / span 8;
 }
 
+.form--large{
+    grid-row: 3 / span 9;
+}
+
 .form::placeholder{
     opacity: 1;
-    color: white;
+    color: var(--color--primary);
 }
 
 .form__input{
@@ -19,7 +27,27 @@
     height: 50px;
     border: none;
     background-color: var(--color--background);
-    color: white;
+    color: var(--color--primary);
     text-align: center;
     font-size: 25px;
+}
+
+.form__input__number{
+    appearance: textfield;
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+.form__textarea{
+    box-sizing: border-box;
+    color: var(--color--primary);
+    background-color: var(--color--background);
+    border: none;
+    resize: none;
+    text-align: center;
+    font-size: 25px;
+    width: 80%;
+    height: 145px;
+    padding-bottom: 0;
+    cursor: pointer;
 }

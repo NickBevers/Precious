@@ -1,7 +1,11 @@
+*{
+    font-family: 'Lato', sans-serif; 
+}
+
 .custom-checkbox{
     width: fit-content;
-    align-self: flex-start;
-    margin-left: 22%;
+    align-self: center;
+    margin-left: 40px;
     font-size: 20px;
     display: flex;
     align-items: center;
@@ -28,5 +32,6 @@
 }
 
 .custom-checkbox__label{
-    margin-left: 20px;
+    margin-left: 10px;
+    text-align: center;
 }
