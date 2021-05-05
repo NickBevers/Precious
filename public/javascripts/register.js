@@ -44,13 +44,13 @@ let signup = document.querySelector(".button--submit").addEventListener("click",
                         "email": email,
                         "password": password
                     })
-                }).then(response => {
-                    return response.json();
-                }).then(json => {
-                    if(json.status === "success"){
+                }).then(result => {
+                    return result.json();                    
+                }).then(answer => {
+                    if(answer.status === "success"){
                         console.log("Signup complete!");
         
-                        let token = json.data.token;
+                        let token = answer.data.token;
                         localStorage.setItem("token", token);
                         window.location.replace("home.html"); // deze locatie waarschijnlijk nog aanpassen
                     }

@@ -52,7 +52,7 @@ const postsignup = async (req, res, next) => {
     await user.setPassword(password);
     await user.save().then(result =>{
         // console.log(result._id);
-        console.log(results.email);
+        console.log(result.email);
 
         let token = jwt.sign({
             // uid: result._id,
@@ -70,6 +70,7 @@ const postsignup = async (req, res, next) => {
             "status": "error",
             "message": error
         })
+        console.log(error);
     });
 }
 
