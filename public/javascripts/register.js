@@ -1,4 +1,4 @@
-let signup = document.querySelector(".submitBtn").addEventListener("click", function(){
+let signup = document.querySelector(".button--submit").addEventListener("click", function(){
     let firstname = document.querySelector(".firstname").value;
     let lastname = document.querySelector(".lastname").value;
     let email = document.querySelector(".email").value;
@@ -18,27 +18,44 @@ let signup = document.querySelector(".submitBtn").addEventListener("click", func
         console.log("password confirm is incorrect");
     }
     else{
-        fetch("http://localhost:3000/users/signup", {
+        fetch("http://localhost:3000/users/mail", {
             method: "post",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                "firstname": firstname,
-                "lastname": lastname,
-                "email": email,
-                "password": password
+                "email": email
             })
         }).then(response => {
             return response.json();
         }).then(json => {
-            if(json.status === "success"){
-                console.log("Signup complete!");
-
-                let token = json.data.token;
-                localStorage.setItem("token", token);
-                window.location.href = "register.html"; // deze locatie waarschijnlijk nog aanpassen
+            if(json.status === "error"){
+                alert("email alreadt exists!")
             }
-        })
+            else{
+                fetch("http://localhost:3000/users/signup", {
+                    method: "post",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        "firstname": firstname,
+                        "lastname": lastname,
+                        "email": email,
+                        "password": password
+                    })
+                }).then(response => {
+                    return response.json();
+                }).then(json => {
+                    if(json.status === "success"){
+                        console.log("Signup complete!");
+        
+                        let token = json.data.token;
+                        localStorage.setItem("token", token);
+                        window.location.replace("home.html"); // deze locatie waarschijnlijk nog aanpassen
+                    }
+                })
+            }
+        })       
     }
 });

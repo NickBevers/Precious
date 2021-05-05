@@ -7,6 +7,7 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
+router.post("/mail", authenticateController.emailauth);
 router.post("/signup", authenticateController.postsignup);
 router.post("/login", authenticateController.postlogin);
 
