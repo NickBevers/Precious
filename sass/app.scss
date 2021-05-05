@@ -2,6 +2,7 @@
 @import 'modules/form';
 @import 'modules/list';
 @import 'modules/checkbox';
+@import 'modules/dropdown';
 
 :root{
     --color--primary: #e7e7e7;
@@ -10,7 +11,7 @@
 }
 
 *{
-    font-family: 'Lato', sans-serif;
+    font-family: 'Lato', sans-serif; 
 }
 
 .container{
@@ -30,4 +31,10 @@
     align-self: center;
     justify-self: center;
     color: #3A0CA3;
+}
+
+.recipient, .amount, .reason, .message{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

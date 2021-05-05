@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/all.min.css"> 
-    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="./stylesheets/all.min.css"> 
+    <link rel="stylesheet" href="./stylesheets/reset.css">
     <link rel="stylesheet" href="./stylesheets/app.css">
     <!-- <link rel="stylesheet" href="/css/transactionlist.css"> -->
     <title>Precious</title>
@@ -18,96 +18,132 @@
 
         <!-- Logo -->
         <div class="logo">
-            <img src="/assets/logo.png" alt="Precious Coin" id="logo_vector">
+            <img src="./assets/logo.png" alt="Precious Coin" class="logo__vector--small">
         </div>        
 
         <!-- Send coins -> new tranaction -->
         <a href="#" class="send">Send Coins</a>
         
-        <!-- Transaction history div -->
-        <div class="transaction_history">
-            <!-- Transaction history list (x most recent ones) -->
-            <ul class="list list--standard">
-                <li class="list__item">
-                    <a href="trans_detail.html" class="transaction">
-                        <p class="amount">+5P</p>
-                        <p class="from_to">Gollum</p>
-                        <p class="date">16-04-21</p>
-                        <i class="fas fa-envelope message"></i>
-                    </a>
-                </li>
-                <hr>
+        <ul class="list list--large">
+            <li class="list__item">
+                <p class="list__item--amount">+5P</p>
+                <p class="list__item--from-to">Gollum</p>
+                <p class="list__item--date">16-04-21</p>
+                <i class="fas fa-envelope list__item--message"></i>
+            </li>
+            <hr class="list__hr">
 
-                <li class="transaction">
-                    <a href="trans_detail.html" class="transaction">
-                        <p class="amount sent">-5P</p>
-                        <p class="from_to">Gollum</p>
-                        <p class="date">16-04-21</p>
-                        <i class="fas fa-envelope message"></i>
-                    </a>
-                </li>
-                <hr>
+            <li class="list__item">
+                <p class="list__item--amount">+5P</p>
+                <p class="list__item--from-to">Gollum</p>
+                <p class="list__item--date">16-04-21</p>
+                <i class="fas fa-envelope list__item--message"></i>
+            </li>
+            <hr class="list__hr">
 
-                <li class="transaction">
-                    <a href="trans_detail.html" class="transaction">
-                        <p class="amount">+5P</p>
-                        <p class="from_to">Gollum</p>
-                        <p class="date">16-04-21</p>
-                        <i class="fas fa-envelope message"></i>
-                    </a>
-                </li>
-                <hr>
+            <li class="list__item">
+                <p class="list__item--amount">+5P</p>
+                <p class="list__item--from-to">Gollum</p>
+                <p class="list__item--date">16-04-21</p>
+                <i class="fas fa-envelope list__item--message"></i>
+            </li>
+            <hr class="list__hr">
 
-                <li class="transaction">
-                    <a href="trans_detail.html" class="transaction">
-                        <p class="amount">+15P</p>
-                        <p class="from_to">Gollum</p>
-                        <p class="date">16-04-21</p>
-                        <i class="fas fa-envelope message"></i>
-                    </a>
-                </li>
-                <hr>
+            <li class="list__item">
+                <p class="list__item--amount">+5P</p>
+                <p class="list__item--from-to">Gollum</p>
+                <p class="list__item--date">16-04-21</p>
+                <i class="fas fa-envelope list__item--message"></i>
+            </li>
+            <hr class="list__hr">
 
-                <li class="transaction">
-                    <a href="trans_detail.html" class="transaction">
-                        <p class="amount sent">-10P</p>
-                        <p class="from_to">Gollum</p>
-                        <p class="date">16-04-21</p>
-                        <i class="fas fa-envelope message"></i>
-                    </a>
-                </li>
-                <hr>
+            <li class="list__item">
+                <p class="list__item--amount">+5P</p>
+                <p class="list__item--from-to">Gollum</p>
+                <p class="list__item--date">16-04-21</p>
+                <i class="fas fa-envelope list__item--message"></i>
+            </li>
+            <hr class="list__hr">
 
-                <li class="transaction">
-                    <a href="trans_detail.html" class="transaction">
-                        <p class="amount">+5P</p>
-                        <p class="from_to">Gollum</p>
-                        <p class="date">16-04-21</p>
-                        <i class="fas fa-envelope message"></i>
-                    </a>
-                </li>
-                <hr>
+            <li class="list__item">
+                <p class="list__item--amount">+5P</p>
+                <p class="list__item--from-to">Gollum</p>
+                <p class="list__item--date">16-04-21</p>
+                <i class="fas fa-envelope list__item--message"></i>
+            </li>
+            <hr class="list__hr">
 
-                <li class="transaction">
-                    <a href="trans_detail.html" class="transaction">
-                        <p class="amount">+5P</p>
-                        <p class="from_to">Gollum</p>
-                        <p class="date">16-04-21</p>
-                        <i class="fas fa-envelope message"></i>
-                    </a>
-                </li>
-                <hr>
+            <li class="list__item">
+                <p class="list__item--amount">+5P</p>
+                <p class="list__item--from-to">Gollum</p>
+                <p class="list__item--date">16-04-21</p>
+                <i class="fas fa-envelope list__item--message"></i>
+            </li>
+            <hr class="list__hr">
 
-                <li class="transaction">
-                    <a href="trans_detail.html" class="transaction">
-                        <p class="amount">+5P</p>
-                        <p class="from_to">Gollum</p>
-                        <p class="date">16-04-21</p>
-                        <i class="fas fa-envelope message"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
+            <li class="list__item">
+                <p class="list__item--amount">+5P</p>
+                <p class="list__item--from-to">Gollum</p>
+                <p class="list__item--date">16-04-21</p>
+                <i class="fas fa-envelope list__item--message"></i>
+            </li>
+            <hr class="list__hr">
+
+            <li class="list__item">
+                <p class="list__item--amount">+5P</p>
+                <p class="list__item--from-to">Gollum</p>
+                <p class="list__item--date">16-04-21</p>
+                <i class="fas fa-envelope list__item--message"></i>
+            </li>
+            <hr class="list__hr">
+
+            <li class="list__item">
+                <p class="list__item--amount">+5P</p>
+                <p class="list__item--from-to">Gollum</p>
+                <p class="list__item--date">16-04-21</p>
+                <i class="fas fa-envelope list__item--message"></i>
+            </li>
+            <hr class="list__hr">
+
+            <li class="list__item">
+                <p class="list__item--amount">+5P</p>
+                <p class="list__item--from-to">Gollum</p>
+                <p class="list__item--date">16-04-21</p>
+                <i class="fas fa-envelope list__item--message"></i>
+            </li>
+            <hr class="list__hr">
+
+            <li class="list__item">
+                <p class="list__item--amount">+5P</p>
+                <p class="list__item--from-to">Gollum</p>
+                <p class="list__item--date">16-04-21</p>
+                <i class="fas fa-envelope list__item--message"></i>
+            </li>
+            <hr class="list__hr">
+
+            <li class="list__item">
+                <p class="list__item--amount">+5P</p>
+                <p class="list__item--from-to">Gollum</p>
+                <p class="list__item--date">16-04-21</p>
+                <i class="fas fa-envelope list__item--message"></i>
+            </li>
+            <hr class="list__hr">
+
+            <li class="list__item">
+                <p class="list__item--amount">+5P</p>
+                <p class="list__item--from-to">Gollum</p>
+                <p class="list__item--date">16-04-21</p>
+                <i class="fas fa-envelope list__item--message"></i>
+            </li>
+            <hr class="list__hr">
+
+            <li class="list__item">
+                <p class="list__item--amount">+5P</p>
+                <p class="list__item--from-to">Gollum</p>
+                <p class="list__item--date">16-04-21</p>
+                <i class="fas fa-envelope list__item--message"></i>
+            </li>
+        </ul>
 
         <!-- Bottom navigation -->
         <div class="nav">
