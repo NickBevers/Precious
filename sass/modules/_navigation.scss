@@ -1,0 +1,16 @@
+.nav{
+    background-color: var(--color--link);
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: space-around; 
+    // align-self: flex-end;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-row: 12 /span 13;
+}
+
+.nav--icon{
+    color:var(--color--secondary);
+    margin: auto;
+}
