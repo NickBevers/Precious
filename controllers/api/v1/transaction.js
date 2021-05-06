@@ -1,14 +1,22 @@
 const Transaction = require('../../../models/Transactions');
+// const ExtractJwt = require("passport-jwt").ExtractJwt;
+const atob = require('atob');
+const moment = require('moment')
 
 // POST new transaction
 function newTransaction(req, res){
     let transaction = new Transaction();
-    //transaction.sender = req.user.email;
+    let user = getUser(req.headers.authorization);
+    console.log(user);
+
     transaction.recipient = req.body.recipient;
+    transaction.sender = user.email;
     transaction.amount = req.body.amount;
     transaction.reason = req.body.reason;
     transaction.message = req.body.message;
+    transaction.date = new Date().toUTCString();
 
+    console.log(transaction.date);
     transaction.save((err, doc) => {
         if(err){
             res.json({
@@ -30,8 +38,11 @@ function newTransaction(req, res){
 
 // GET all transactions from 1 user
 function getTransactions(req, res){
-    // Transaction.find({'recipient': req.user.email, 'sender': req.user.email}, (err, doc) => {
-    Transaction.find({recipient: "Gollum@student.thomasmore.be"}, (err, doc) => {
+    let token = req.headers.authorization;
+    let user = getUser(token);
+    
+    Transaction.find({$or: [{'recipient': user.email}, {'sender': user.email}]}, (err, doc) => {
+    // Transaction.find({recipient: "Gollum@student.thomasmore.be"}, (err, doc) => {
         if(err){
             res.json({
                 status: "Error",
@@ -40,11 +51,10 @@ function getTransactions(req, res){
 
         if(!err){
             res.json({
-                status: "Succes",
-                message: `GETting all transactions from user`,
-                data: {
-                    transaction: doc
-                }
+                status: "succes",
+                message: `GETting all transactions from user! THIS WORKSSSSS`,
+                user: user,
+                data: doc
             })
         }
     }); 
@@ -63,6 +73,14 @@ function getLeaderboard(req, res){
     res.json({
     status: "Succes",
     message: `GETting all coins per user`})
+}
+
+function getUser(token){
+    const tokenParts = token.split('.');
+    const encodedPayload = tokenParts[1];
+    const rawPayload = atob(encodedPayload);
+    const user = JSON.parse(rawPayload); 
+    return user;
 }
 
 module.exports.newTransaction = newTransaction;
