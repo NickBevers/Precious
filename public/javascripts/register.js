@@ -8,6 +8,8 @@ let signup = document.querySelector(".button--submit").addEventListener("click",
     let emailrestriction = email.indexOf("@student.thomasmore.be");
     let checkbox = document.querySelector(".custom-checkbox__input");
 
+    //regex check for email -> not r-mail but full name
+
     if(emailrestriction === -1){
         console.log("Incorrect email");
     }
