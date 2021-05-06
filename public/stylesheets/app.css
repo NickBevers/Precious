@@ -92,8 +92,6 @@
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
-  padding-left: 10px;
-  padding-right: 10px;
   font-size: 25px;
   margin-top: 15px;
   margin-bottom: 15px;
@@ -112,24 +110,23 @@
 
 .list__item--amount {
   width: 20%;
+  padding-left: 10px;
 }
 
 .list__item--amount--sent {
   width: 20%;
+  padding-left: 10px;
   color: var(--color--secondary);
 }
 
 .list__item--from-to {
-  width: 30%;
-}
-
-.list__item--date {
-  width: 35%;
+  width: 70%;
+  text-align: center;
 }
 
 .list__item--message {
   color: var(--color--secondary);
-  width: 15%;
+  width: 10%;
   padding-left: 5%;
 }
 
