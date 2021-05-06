@@ -37,15 +37,15 @@
 
 .form::placeholder {
   opacity: 1;
-  color: var(--color--primary);
+  color: #e7e7e7;
 }
 
 .form__input {
   width: 80%;
   height: 50px;
   border: none;
-  background-color: var(--color--background);
-  color: var(--color--primary);
+  background-color: #8478F5;
+  color: #e7e7e7;
   text-align: center;
   font-size: 25px;
 }
@@ -58,8 +58,8 @@
 
 .form__textarea {
   box-sizing: border-box;
-  color: var(--color--primary);
-  background-color: var(--color--background);
+  color: #e7e7e7;
+  background-color: #8478F5;
   border: none;
   resize: none;
   text-align: center;
@@ -71,7 +71,7 @@
 }
 
 .list {
-  background-color: var(--color--background);
+  background-color: #8478F5;
   height: 105%;
   width: 90%;
   margin-left: auto;
@@ -95,7 +95,7 @@
   font-size: 25px;
   margin-top: 15px;
   margin-bottom: 15px;
-  color: var(--color--primary);
+  color: #e7e7e7;
   font-family: "Lato", sans-serif;
   font-weight: bolder;
   justify-content: space-between;
@@ -104,8 +104,8 @@
 .list__hr {
   width: 90%;
   border-width: 2px;
-  color: var(--color--primary);
-  border-color: var(--color--primary);
+  color: #e7e7e7;
+  border-color: #e7e7e7;
 }
 
 .list__item--amount {
@@ -116,7 +116,7 @@
 .list__item--amount--sent {
   width: 20%;
   padding-left: 10px;
-  color: var(--color--secondary);
+  color: #FF7446;
 }
 
 .list__item--from-to {
@@ -125,7 +125,7 @@
 }
 
 .list__item--message {
-  color: var(--color--secondary);
+  color: #FF7446;
   width: 10%;
   padding-left: 5%;
 }
@@ -214,7 +214,7 @@
 }
 
 .button--submit {
-  background-color: var(--color--link);
+  background-color: #3A0CA3;
   color: white;
   border-radius: 15px;
   font-size: 25px;
@@ -222,36 +222,29 @@
 }
 
 .button--other {
-  color: var(--color--secondary);
+  color: #FF7446;
   font-size: 18px;
 }
 
 .button--sendcoins {
-  background-color: var(--color--secondary);
-  color: var(--color-link);
+  background-color: #FF7446;
+  color: #3A0CA3;
   font-size: 25px;
   text-decoration: none;
   border-radius: 15px;
 }
 
 .nav {
-  background-color: var(--color--link);
+  background-color: #3A0CA3;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
-  grid-row: 12/span 13;
+  grid-row: 12/span 1;
 }
 
-.nav--icon {
-  color: var(--color--secondary);
+.nav__icon {
+  color: #FF7446;
   margin: auto;
-}
-
-:root {
-  --color--primary: #e7e7e7;
-  --color--secondary: #FF7446;
-  --color--background: #8478F5;
-  --color--link: #3A0CA3;
 }
 
 * {

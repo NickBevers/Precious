@@ -1,3 +1,5 @@
+@import "colors"; 
+
 .form{
     display: flex;
     flex-direction: column;
@@ -19,15 +21,15 @@
 
 .form::placeholder{
     opacity: 1;
-    color: var(--color--primary);
+    color: $color--primary;
 }
 
 .form__input{
     width: 80%;
     height: 50px;
     border: none;
-    background-color: var(--color--background);
-    color: var(--color--primary);
+    background-color: $color--background;
+    color: $color--primary;
     text-align: center;
     font-size: 25px;
 }
@@ -40,8 +42,8 @@
 
 .form__textarea{
     box-sizing: border-box;
-    color: var(--color--primary);
-    background-color: var(--color--background);
+    color: $color--primary;
+    background-color: $color--background;
     border: none;
     resize: none;
     text-align: center;

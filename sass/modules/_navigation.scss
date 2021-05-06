@@ -1,5 +1,7 @@
+@import "colors"; 
+
 .nav{
-    background-color: var(--color--link);
+    background-color: $color--link;
     // display: flex;
     // flex-direction: row;
     // justify-content: space-around; 
@@ -7,10 +9,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
-    grid-row: 12 /span 13;
+    grid-row: 12 /span 1;
 }
 
-.nav--icon{
-    color:var(--color--secondary);
+.nav__icon{
+    color: $color--secondary;
     margin: auto;
 }

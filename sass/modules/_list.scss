@@ -1,5 +1,7 @@
+@import "colors"; 
+
 .list{
-    background-color: var(--color--background);
+    background-color: $color--background;
     height: 105%;
     width: 90%;
     margin-left: auto;
@@ -23,7 +25,7 @@
     font-size: 25px;
     margin-top: 15px;
     margin-bottom: 15px;
-    color: var(--color--primary);
+    color: $color--primary;
     font-family: 'Lato', sans-serif;
     font-weight: bolder;
     justify-content: space-between;
@@ -32,8 +34,8 @@
 .list__hr{
     width: 90%;
     border-width: 2px;
-    color: var(--color--primary);
-    border-color: var(--color--primary);
+    color: $color--primary;
+    border-color: $color--primary;
 }
 
 .list__item--amount{
@@ -44,7 +46,7 @@
 .list__item--amount--sent{
     width: 20%;
     padding-left: 10px;
-    color: var(--color--secondary);
+    color: $color--secondary;
 }
 
 .list__item--from-to{
@@ -53,7 +55,7 @@
 }
 
 .list__item--message{
-    color: var(--color--secondary);
+    color: $color--secondary;
     width: 10%;
     padding-left: 5%;
 }
