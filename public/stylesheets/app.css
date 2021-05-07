@@ -16,6 +16,12 @@
   width: 35%;
 }
 
+.logo__vector--medium {
+  width: 30%;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -211,6 +217,8 @@
   height: 50px;
   border: none;
   text-align: center;
+  font-family: "Lato", sans-serif;
+  font-weight: 600;
 }
 
 .button--submit {
@@ -230,8 +238,25 @@
   background-color: #FF7446;
   color: #3A0CA3;
   font-size: 25px;
-  text-decoration: none;
   border-radius: 15px;
+}
+
+.button__link {
+  text-decoration: none;
+}
+
+.button--large {
+  margin: auto;
+  width: 250px;
+  height: 70px;
+  font-size: 36px;
+  margin-top: 10px;
+}
+
+.button--translist {
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
 .nav {
@@ -274,6 +299,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.translistgrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
 }
 
 /*# sourceMappingURL=app.css.map */

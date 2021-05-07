@@ -1,0 +1,48 @@
+@import "colors"; 
+
+.button{
+    width: 200px;
+    height: 50px;
+    border: none;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+}
+
+.button--submit{
+    background-color: $color--link;
+    color: $color--white;
+    border-radius: 15px;
+    font-size: 25px;
+    text-decoration: none;
+}
+
+.button--other{
+    color: $color--secondary;
+    font-size: 18px;
+}
+
+.button--sendcoins{
+    background-color: $color--secondary;
+    color: $color--link;
+    font-size: 25px;
+    border-radius: 15px;
+}
+
+.button__link{
+    text-decoration: none;
+}
+
+.button--large{
+    margin: auto;
+    width: 250px;
+    height: 70px;
+    font-size: 36px;
+    margin-top: 10px;
+}
+
+.button--translist{
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
