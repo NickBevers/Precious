@@ -2,6 +2,7 @@
 const User = require("../../../models/Users"); 
 const jwt = require("jsonwebtoken");
 const mongoose = require('mongoose');
+const config = require("config");
 
 const emailauth = (req, res, next) => {
     let emaildb = req.body.email;
@@ -57,7 +58,7 @@ const postsignup = async (req, res, next) => {
         let token = jwt.sign({
             // uid: result._id,
             email: result.email
-        }, "Precioussecret");
+        }, config.get("jwt.secret"));
 
         res.json({
             "status": "success",
@@ -89,7 +90,7 @@ const postlogin = async (req, res, next) => {
         let token = jwt.sign({
             uid: result.user._id,
             email: result.user.email
-        }, "Precioussecret");
+        }, config.get("jwt.secret"));
         
         return res.json({
             "status": "success",

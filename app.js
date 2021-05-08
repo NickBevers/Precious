@@ -8,10 +8,11 @@ var indexRouter = require('./routes/index');
 const transactionRouter = require('./routes/api/v1/transaction');
 const userRouter = require("./routes/api/v1/users");
 const passport = require("./passport/passport");
+const config = require("config");
 
 const mongoose = require('mongoose');
 mongoose.set("useCreateIndex", true);
-mongoose.connect('mongodb://localhost:27017/precious', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(config.get("Database.conn"), {useNewUrlParser: true, useUnifiedTopology: true});
 
 var app = express();
 const cors = require("cors");
