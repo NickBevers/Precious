@@ -3,17 +3,17 @@
 ## Sarah:
 - MongoDB - Users
 - Frontend - Login/Register
-- SASS/BEM - Buttons (a-tags)
-- SASS/BEM - Form Checkbox
+- SASS/BEM - Buttons (a-tags) (DONE)
+- SASS/BEM - Form Checkbox (DONE)
 - SASS/BEM - Navigation (DONE)
 
 
 ## Nick:
 - MongoDB - Transactions (DONE)
 - Frontend - New Transaction
-- SASS/BEM - Form fields
-- SASS/BEM - Logo - 2
-- SASS/BEM - Transaction List items
+- SASS/BEM - Form fields (DONE)
+- SASS/BEM - Logo - 2 (DONE)
+- SASS/BEM - Transaction List items (DONE)
 
 
 ## Extra aandachtspunten bij jobs:
