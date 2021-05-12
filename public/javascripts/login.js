@@ -1,4 +1,4 @@
-let login = document.querySelector(".submitBtn").addEventListener("click", function(){
+let login = document.querySelector(".button").addEventListener("click", function(){
     let email = document.querySelector(".email").value;
     let password = document.querySelector(".password").value;
 
@@ -21,6 +21,6 @@ let login = document.querySelector(".submitBtn").addEventListener("click", funct
     })
 });
 
-let signup = document.querySelector(".signup").addEventListener("click", function(){
+let signup = document.querySelector(".button--link").addEventListener("click", function(){
     console.log("to signup");
 })
