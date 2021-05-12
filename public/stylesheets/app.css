@@ -105,6 +105,7 @@
   font-family: "Lato", sans-serif;
   font-weight: bolder;
   justify-content: space-between;
+  cursor: pointer;
 }
 
 .list__hr {
