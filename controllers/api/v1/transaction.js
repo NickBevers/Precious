@@ -1,6 +1,7 @@
 const Transaction = require('../../../models/Transactions');
 // const ExtractJwt = require("passport-jwt").ExtractJwt;
 const atob = require('atob');
+const ObjectId = require('mongodb').ObjectId;
 
 // POST new transaction
 function newTransaction(req, res){
@@ -13,7 +14,7 @@ function newTransaction(req, res){
     transaction.amount = req.body.amount;
     transaction.reason = req.body.reason;
     transaction.message = req.body.message;
-    transaction.date = new Date().toUTCString(); // leesbare string vr jj-mm-dd-uu-minmin-secsec
+    // transaction.date = new Date().toUTCString(); // leesbare string vr jj-mm-dd-uu-minmin-secsec
 
     console.log(transaction.date);
     transaction.save((err, doc) => {
@@ -61,10 +62,26 @@ function getTransactions(req, res){
 
 // GET all details from specific transaction
 function getTransferById(req, res){
-    let id = req.params.id;
-    res.json({
-    status: "Succes",
-    message: `GETting transactions with id ${id} from user`})
+    let id = req.params.id.split('=')[1];
+    let o_id = new ObjectId(id);
+    let token = req.headers.authorization;
+    let user = getUser(token);
+    Transaction.findOne({"_id": o_id}, (err, doc) => {
+            if(err){
+                res.json({
+                    status: "Error",
+                    message: "Could not fulfill your transaction request"})
+            }
+    
+            if(!err){
+                res.json({
+                    status: "succes",
+                    message: `GETting transactions with id ${id} from user`,
+                    user: user,
+                    data: doc
+                })
+            }
+    })
 }
 
 // GET all users with #coins per user
