@@ -17,9 +17,19 @@
     text-decoration: none;
 }
 
+.button--submit:hover{
+    background-color: $color--white;
+    color:  $color--link;
+    border: 2px solid $color--link;
+}
+
 .button--other{
     color: $color--secondary;
     font-size: 18px;
+}
+
+.button--other:hover{
+    color: $color--background;
 }
 
 .button--sendcoins{
@@ -29,8 +39,10 @@
     border-radius: 15px;
 }
 
-.button__link{
-    text-decoration: none;
+.button--sendcoins:hover{
+    background-color: $color--link;
+    color: $color--secondary;
+    border: 2px solid $color--secondary;
 }
 
 .button--large{

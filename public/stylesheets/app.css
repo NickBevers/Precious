@@ -229,9 +229,19 @@
   text-decoration: none;
 }
 
+.button--submit:hover {
+  background-color: white;
+  color: #3A0CA3;
+  border: 2px solid #3A0CA3;
+}
+
 .button--other {
   color: #FF7446;
   font-size: 18px;
+}
+
+.button--other:hover {
+  color: #8478F5;
 }
 
 .button--sendcoins {
@@ -241,8 +251,10 @@
   border-radius: 15px;
 }
 
-.button__link {
-  text-decoration: none;
+.button--sendcoins:hover {
+  background-color: #3A0CA3;
+  color: #FF7446;
+  border: 2px solid #FF7446;
 }
 
 .button--large {
