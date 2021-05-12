@@ -56,7 +56,7 @@ function getTransactions(req, res){
                 data: doc
             })
         }
-    }); 
+    }).sort({$natural:-1}); 
 }
 
 // GET all details from specific transaction
