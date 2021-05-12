@@ -2,10 +2,6 @@
 
 .nav{
     background-color: $color--link;
-    // display: flex;
-    // flex-direction: row;
-    // justify-content: space-around; 
-    // align-self: flex-end;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
@@ -15,4 +11,12 @@
 .nav__icon{
     color: $color--secondary;
     margin: auto;
+}
+
+.nav__icon:hover{
+    color: $color--white;
+}
+
+.nav__icon-secondary:hover{
+    color: $color--red;
 }

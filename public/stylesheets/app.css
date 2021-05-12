@@ -257,7 +257,6 @@
 .button--primary:hover {
   background-color: #3A0CA3;
   color: #FF7446;
-  border: 2px solid #FF7446;
 }
 
 .button--large {
@@ -274,10 +273,6 @@
   border-bottom-right-radius: 0px;
 }
 
-.button--secondary:hover {
-  border: 2px solid #3A0CA3;
-}
-
 .nav {
   background-color: #3A0CA3;
   display: grid;
@@ -289,6 +284,14 @@
 .nav__icon {
   color: #FF7446;
   margin: auto;
+}
+
+.nav__icon:hover {
+  color: white;
+}
+
+.nav__icon-secondary:hover {
+  color: red;
 }
 
 .container {

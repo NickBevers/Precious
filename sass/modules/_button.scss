@@ -44,7 +44,6 @@
 .button--primary:hover{
     background-color: $color--link;
     color: $color--secondary;
-    border: 2px solid $color--secondary;
 }
 
 .button--large{
@@ -59,8 +58,4 @@
     border-top-right-radius: 0px;
     border-top-left-radius: 0px;
     border-bottom-right-radius: 0px;
-}
-
-.button--secondary:hover{
-    border: 2px solid $color--link;
 }
