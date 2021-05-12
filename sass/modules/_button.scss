@@ -7,9 +7,6 @@
     text-align: center;
     font-family: 'Lato', sans-serif;
     font-weight: 600;
-}
-
-.button--submit{
     background-color: $color--link;
     color: $color--white;
     border-radius: 15px;
@@ -17,29 +14,34 @@
     text-decoration: none;
 }
 
-.button--submit:hover{
+.button:hover{
     background-color: $color--white;
     color:  $color--link;
     border: 2px solid $color--link;
 }
 
-.button--other{
+.button--link{
     color: $color--secondary;
     font-size: 18px;
+    background-color:rgba(201, 76, 76, 0.0); 
+    border-radius: none;
+    text-decoration: underline;
 }
 
-.button--other:hover{
+.button--link:hover{
     color: $color--background;
+    background-color:rgba(201, 76, 76, 0.0); 
+    border: none;
 }
 
-.button--sendcoins{
+.button--primary{
     background-color: $color--secondary;
     color: $color--link;
     font-size: 25px;
     border-radius: 15px;
 }
 
-.button--sendcoins:hover{
+.button--primary:hover{
     background-color: $color--link;
     color: $color--secondary;
     border: 2px solid $color--secondary;
@@ -53,8 +55,12 @@
     margin-top: 10px;
 }
 
-.button--translist{
+.button--secondary{
     border-top-right-radius: 0px;
     border-top-left-radius: 0px;
     border-bottom-right-radius: 0px;
+}
+
+.button--secondary:hover{
+    border: 2px solid $color--link;
 }

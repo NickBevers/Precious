@@ -219,9 +219,6 @@
   text-align: center;
   font-family: "Lato", sans-serif;
   font-weight: 600;
-}
-
-.button--submit {
   background-color: #3A0CA3;
   color: white;
   border-radius: 15px;
@@ -229,29 +226,34 @@
   text-decoration: none;
 }
 
-.button--submit:hover {
+.button:hover {
   background-color: white;
   color: #3A0CA3;
   border: 2px solid #3A0CA3;
 }
 
-.button--other {
+.button--link {
   color: #FF7446;
   font-size: 18px;
+  background-color: rgba(201, 76, 76, 0);
+  border-radius: none;
+  text-decoration: underline;
 }
 
-.button--other:hover {
+.button--link:hover {
   color: #8478F5;
+  background-color: rgba(201, 76, 76, 0);
+  border: none;
 }
 
-.button--sendcoins {
+.button--primary {
   background-color: #FF7446;
   color: #3A0CA3;
   font-size: 25px;
   border-radius: 15px;
 }
 
-.button--sendcoins:hover {
+.button--primary:hover {
   background-color: #3A0CA3;
   color: #FF7446;
   border: 2px solid #FF7446;
@@ -265,10 +267,14 @@
   margin-top: 10px;
 }
 
-.button--translist {
+.button--secondary {
   border-top-right-radius: 0px;
   border-top-left-radius: 0px;
   border-bottom-right-radius: 0px;
+}
+
+.button--secondary:hover {
+  border: 2px solid #3A0CA3;
 }
 
 .nav {
