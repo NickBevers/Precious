@@ -68,25 +68,7 @@ list.addEventListener("click", (e) => {
     let index = [... list.childNodes].indexOf(e.target.parentElement) /3 -1;
     if(index < 0){index = null}
     if(index != null){
-        // console.log(index);
-        // console.log(e.target.parentElement);
-        // console.log(transactionData[index]);
-        localStorage.setItem("transaction", JSON.stringify(transactionData[index]));
-        localStorage.setItem("user", user_email);
+        localStorage.setItem("transactionID", JSON.stringify(transactionData[index]._id));
         window.location.replace("trans_detail.html");
     }
 });
-
-
-// fetch("http://localhost:3000/api/v1/", {
-//     "headers": {
-//         "Authorization": "Bearer " + localStorage.getItem("token")
-//     }
-// }).then(result => {
-//     return result.json();
-// }).then(json =>{
-//     console.log(json);
-// }).catch(err => {
-//     //redirect naar login scherm
-//     window.location.replace("login.html");
-// });
