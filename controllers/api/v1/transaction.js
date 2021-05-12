@@ -1,7 +1,6 @@
 const Transaction = require('../../../models/Transactions');
 // const ExtractJwt = require("passport-jwt").ExtractJwt;
 const atob = require('atob');
-const moment = require('moment')
 
 // POST new transaction
 function newTransaction(req, res){
@@ -14,7 +13,7 @@ function newTransaction(req, res){
     transaction.amount = req.body.amount;
     transaction.reason = req.body.reason;
     transaction.message = req.body.message;
-    transaction.date = new Date().toUTCString();
+    transaction.date = new Date().toUTCString(); // leesbare string vr jj-mm-dd-uu-minmin-secsec
 
     console.log(transaction.date);
     transaction.save((err, doc) => {
@@ -78,8 +77,8 @@ function getLeaderboard(req, res){
 function getUser(token){
     const tokenParts = token.split('.');
     const encodedPayload = tokenParts[1];
-    const rawPayload = atob(encodedPayload);
-    const user = JSON.parse(rawPayload); 
+    const rawPayload = atob(encodedPayload);// atob zet versleutelde data om te zetten naar leesbare tekst
+    const user = JSON.parse(rawPayload); // user uit token halen zonder dat je code nodig hebt.
     return user;
 }
 
