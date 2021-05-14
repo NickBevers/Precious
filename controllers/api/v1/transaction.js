@@ -2,6 +2,7 @@ const Transaction = require('../../../models/Transactions');
 // const ExtractJwt = require("passport-jwt").ExtractJwt;
 const atob = require('atob');
 const ObjectId = require('mongodb').ObjectId;
+const User = require("../../../models/Users");
 
 // POST new transaction
 function newTransaction(req, res){
@@ -86,9 +87,22 @@ function getTransferById(req, res){
 
 // GET all users with #coins per user
 function getLeaderboard(req, res){
-    res.json({
-    status: "Succes",
-    message: `GETting all coins per user`})
+    User.find({}, (err, doc) =>{
+        if(err){
+            ress.json({
+                status: "Error",
+                message: "Could not get users for leaderboard"
+            })
+        }
+
+        if(!err){
+           res.json({
+            status: "Succes",
+            message: `GETting all coins per user`,
+            data: doc 
+           })  
+        }
+    }).sort({"coins": -1});
 }
 
 function getUser(token){
