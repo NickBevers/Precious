@@ -1,3 +1,4 @@
+let leaderboardData;
 window.addEventListener("load", function(){
     let tokencheck = localStorage.getItem("token");
     if(!tokencheck){
@@ -17,15 +18,15 @@ window.addEventListener("load", function(){
             }).then(json => {
                 if(json.status === "Succes"){
                     leaderboardData = json.data;
-                    console.log(leaderboardData);                    
-                    console.log("yess");
+                    // console.log(leaderboardData);                    
+                    // console.log("yess");
                     // let leader = leaderboardData.splice(0);
                     // console.log(leader[0].coins);
                     let elementrank = 1;
 
                     json.data.forEach(function(element){
-                        console.log("i'm in");
-                        console.log(element);
+                        // console.log("i'm in");
+                        // console.log(element);
                         // let i = 0;    
                         let firstname = element.firstname;
                         let lastname = element.lastname;
