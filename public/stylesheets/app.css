@@ -1,50 +1,41 @@
 .logo--large {
-  grid-row: 1/span 4;
+  grid-row: 1 / span 4;
   align-self: center;
   width: 100%;
   display: flex;
-  justify-content: center;
-}
+  justify-content: center; }
 
 .logo__vector--small {
   width: 15%;
   margin-top: 10px;
-  margin-left: 10px;
-}
+  margin-left: 10px; }
 
 .logo__vector--large {
-  width: 35%;
-}
+  width: 35%; }
 
 .logo__vector--medium {
   width: 30%;
   margin-top: 10px;
-  margin-left: 10px;
-}
+  margin-left: 10px; }
 
 .form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-}
+  justify-content: space-evenly; }
 
 .form--small {
-  grid-row: 5/span 7;
-}
+  grid-row: 5 / span 7; }
 
 .form--medium {
-  grid-row: 5/span 8;
-}
+  grid-row: 5 / span 8; }
 
 .form--large {
-  grid-row: 3/span 9;
-}
+  grid-row: 3 / span 9; }
 
 .form::placeholder {
   opacity: 1;
-  color: #e7e7e7;
-}
+  color: #e7e7e7; }
 
 .form__input {
   width: 80%;
@@ -53,14 +44,12 @@
   background-color: #8478F5;
   color: #e7e7e7;
   text-align: center;
-  font-size: 25px;
-}
+  font-size: 25px; }
 
 .form__input__number {
   appearance: textfield;
   -webkit-appearance: textfield;
-  -moz-appearance: textfield;
-}
+  -moz-appearance: textfield; }
 
 .form__textarea {
   box-sizing: border-box;
@@ -73,8 +62,7 @@
   width: 80%;
   height: 145px;
   padding-bottom: 0;
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 .list {
   background-color: #8478F5;
@@ -82,16 +70,13 @@
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-  overflow: hidden;
-}
+  overflow: hidden; }
 
 .list--standard {
-  grid-row: 6/span 6;
-}
+  grid-row: 6/ span 6; }
 
 .list--large {
-  grid-row: 3/span 9;
-}
+  grid-row: 3/ span 9; }
 
 .list__item {
   width: 100%;
@@ -102,49 +87,41 @@
   margin-top: 15px;
   margin-bottom: 15px;
   color: #e7e7e7;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: bolder;
   justify-content: space-between;
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 .list__hr {
   width: 90%;
   border-width: 2px;
   color: #e7e7e7;
-  border-color: #e7e7e7;
-}
+  border-color: #e7e7e7; }
 
 .list__item--ranking {
   width: 20%;
-  padding-left: 10px;
-}
+  padding-left: 10px; }
 
 .list__item--amount {
   width: 20%;
-  padding-left: 10px;
-}
+  padding-left: 10px; }
 
 .list__item--amount--sent {
   width: 20%;
   padding-left: 10px;
-  color: #FF7446;
-}
+  color: #FF7446; }
 
 .list__item--from-to {
   width: 70%;
-  text-align: center;
-}
+  text-align: center; }
 
 .list__item--message {
   color: #FF7446;
   width: 10%;
-  padding-left: 5%;
-}
+  padding-left: 5%; }
 
 * {
-  font-family: "Lato", sans-serif;
-}
+  font-family: 'Lato', sans-serif; }
 
 .custom-checkbox {
   width: fit-content;
@@ -153,8 +130,7 @@
   font-size: 20px;
   display: flex;
   align-items: center;
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 .custom-checkbox__input {
   -webkit-appearance: none;
@@ -167,18 +143,15 @@
   height: 32px;
   filter: grayscale(1);
   transition: all 0.6s;
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 .custom-checkbox__input:checked {
   filter: grayscale(0);
-  transform: rotate(360deg);
-}
+  transform: rotate(360deg); }
 
 .custom-checkbox__label {
   margin-left: 10px;
-  text-align: center;
-}
+  text-align: center; }
 
 .custom-dropdown {
   width: 100%;
@@ -191,13 +164,11 @@
   cursor: pointer;
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none;
-}
+  appearance: none; }
 
 .custom-dropdown__container {
   width: 80%;
-  position: relative;
-}
+  position: relative; }
 
 .custom-dropdown__arrow {
   position: absolute;
@@ -210,94 +181,80 @@
   background-size: 40%;
   top: 0;
   right: 0;
-  pointer-events: none;
-}
+  pointer-events: none; }
 
 .custom-dropdown * {
   background-color: #b0a7ff;
-  color: #3A0CA3;
-}
+  color: #3A0CA3; }
 
 .button {
   width: 200px;
   height: 50px;
   border: none;
   text-align: center;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 600;
   background-color: #3A0CA3;
   color: white;
   border-radius: 15px;
   font-size: 25px;
-  text-decoration: none;
-}
+  text-decoration: none; }
 
 .button:hover {
   background-color: white;
   color: #3A0CA3;
-  border: 2px solid #3A0CA3;
-}
+  border: 2px solid #3A0CA3; }
 
 .button--link {
   color: #FF7446;
   font-size: 18px;
   background-color: rgba(201, 76, 76, 0);
   border-radius: none;
-  text-decoration: underline;
-}
+  text-decoration: underline; }
 
 .button--link:hover {
   color: #8478F5;
   background-color: rgba(201, 76, 76, 0);
-  border: none;
-}
+  border: none; }
 
 .button--primary {
   background-color: #FF7446;
   color: #3A0CA3;
   font-size: 25px;
-  border-radius: 15px;
-}
+  border-radius: 15px; }
 
 .button--primary:hover {
   background-color: #3A0CA3;
-  color: #FF7446;
-}
+  color: #FF7446; }
 
 .button--large {
   margin: auto;
   width: 250px;
   height: 70px;
   font-size: 36px;
-  margin-top: 10px;
-}
+  margin-top: 10px; }
 
 .button--secondary {
   border-top-right-radius: 0px;
   border-top-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-}
+  border-bottom-right-radius: 0px; }
 
 .nav {
   background-color: #3A0CA3;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
-  grid-row: 12/span 1;
-}
+  grid-row: 12 /span 1; }
 
 .nav__icon {
   color: #FF7446;
-  margin: auto;
-}
+  margin: auto; }
 
 .nav__icon:hover {
-  color: white;
-}
+  color: white; }
 
 .nav__icon-secondary:hover {
-  color: red;
-}
+  color: red; }
 
 .container {
   width: 400px;
@@ -308,27 +265,21 @@
   grid-template-columns: 100%;
   grid-template-rows: repeat(12, 60px);
   background-color: #e7e7e7;
-  font-family: "Lato", sans-serif;
-}
+  font-family: 'Lato', sans-serif; }
 
 .coins {
-  grid-row: 2/span 2;
+  grid-row: 2 / span 2;
   font-size: 5em;
   align-self: center;
   justify-self: center;
-  color: #3A0CA3;
-}
+  color: #3A0CA3; }
 
 .recipient, .amount, .reason, .message {
   display: flex;
   justify-content: center;
-  align-items: center;
-}
+  align-items: center; }
 
 .translistgrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-}
-
-/*# sourceMappingURL=app.css.map */
+  grid-template-rows: 1fr; }

@@ -13,7 +13,7 @@ function test(done){
 }
 
 function sass2css(done){
-    return src("./sass/**/*.scss").pipe(sass().on("error", sass.logError)).pipe(dest("./dist"));
+    return src("./sass/**/*.scss").pipe(sass().on("error", sass.logError)).pipe(dest("./public/stylesheets"));
     done();
 }
 
