@@ -40,5 +40,8 @@
   },
   "homepage": "https://github.com/NickBevers/precious#readme",
   "description": "MongoDB - Users\r Frontend - Login/Register\r SASS/BEM - Buttons (a-tags)\r SASS/BEM - Form Checkbox\r SASS/BEM - Navigation",
-  "devDependencies": {}
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.3.0"
+  }
 }
