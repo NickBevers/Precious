@@ -43,6 +43,7 @@
   "description": "MongoDB - Users\r Frontend - Login/Register\r SASS/BEM - Buttons (a-tags)\r SASS/BEM - Form Checkbox\r SASS/BEM - Navigation",
   "devDependencies": {
     "gulp": "^4.0.2",
-    "gulp-cli": "^2.3.0"
+    "gulp-cli": "^2.3.0",
+    "gulp-sass": "^4.1.0"
   }
 }
