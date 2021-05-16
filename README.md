@@ -24,4 +24,9 @@ Sarah: Als je bij de authenticatie van gebruikers met passport een webtoken aanm
 Wij gebruiken sass met een script: npm run sass. 
 Deze manier wordt gebruikt omdat sass bij iedereen wel kon worden geïsntalleerd maar niet gevonden om het sass commando te runnen.
 In de plaats moesten we omslachtig ./node_modules/.bin/sass gebruiken voor we sass naar css konden omzetten.
-MEt een script is het makkelijker en sneller om sass te vinden en te laten werken bij iedereen.
+Met een script is het makkelijker en sneller om sass te vinden en te laten werken bij iedereen.
+
+
+## Gulp
+Ook met Gulp wordt er gebruik gemaakt van een script: npm run gulp.
+Zo kan de gulp module bij iedereen gevonden worden en makkelijk gebruikt worden in de commandline.
