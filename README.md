@@ -1,12 +1,12 @@
 # Jobs to do:
 
 ## Sarah:
-- MongoDB - Users
-- Frontend - Login/Register
+- MongoDB - Users (DONE)
+- Frontend - Login/Register (DONE)
 - SASS/BEM - Buttons (a-tags) (DONE)
 - SASS/BEM - Form Checkbox (DONE)
 - SASS/BEM - Navigation (DONE)
-- API - LEADERBOARD
+- API - LEADERBOARD (DONE)
 
 
 ## Nick:
