@@ -6,7 +6,7 @@
     "start": "node ./bin/www",
     "nodemon": "nodemon",
     "sass": "sass --watch ./sass/app.scss ./public/stylesheets/app.css",
-    "gulp": "./node_modules/.bin/gulp"
+    "gulp": "gulp"
   },
   "dependencies": {
     "atob": "^2.1.2",
@@ -16,6 +16,7 @@
     "debug": "~2.6.9",
     "express": "^4.16.4",
     "gulp-cached": "^1.1.1",
+    "gulp-jsmin": "^0.1.5",
     "http-errors": "~1.6.3",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.29.1",
