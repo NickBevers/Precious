@@ -6,7 +6,7 @@
     "start": "node ./bin/www",
     "nodemon": "nodemon",
     "sass": "sass --watch ./sass/app.scss ./public/stylesheets/app.css",
-    "gulp": "./node_modules/.bin/gulp"
+    "gulp": "gulp"
   },
   "dependencies": {
     "atob": "^2.1.2",

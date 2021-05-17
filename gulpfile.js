@@ -4,6 +4,8 @@ const {watch, src, dest} = require("gulp");
 const cache = require('gulp-cached');
 const purgecss = require('gulp-purgecss');
 const changed = require('gulp-changed');
+const jsmin = require("gulp-jsmin");
+const rename = require("gulp-rename");
 
 // function go(done){
 //     console.log("Here we go!");
@@ -19,6 +21,12 @@ function sass2css(done){
     return src("./sass/**/*.scss").pipe(sass().on("error", sass.logError)).pipe(dest("./public/stylesheets"));
     done();
 }
+
+function jsminify(done){
+    return src("./public/javascripts/*.js").pipe(jsmin()).pipe(rename({suffix: ".min"})).pipe(dest("./public/minified_js"));
+    done();
+}
+
 
 function cached(done){
     return src("./public/javascripts/*.js")
@@ -54,4 +62,5 @@ exports.sass2css = sass2css;
 exports.cached = cached;
 exports.purge = purge;
 exports.checkChangedFiles = checkChangedFiles;
+exports.jsminify = jsminify;
 
