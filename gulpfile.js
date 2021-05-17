@@ -6,6 +6,7 @@ const purgecss = require('gulp-purgecss');
 const changed = require('gulp-changed');
 const jsmin = require("gulp-jsmin");
 const rename = require("gulp-rename");
+const cleancss = require("gulp-clean-css");
 
 // function go(done){
 //     console.log("Here we go!");
@@ -36,8 +37,13 @@ function cached(done){
     done()
 }
 
+function cssminify(done){
+    return src("./public/stylesheets/*.css").pipe(cleancss({compatibility: "ie8"})).pipe(dest("./public/cssminify"));
+    done();
+}
+
 function purge(done){
-    return src('./public/stylesheets/*.css')
+    return src('./public/cssminify/*.css')
     .pipe(purgecss({content: ['./public/*.html']}))
     .pipe(dest('./public/cleaned_css'))
     done()
@@ -63,4 +69,5 @@ exports.cached = cached;
 exports.purge = purge;
 exports.checkChangedFiles = checkChangedFiles;
 exports.jsminify = jsminify;
+exports.cssminify = cssminify;
 
