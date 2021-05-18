@@ -3,6 +3,7 @@ const User = require("../../../models/Users");
 const jwt = require("jsonwebtoken");
 const mongoose = require('mongoose');
 const config = require("config");
+const atob = require('atob');
 
 const emailauth = (req, res, next) => {
     let emaildb = req.body.email;
@@ -106,7 +107,37 @@ const postlogin = async (req, res, next) => {
     });
 } 
 
+function getUserData(req, res){
+    let token = req.headers.authorization;
+    let user = getUser(token);
+    User.find({email: user.email}, (err, doc) =>{
+        if(err){
+            ress.json({
+                status: "Error",
+                message: "Could not get user"
+            })
+        }
+
+        if(!err){
+           res.json({
+            status: "success",
+            message: `GETting user`,
+            data: doc
+           })  
+        }
+    })
+}
+
+function getUser(token){
+    const tokenParts = token.split('.');
+    const encodedPayload = tokenParts[1];
+    const rawPayload = atob(encodedPayload);// atob zet versleutelde data om te zetten naar leesbare tekst
+    const user = JSON.parse(rawPayload); // user uit token halen zonder dat je code nodig hebt.
+    return user;
+}
+
 
 module.exports.postsignup = postsignup;
 module.exports.postlogin = postlogin;
 module.exports.emailauth = emailauth;
+module.exports.getUserData = getUserData;
