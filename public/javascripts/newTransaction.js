@@ -5,34 +5,38 @@ window.addEventListener("load", function(){
         window.location.replace("login.html");
     }
     else{
-    let btnSendTransaction = document.querySelector(".button").addEventListener("click", () => {
-        let recipient = document.querySelector(".recipient").value;
-        let amount = document.querySelector(".amount").value;
-        let reason = document.querySelector(".custom-dropdown").value;
-        let message = document.querySelector(".message").value;
-        let tokencheck = localStorage.getItem("token");
+        document.querySelector(".button").addEventListener("click", () => {
+            let recipient = document.querySelector(".recipient").value;
+            let amount = document.querySelector(".amount").value;
+            let reason = document.querySelector(".custom-dropdown").value;
+            let message = document.querySelector(".message").value;
+            let tokencheck = localStorage.getItem("token");
 
-        fetch("http://localhost:3000/api/v1/transfers", {
-            method: "post",
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${tokencheck}`
-            },
-            body: JSON.stringify({
-                "recipient": recipient,
-                "amount": amount,
-                "reason": reason,
-                "message": message
+            // check whether user has enough coins
+            // Get #coins from user
+            // check if amount < #coins
+
+            fetch("http://localhost:3000/api/v1/transfers", {
+                method: "post",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${tokencheck}`
+                },
+                body: JSON.stringify({
+                    "recipient": recipient,
+                    "amount": amount,
+                    "reason": reason,
+                    "message": message
+                })
+            }).then(response => {
+                return response.json();
+            }).then(json => {
+                if(json.status === "Succes"){
+                    console.log("SUCCES - Transaction sent")
+                }
             })
-        }).then(response => {
-            return response.json();
-        }).then(json => {
-            if(json.status === "Succes"){
-                console.log("SUCCES - Transaction sent")
-            }
-        })
 
-    });
+        });
 
     }
 });
