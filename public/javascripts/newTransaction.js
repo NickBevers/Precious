@@ -14,9 +14,6 @@ window.addEventListener("load", function(){
             let message = document.querySelector(".message").value;
             let tokencheck = localStorage.getItem("token");
 
-            // Get #coins from user
-            // Get user from db
-            // check if amount <= #coins
             fetch("/api/v1/transfers", {
                 method: "post",
                 headers: {
@@ -32,9 +29,15 @@ window.addEventListener("load", function(){
             }).then(response => {
                 return response.json();
             }).then(json => {
+                console.log(json);
                 if(json.status === "Succes"){
                     console.log("SUCCES - Transaction sent")
                 }
+                
+                if(json.status === "Error"){
+                    console.log(`${json.message}`)
+                }
+
             })
         });
 

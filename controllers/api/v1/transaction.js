@@ -8,31 +8,51 @@ const User = require("../../../models/Users");
 function newTransaction(req, res){
     let transaction = new Transaction();
     let user = getUser(req.headers.authorization);
-    console.log(user);
+    console.log(user.email);
+    let amount = req.body.amount;
 
     transaction.recipient = req.body.recipient;
     transaction.sender = user.email;
-    transaction.amount = req.body.amount;
+    transaction.amount = amount;
     transaction.reason = req.body.reason;
     transaction.message = req.body.message;
     // transaction.date = new Date().toUTCString(); // leesbare string vr jj-mm-dd-uu-minmin-secsec
 
-    console.log(transaction.date);
-    transaction.save((err, doc) => {
+    User.findOne({email: user.email}, {"coins": 1}, (err, doc) => {
         if(err){
+            console.log("ERRORR");
             res.json({
-                status: "Error",
-                message: "Could not fulfill your transaction request"})
+                "status": "ERROR"
+            })
         }
 
         if(!err){
-            res.json({
-                status: "Succes",
-                message: "POSTING a new transaction",
-                data:{
-                    transaction:doc
-                }
-            })
+            let coins = doc.coins
+            if(coins >= amount){
+                transaction.save((err, doc) => {
+                    if(err){
+                        res.json({
+                            status: "Error",
+                            message: "Could not fulfill your transaction request"})
+                    }
+            
+                    if(!err){
+                        res.json({
+                            status: "Succes",
+                            message: "POSTING a new transaction",
+                            data:{
+                                transaction:doc
+                            }
+                        })
+                    }
+                })
+            }
+            else{
+                console.log("IMPOSSIBLEEEEEE");
+                res.json({
+                    status: "Error",
+                    message: "Not enough coins are available"})
+            }
         }
     })
 }
@@ -41,6 +61,7 @@ function newTransaction(req, res){
 function getTransactions(req, res){
     let token = req.headers.authorization;
     let user = getUser(token);
+    console.log(user.email)
     
     Transaction.find({$or: [{'recipient': user.email}, {'sender': user.email}]}, (err, doc) => {
     // Transaction.find({recipient: "Gollum@student.thomasmore.be"}, (err, doc) => {
@@ -87,9 +108,9 @@ function getTransferById(req, res){
 
 // GET all users with #coins per user
 function getLeaderboard(req, res){
-    User.find({}, { "firstname": 1, "lastname": 1, "coins": 1}, (err, doc) =>{
+    User.find({}, (err, doc) =>{
         if(err){
-            res.json({
+            ress.json({
                 status: "Error",
                 message: "Could not get users for leaderboard"
             })
@@ -97,12 +118,36 @@ function getLeaderboard(req, res){
 
         if(!err){
            res.json({
-            status: "Success",
+            status: "Succes",
             message: `GETting all coins per user`,
             data: doc 
            })  
         }
     }).sort({"coins": -1});
+}
+
+function getCoins(email){
+    User.findOne({email: email}, {"coins": 1}, (err, doc) => {
+        if(err){
+            console.log("ERRORR");
+            res.json({
+                "status": "ERROR"
+            })
+        }
+
+        if(!err){
+            //console.log(doc);
+            //console.log(doc.coins);
+            res.json({
+                "coins": doc.coins
+            })
+        }
+    }).then(response =>{
+        console.log(response.coins);
+        //return response.json().coins
+    })
+
+    return coins;
 }
 
 function getUser(token){
