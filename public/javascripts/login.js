@@ -14,7 +14,7 @@ let login = document.querySelector(".button").addEventListener("click", function
     }).then(response => {
         return response.json();
     }).then(json => {
-        if(json.status === "success"){
+        if(json.status === "Success"){
             window.location.replace("home.html"); //route naar home pages
         }
     })

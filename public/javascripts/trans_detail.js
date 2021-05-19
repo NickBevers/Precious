@@ -21,7 +21,7 @@ window.addEventListener("load", function(){
         }).then(response => {
             return response.json();
         }).then(json => {
-            if(json.status === "succes"){
+            if(json.status === "Success"){
                 user_email = json.user.email;
 
                 if (json.data.recipient == data.user){

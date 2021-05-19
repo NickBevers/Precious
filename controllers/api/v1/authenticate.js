@@ -22,12 +22,12 @@ const emailauth = (req, res, next) => {
 
             if(number !== 0){
                 res.json({
-                    "status": "error"
+                    "status": "Error"
                 })
             }
             else{
                 res.json({
-                    "status": "sucess"
+                    "status": "Success"
                 })
             }
         }
@@ -62,14 +62,14 @@ const postsignup = async (req, res, next) => {
         }, config.get("jwt.secret"));
 
         res.json({
-            "status": "success",
+            "status": "Success",
             "data": {
                 "token": token
             }
         })
     }).catch(error => {
         res.json({
-            "status": "error",
+            "status": "Error",
             "message": error
         })
         console.log(error);
@@ -94,14 +94,14 @@ const postlogin = async (req, res, next) => {
         }, config.get("jwt.secret"));
         
         return res.json({
-            "status": "success",
+            "status": "Success",
             "data": {
                 "token": token
             }
         });
     }).catch(error => {
         res.json({
-            "status": "error",
+            "status": "Error",
             "message": error
         })
     });
@@ -120,7 +120,7 @@ function getUserData(req, res){
 
         if(!err){
            res.json({
-            status: "success",
+            status: "Success",
             message: `GETting user`,
             data: doc
            })  

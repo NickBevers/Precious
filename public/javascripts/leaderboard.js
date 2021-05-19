@@ -13,7 +13,6 @@ window.addEventListener("load", function(){
                 'Authorization': `Bearer ${tokencheck}`
             }
             }).then(response => {
-                console.log("yess");
                 return response.json();
             }).then(json => {
                 if(json.status === "Success"){
