@@ -21,7 +21,7 @@ function newTransaction(req, res){
     User.findOne({email: user.email}, {"coins": 1}, (err, doc) => {
         if(err){
             res.json({
-                "status": "ERROR",
+                "status": "Error",
                 "message": "The user could not be found"
             })
         }
@@ -39,7 +39,7 @@ function newTransaction(req, res){
                 
                         if(!err){
                             res.json({
-                                status: "Succes",
+                                status: "Success",
                                 data:{
                                     transaction:doc
                                 }
@@ -67,24 +67,35 @@ function newTransaction(req, res){
 function getTransactions(req, res){
     let token = req.headers.authorization;
     let user = getUser(token);
-    console.log(user.email)
     
-    Transaction.find({$or: [{'recipient': user.email}, {'sender': user.email}]}, (err, doc) => {
-    // Transaction.find({recipient: "Gollum@student.thomasmore.be"}, (err, doc) => {
+    User.findOne({email: user.email}, {"coins": 1}, (err, doc) => {
         if(err){
             res.json({
-                status: "Error",
-                message: "Could not fulfill your transaction request"})
+                "status": "Error",
+                "message": "The user could not be found"
+            })
         }
 
         if(!err){
-            res.json({
-                status: "succes",
-                user: user,
-                data: doc
-            })
+            let coins = doc.coins;
+            Transaction.find({$or: [{'recipient': user.email}, {'sender': user.email}]}, (err, doc) => {
+                if(err){
+                    res.json({
+                        status: "Error",
+                        message: "Could not fulfill your transaction request"})
+                }
+        
+                if(!err){
+                    res.json({
+                        status: "Success",
+                        user: user,
+                        coins: coins,
+                        data: doc
+                    })
+                }
+            }).sort({$natural:-1});
         }
-    }).sort({$natural:-1}); 
+    }) 
 }
 
 // GET all details from specific transaction
@@ -102,7 +113,7 @@ function getTransferById(req, res){
     
             if(!err){
                 res.json({
-                    status: "succes",
+                    status: "Success",
                     user: user,
                     data: doc
                 })

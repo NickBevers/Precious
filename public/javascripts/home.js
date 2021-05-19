@@ -7,7 +7,6 @@ window.addEventListener("load", function(){
     }
     else{
         //primus live feature /get frontend
-        // alert("hello beautiful!");
         
         fetch("/api/v1/transfers", {
         method:"get",
@@ -18,13 +17,13 @@ window.addEventListener("load", function(){
         }).then(response => {
             return response.json();
         }).then(json => {
-            if(json.status === "succes"){
+            if(json.status === "Success"){
+                document.querySelector(".coins").innerHTML += json.coins
+                
                 transactionData = json.data;
                 user_email = json.user.email;
 
                 json.data.forEach(element => {
-                    // set clicklistener with transfer to detail view with element data
-
                     if(element.recipient == json.user.email){
                         let sender = splitEmail(element.sender);
                         
