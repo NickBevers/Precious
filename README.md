@@ -25,6 +25,7 @@
 - Autocompletion
 - Transaction controle (genoeg coins)
 - beveiligen van transacties (webtokens gebruiken)
+- Give user feedback to frontend
 
 
 
