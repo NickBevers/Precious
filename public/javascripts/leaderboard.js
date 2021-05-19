@@ -6,7 +6,7 @@ window.addEventListener("load", function(){
         window.location.replace("login.html");
     }
     else{        
-        fetch("http://localhost:3000/api/v1/leaderboard", {
+        fetch("/api/v1/leaderboard", {
             method:"get",
             headers: {
                 "Content-Type": "application/json",
@@ -16,7 +16,7 @@ window.addEventListener("load", function(){
                 console.log("yess");
                 return response.json();
             }).then(json => {
-                if(json.status === "Succes"){
+                if(json.status === "Success"){
                     leaderboardData = json.data;
                     // console.log(leaderboardData);                    
                     // console.log("yess");
@@ -45,7 +45,7 @@ window.addEventListener("load", function(){
                         // console.log(leader[i]);
                     });
                     
-            }
+                }
         })
     
     }

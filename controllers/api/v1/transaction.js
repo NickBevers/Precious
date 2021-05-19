@@ -87,9 +87,9 @@ function getTransferById(req, res){
 
 // GET all users with #coins per user
 function getLeaderboard(req, res){
-    User.find({}, (err, doc) =>{
+    User.find({}, { "firstname": 1, "lastname": 1, "coins": 1}, (err, doc) =>{
         if(err){
-            ress.json({
+            res.json({
                 status: "Error",
                 message: "Could not get users for leaderboard"
             })
@@ -97,7 +97,7 @@ function getLeaderboard(req, res){
 
         if(!err){
            res.json({
-            status: "Succes",
+            status: "Success",
             message: `GETting all coins per user`,
             data: doc 
            })  
