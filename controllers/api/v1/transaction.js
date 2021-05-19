@@ -20,38 +20,44 @@ function newTransaction(req, res){
 
     User.findOne({email: user.email}, {"coins": 1}, (err, doc) => {
         if(err){
-            console.log("ERRORR");
             res.json({
-                "status": "ERROR"
+                "status": "ERROR",
+                "message": "The user could not be found"
             })
         }
 
         if(!err){
-            let coins = doc.coins
-            if(coins >= amount){
-                transaction.save((err, doc) => {
-                    if(err){
-                        res.json({
-                            status: "Error",
-                            message: "Could not fulfill your transaction request"})
-                    }
-            
-                    if(!err){
-                        res.json({
-                            status: "Succes",
-                            message: "POSTING a new transaction",
-                            data:{
-                                transaction:doc
-                            }
-                        })
-                    }
-                })
+            let coins = doc.coins;
+            if(amount > 0){
+                if(coins >= amount){
+                    transaction.save((err, doc) => {
+                        if(err){
+                            res.json({
+                                status: "Error",
+                                message: "The transaction could not be sent"})
+                        }
+                
+                        if(!err){
+                            res.json({
+                                status: "Succes",
+                                data:{
+                                    transaction:doc
+                                }
+                            })
+                        }
+                    })
+                }
+                else{
+                    res.json({
+                        status: "Error",
+                        message: "Not enough coins are available"})
+                }
             }
             else{
-                console.log("IMPOSSIBLEEEEEE");
                 res.json({
                     status: "Error",
-                    message: "Not enough coins are available"})
+                    message: "The amount you were trying to send was too small"
+                })
             }
         }
     })
@@ -74,7 +80,6 @@ function getTransactions(req, res){
         if(!err){
             res.json({
                 status: "succes",
-                message: `GETting all transactions from user! THIS WORKSSSSS`,
                 user: user,
                 data: doc
             })
@@ -92,13 +97,12 @@ function getTransferById(req, res){
             if(err){
                 res.json({
                     status: "Error",
-                    message: "Could not fulfill your transaction request"})
+                    message: "The transaction couldn't be found, please try again"})
             }
     
             if(!err){
                 res.json({
                     status: "succes",
-                    message: `GETting transactions with id ${id} from user`,
                     user: user,
                     data: doc
                 })
