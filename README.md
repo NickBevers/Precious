@@ -16,6 +16,17 @@
 - SASS/BEM - Logo - 2 (DONE)
 - SASS/BEM - Transaction List items (DONE)
 
+## TODO:
+
+- Layout op desktop maken
+- Deployment to heroku
+- Deployment to Netlify
+- Primus toevoegen (inkomende transacties)
+- Autocompletion
+- Transaction controle (genoeg coins)
+- beveiligen van transacties (webtokens gebruiken)
+
+
 
 ## Extra aandachtspunten bij jobs:
 Sarah: Als je bij de authenticatie van gebruikers met passport een webtoken aanmaakt, kan je dan de email van de gebruiker mee in die token zetten, want ik ga die nodig hebben voor het ophalen van de transacties (DONE)
