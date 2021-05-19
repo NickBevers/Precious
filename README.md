@@ -23,6 +23,7 @@
 - Autocompletion - Nick
 - Transaction controle (genoeg coins) - Nick - DONE
 - Give user feedback to frontend - Sarah
+- Link Video met finale versie van de app (zie canvas)
 
 
 ## Extra aandachtspunten bij jobs:
