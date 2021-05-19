@@ -112,7 +112,7 @@ function getTransferById(req, res){
 
 // GET all users with #coins per user
 function getLeaderboard(req, res){
-    User.find({}, (err, doc) =>{
+    User.find({}, { "firstname": 1, "lastname": 1, "coins": 1}, (err, doc) =>{
         if(err){
             ress.json({
                 status: "Error",
@@ -122,36 +122,12 @@ function getLeaderboard(req, res){
 
         if(!err){
            res.json({
-            status: "Succes",
+            status: "Success",
             message: `GETting all coins per user`,
             data: doc 
            })  
         }
     }).sort({"coins": -1});
-}
-
-function getCoins(email){
-    User.findOne({email: email}, {"coins": 1}, (err, doc) => {
-        if(err){
-            console.log("ERRORR");
-            res.json({
-                "status": "ERROR"
-            })
-        }
-
-        if(!err){
-            //console.log(doc);
-            //console.log(doc.coins);
-            res.json({
-                "coins": doc.coins
-            })
-        }
-    }).then(response =>{
-        console.log(response.coins);
-        //return response.json().coins
-    })
-
-    return coins;
 }
 
 function getUser(token){
