@@ -20,8 +20,8 @@
 - Layout op desktop maken
 - Deployment to heroku
 - Primus toevoegen (inkomende transacties)
-- Autocompletion 
-- Transaction controle (genoeg coins) - Nick
+- Autocompletion - Nick
+- Transaction controle (genoeg coins) - Nick - DONE
 - Give user feedback to frontend - Sarah
 
 
