@@ -7,6 +7,10 @@ window.addEventListener("load", function(){
         window.location.replace("login.html");
     }
     else{
+        this.document.querySelector(".recipient").addEventListener("input", () =>{
+            //AUTCOMPLETE FUNCTION
+        });
+        
         document.querySelector(".button").addEventListener("click", async () => {
             let recipient = document.querySelector(".recipient").value;
             let amount = document.querySelector(".amount").value;
