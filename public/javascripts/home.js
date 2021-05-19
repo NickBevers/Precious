@@ -9,7 +9,7 @@ window.addEventListener("load", function(){
         //primus live feature /get frontend
         // alert("hello beautiful!");
         
-        fetch("http://localhost:3000/api/v1/transfers", {
+        fetch("/api/v1/transfers", {
         method:"get",
         headers: {
             "Content-Type": "application/json",

@@ -13,7 +13,7 @@ window.addEventListener("load", function(){
         window.location.replace("login.html");
     }
     else{
-        fetch(`http://localhost:3000/api/v1/transfers/id=${data}`, {
+        fetch(`/api/v1/transfers/id=${data}`, {
         method:"get",
         headers: {
             "Content-Type": "application/json",

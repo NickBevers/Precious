@@ -20,7 +20,7 @@ let signup = document.querySelector(".button").addEventListener("click", functio
         console.log("password confirm is incorrect");
     }
     else{
-        fetch("http://localhost:3000/users/mail", {
+        fetch("/users/mail", {
             method: "post",
             headers: {
                 "Content-Type": "application/json",
@@ -35,7 +35,7 @@ let signup = document.querySelector(".button").addEventListener("click", functio
                 alert("email alreadt exists!")
             }
             else{
-                fetch("http://localhost:3000/users/signup", {
+                fetch("/users/signup", {
                     method: "post",
                     headers: {
                         "Content-Type": "application/json",
