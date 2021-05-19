@@ -20,3 +20,9 @@
 .nav__icon-secondary:hover{
     color: $color--red;
 }
+
+.translistgrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
