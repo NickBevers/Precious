@@ -17,16 +17,12 @@
 - SASS/BEM - Transaction List items (DONE)
 
 ## TODO:
-
 - Layout op desktop maken
 - Deployment to heroku
-- Deployment to Netlify
 - Primus toevoegen (inkomende transacties)
-- Autocompletion
-- Transaction controle (genoeg coins)
-- beveiligen van transacties (webtokens gebruiken)
-- Give user feedback to frontend
-
+- Autocompletion 
+- Transaction controle (genoeg coins) - Nick
+- Give user feedback to frontend - Sarah
 
 
 ## Extra aandachtspunten bij jobs:
