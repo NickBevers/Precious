@@ -29,13 +29,12 @@ window.addEventListener("load", function(){
             }).then(response => {
                 return response.json();
             }).then(json => {
-                console.log(json);
                 if(json.status === "Succes"){
-                    console.log("SUCCES - Transaction sent")
+                    //console.log("SUCCES - Transaction sent")
                 }
                 
                 if(json.status === "Error"){
-                    console.log(`${json.message}`)
+                    //console.log(`${json.message}`)
                 }
 
             })

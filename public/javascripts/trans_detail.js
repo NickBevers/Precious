@@ -1,6 +1,5 @@
 let data = JSON.parse(localStorage.getItem("transactionID"));
-localStorage.removeItem("transactionID")
-console.log(data);
+localStorage.removeItem("transactionID");
 let from_to = document.querySelector(".recipient");
 let amount = document.querySelector(".amount");
 let reason = document.querySelector(".reason");
@@ -23,8 +22,6 @@ window.addEventListener("load", function(){
             return response.json();
         }).then(json => {
             if(json.status === "succes"){
-                console.log(json.data);
-                console.log(json.user);
                 user_email = json.user.email;
 
                 if (json.data.recipient == data.user){

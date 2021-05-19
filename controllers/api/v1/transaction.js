@@ -114,7 +114,7 @@ function getTransferById(req, res){
 function getLeaderboard(req, res){
     User.find({}, { "firstname": 1, "lastname": 1, "coins": 1}, (err, doc) =>{
         if(err){
-            ress.json({
+            res.json({
                 status: "Error",
                 message: "Could not get users for leaderboard"
             })

@@ -15,12 +15,11 @@ let login = document.querySelector(".button").addEventListener("click", function
         return response.json();
     }).then(json => {
         if(json.status === "success"){
-            console.log("Login complete!");
             window.location.replace("home.html"); //route naar home pages
         }
     })
 });
 
 let signup = document.querySelector(".button--link").addEventListener("click", function(){
-    console.log("to signup");
+    //console.log("to signup");
 })

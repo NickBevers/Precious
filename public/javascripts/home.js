@@ -19,7 +19,6 @@ window.addEventListener("load", function(){
             return response.json();
         }).then(json => {
             if(json.status === "succes"){
-                console.log(json.data);
                 transactionData = json.data;
                 user_email = json.user.email;
 

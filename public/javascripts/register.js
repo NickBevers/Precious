@@ -11,13 +11,13 @@ let signup = document.querySelector(".button").addEventListener("click", functio
     //regex check for email -> not r-mail but full name
 
     if(emailrestriction === -1){
-        console.log("Incorrect email");
+        //console.log("Incorrect email");
     }
     else if(checkbox.checked === false){
-        console.log("check the checkbox");
+        //console.log("check the checkbox");
     }
     else if(password !== confirmpassword){
-        console.log("password confirm is incorrect");
+        //console.log("password confirm is incorrect");
     }
     else{
         fetch("/users/mail", {
@@ -50,7 +50,7 @@ let signup = document.querySelector(".button").addEventListener("click", functio
                     return result.json();                    
                 }).then(answer => {
                     if(answer.status === "success"){
-                        console.log("Signup complete!");
+                        //console.log("Signup complete!");
         
                         let token = answer.data.token;
                         localStorage.setItem("token", token);
