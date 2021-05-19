@@ -17,7 +17,7 @@ window.addEventListener("load", function(){
             // Get #coins from user
             // Get user from db
             // check if amount <= #coins
-            fetch("http://localhost:3000/api/v1/transfers", {
+            fetch("/api/v1/transfers", {
                 method: "post",
                 headers: {
                     'Content-Type': 'application/json',
