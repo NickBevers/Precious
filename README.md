@@ -25,6 +25,7 @@
 - Give user feedback to frontend - Sarah
 - Link Video met finale versie van de app (zie canvas)
 - check minify js files
+- Node-cron schedulling (ZIE DOCUMENT JORIS VOOR DATA) = EXTRA
 
 
 ## Extra aandachtspunten bij jobs:
