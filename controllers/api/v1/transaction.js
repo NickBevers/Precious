@@ -41,7 +41,7 @@ function newTransaction(req, res){
                         if(!err){
                             let tempAmount = parseInt(amount);
                             let negTempAmount = parseInt(`-${amount}`);
-                            User.findOneAndUpdate({email: recipient}, {$inc: {coins: tempAmount}}, {returnNewDocument: true, useFindAndModify: false}, (err, doc) =>{
+                            User.findOneAndUpdate({email: user.email}, {$inc: {coins: negTempAmount}}, {returnNewDocument: true, useFindAndModify: false}, (err, doc) =>{
                                 if(err){
                                     res.json({
                                         status: "Error",
@@ -50,7 +50,7 @@ function newTransaction(req, res){
                                 }
 
                                 if(!err){
-                                    User.findOneAndUpdate({email: user.email}, {$inc: {coins: negTempAmount}}, {returnNewDocument: true, useFindAndModify: false}, (err, doc) =>{
+                                    User.findOneAndUpdate({email: recipient}, {$inc: {coins: tempAmount}}, {returnNewDocument: true, useFindAndModify: false}, (err, doc) =>{
                                         if(err){
                                             res.json({
                                                 status: "Error",
