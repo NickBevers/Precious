@@ -51,6 +51,7 @@
     "gulp-changed": "^4.0.2",
     "gulp-cli": "^2.3.0",
     "gulp-purgecss": "^4.0.3",
-    "gulp-sass": "^4.1.0"
+    "gulp-sass": "^4.1.0",
+    "node-cron": "^3.0.0"
   }
 }
