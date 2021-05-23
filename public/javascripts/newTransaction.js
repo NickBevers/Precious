@@ -10,6 +10,8 @@ window.addEventListener("load", function(){
         let userInput = document.querySelector(".recipient");
         let possibleRecipient = document.querySelector(".recipientList");
         
+        clearForm();
+
         const searchUser = async (textToSearch) => {
             possibleRecipient.innerHTML = "";
             let res = await fetch("/users/getdata", {
@@ -84,7 +86,7 @@ window.addEventListener("load", function(){
             }).then(json => {
                 if(json.status === "Success"){
                     //console.log("SUCCES - Transaction sent")
-                    document.querySelector(".form").reset();
+                    clearForm();
                 }
                 
                 if(json.status === "Error"){
@@ -93,5 +95,12 @@ window.addEventListener("load", function(){
 
             })
         });
+
+        function clearForm(){
+            userInput.value = "";
+            document.querySelector(".amount").value = "";
+            document.querySelector(".custom-dropdown").value = "Reason";
+            document.querySelector(".message").value = "";
+        }
     }
 });
