@@ -12,6 +12,7 @@ const config = require("config");
 
 const mongoose = require('mongoose');
 mongoose.set("useCreateIndex", true);
+mongoose.set("useFindAndModify", false);
 mongoose.connect(config.get("Database.conn"), {useNewUrlParser: true, useUnifiedTopology: true});
 
 var app = express();
