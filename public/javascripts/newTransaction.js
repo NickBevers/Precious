@@ -1,4 +1,4 @@
-var recipient;
+let recipient;
 window.addEventListener("load", function(){
     let tokencheck = localStorage.getItem("token");
 
@@ -62,6 +62,11 @@ window.addEventListener("load", function(){
             let message = document.querySelector(".message").value;
             let tokencheck = localStorage.getItem("token");
 
+            if (recipient == undefined || recipient == null){
+                // Message with "Please fill in a user you want to send coins to"
+            }
+
+            console.log(recipient);
             fetch("/api/v1/transfers", {
                 method: "post",
                 headers: {
@@ -79,6 +84,7 @@ window.addEventListener("load", function(){
             }).then(json => {
                 if(json.status === "Success"){
                     //console.log("SUCCES - Transaction sent")
+                    document.querySelector(".form").reset();
                 }
                 
                 if(json.status === "Error"){
