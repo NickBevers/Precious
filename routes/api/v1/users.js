@@ -10,6 +10,6 @@ router.get('/', function(req, res, next) {
 router.post("/mail", authenticateController.emailauth);
 router.post("/signup", authenticateController.postsignup);
 router.post("/login", authenticateController.postlogin);
-router.get("/getuserdata", authenticateController.getUserData);
+router.get("/getdata", authenticateController.getAllUsers);
 
 module.exports = router;
