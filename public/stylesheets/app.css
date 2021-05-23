@@ -64,6 +64,25 @@
   padding-bottom: 0;
   cursor: pointer; }
 
+.moreTransactions {
+  width: 53px;
+  text-decoration: none;
+  color: #3A0CA3;
+  position: absolute;
+  left: 287px;
+  top: 264px;
+  padding: 10px 20px;
+  background-color: #FF7446;
+  border: none; }
+
+.recipient {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  padding-left: 5px; }
+
 .list {
   background-color: #8478F5;
   height: 105%;
@@ -76,7 +95,13 @@
   grid-row: 6/ span 6; }
 
 .list--large {
-  grid-row: 3/ span 9; }
+  grid-row: 3/ span 9;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none; }
+
+.list--large::-webkit-scrollbar {
+  display: none; }
 
 .list__item {
   width: 100%;
@@ -252,7 +277,7 @@
   width: 250px;
   height: 70px;
   font-size: 36px;
-  margin-top: 10px; }
+  margin-top: -10px; }
 
 .button--secondary {
   border-top-right-radius: 0px;
@@ -297,9 +322,10 @@
   font-size: 5em;
   align-self: center;
   justify-self: center;
-  color: #3A0CA3; }
+  color: #3A0CA3;
+  margin-top: -10px; }
 
-.recipient, .amount, .reason, .message {
+.amount, .reason, .message {
   display: flex;
   justify-content: center;
   align-items: center; }
