@@ -1,10 +1,3 @@
-let data = JSON.parse(localStorage.getItem("transactionID"));
-localStorage.removeItem("transactionID");
-let from_to = document.querySelector(".recipient");
-let amount = document.querySelector(".amount");
-let reason = document.querySelector(".reason");
-let message = document.querySelector(".message");
-
 window.addEventListener("load", function(){
     let tokencheck = localStorage.getItem("token");
     if (!tokencheck) {
@@ -12,6 +5,17 @@ window.addEventListener("load", function(){
         window.location.replace("login.html");
     }
     else{
+        let data = JSON.parse(localStorage.getItem("transactionID"));
+        if(data == undefined || data == null || data == ""){
+            this.window.location.replace("home.html");
+        }
+
+        localStorage.removeItem("transactionID");
+        let from_to = document.querySelector(".recipient");
+        let amount = document.querySelector(".amount");
+        let reason = document.querySelector(".reason");
+        let message = document.querySelector(".message");
+
         fetch(`/api/v1/transfers/id=${data}`, {
         method:"get",
         headers: {
@@ -31,10 +35,20 @@ window.addEventListener("load", function(){
                     from_to.innerHTML = json.data.recipient
                 }
 
-                amount.innerHTML = json.data.amount;
+                if(json.data.amount == 1){
+                    amount.innerHTML = `${json.data.amount} coin`;
+                }
+                else{
+                    amount.innerHTML = `${json.data.amount} coins`;
+                }
+                
                 reason.innerHTML = json.data.reason;
                 message.innerHTML = json.data.message;
             }
+        })
+
+        document.querySelector(".button--primary").addEventListener("click", () => {
+            this.window.history.back();
         })
     }
 });
