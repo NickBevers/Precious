@@ -1,4 +1,4 @@
-let recipient;
+var recipient;
 window.addEventListener("load", function(){
     let tokencheck = localStorage.getItem("token");
 
@@ -57,7 +57,6 @@ window.addEventListener("load", function(){
         });
 
         document.querySelector(".button").addEventListener("click", async () => {
-            console.log(recipient);
             let amount = document.querySelector(".amount").value;
             let reason = document.querySelector(".custom-dropdown").value;
             let message = document.querySelector(".message").value;
