@@ -13,8 +13,15 @@
     grid-row: 6/ span 6;
 }
 
-.list--large{
+.list--large {
     grid-row: 3/ span 9;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.list--large::-webkit-scrollbar{
+    display: none;
 }
 
 .list__item{

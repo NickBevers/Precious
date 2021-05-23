@@ -25,9 +25,10 @@
     align-self: center;
     justify-self: center;
     color: #3A0CA3;
+    margin-top: -10px
 }
 
-.recipient, .amount, .reason, .message{
+.amount, .reason, .message{
     display: flex;
     justify-content: center;
     align-items: center;
