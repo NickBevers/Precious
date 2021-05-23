@@ -11,7 +11,7 @@
 
 ## Nick:
 - MongoDB - Transactions (DONE)
-- Frontend - New Transaction
+- Frontend - New Transaction (DONE)
 - SASS/BEM - Form fields (DONE)
 - SASS/BEM - Logo - 2 (DONE)
 - SASS/BEM - Transaction List items (DONE)
@@ -20,10 +20,11 @@
 - Layout op desktop maken
 - Deployment to heroku
 - Primus toevoegen (inkomende transacties)
-- Autocompletion - Nick
+- Autocompletion - Nick - DONE
 - Transaction controle (genoeg coins) - Nick - DONE
 - Give user feedback to frontend - Sarah
 - Link Video met finale versie van de app (zie canvas)
+- check minify js files
 
 
 ## Extra aandachtspunten bij jobs:
