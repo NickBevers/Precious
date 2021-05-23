@@ -53,12 +53,17 @@ window.addEventListener("load", function(){
 });
 
 function splitEmail(mail){
-    let name = mail.split('@')[0];
-    name = name.split(".");
-    if(!name[0]){name[0] = " ";}
-    if(!name[1]){name[1] = " ";}
-    
-    return name
+    if (mail == undefined || mail == null || mail == ""){
+        return " "
+    }
+    else{
+        let name = mail.split('@')[0];
+        name = name.split(".");
+        if(!name[0]){name[0] = " ";}
+        if(!name[1]){name[1] = " ";}
+        
+        return name
+    }
 }
 
 let list = document.querySelector(".list");
