@@ -4,6 +4,17 @@ const atob = require('atob');
 const ObjectId = require('mongodb').ObjectId;
 const User = require("../../../models/Users");
 
+var cron = require('node-cron');
+
+cron.schedule('* * 1 Sep * ', () => {
+  // give users coins
+  User.updateMany({coins: {$gte: 100}}, {$inc: {coins: 20}});
+  User.updateMany({coins: {$lt: 100}}, {$set: {coins: 100}});
+}, {
+  scheduled: true,
+  timezone: "Europe/Brussels"
+});
+
 // POST new transaction
 function newTransaction(req, res){
     let transaction = new Transaction();
