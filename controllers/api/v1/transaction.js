@@ -8,10 +8,10 @@ const User = require("../../../models/Users");
 function newTransaction(req, res){
     let transaction = new Transaction();
     let user = getUser(req.headers.authorization);
-    console.log(user.email);
     let amount = req.body.amount;
+    let recipient = req.body.recipient
 
-    transaction.recipient = req.body.recipient;
+    transaction.recipient = recipient;
     transaction.sender = user.email;
     transaction.amount = amount;
     transaction.reason = req.body.reason;
@@ -34,16 +34,40 @@ function newTransaction(req, res){
                         if(err){
                             res.json({
                                 status: "Error",
-                                message: "The transaction could not be sent"})
+                                message: "The transaction could not be sent"
+                            })
                         }
                 
                         if(!err){
-                            res.json({
-                                status: "Success",
-                                data:{
-                                    transaction:doc
+                            let tempAmount = parseInt(amount);
+                            let negTempAmount = parseInt(`-${amount}`);
+                            User.findOneAndUpdate({email: recipient}, {$inc: {coins: tempAmount}}, {returnNewDocument: true, useFindAndModify: false}, (err, doc) =>{
+                                if(err){
+                                    res.json({
+                                        status: "Error",
+                                        message: "The transaction could not be sent - Update failed"
+                                    })
+                                }
+
+                                if(!err){
+                                    User.findOneAndUpdate({email: user.email}, {$inc: {coins: negTempAmount}}, {returnNewDocument: true, useFindAndModify: false}, (err, doc) =>{
+                                        if(err){
+                                            res.json({
+                                                status: "Error",
+                                                message: "The transaction could not be sent - Update failed"
+                                            })
+                                        }
+        
+                                        if(!err){
+                                            res.json({
+                                                status: "Success",
+                                                message: "Transaction sent succesfully"
+                                            })
+                                        }
+                                    })
                                 }
                             })
+                            
                         }
                     })
                 }
