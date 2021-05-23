@@ -107,12 +107,10 @@ const postlogin = async (req, res, next) => {
     });
 } 
 
-function getUserData(req, res){
-    let token = req.headers.authorization;
-    let user = getUser(token);
-    User.find({email: user.email}, (err, doc) =>{
+function getAllUsers(req, res){
+    User.find({}, {firstname: 1, lastname: 1, email: 1}, (err, doc) =>{
         if(err){
-            ress.json({
+            res.json({
                 status: "Error",
                 message: "Could not get user"
             })
@@ -128,16 +126,8 @@ function getUserData(req, res){
     })
 }
 
-function getUser(token){
-    const tokenParts = token.split('.');
-    const encodedPayload = tokenParts[1];
-    const rawPayload = atob(encodedPayload);// atob zet versleutelde data om te zetten naar leesbare tekst
-    const user = JSON.parse(rawPayload); // user uit token halen zonder dat je code nodig hebt.
-    return user;
-}
-
 
 module.exports.postsignup = postsignup;
 module.exports.postlogin = postlogin;
 module.exports.emailauth = emailauth;
-module.exports.getUserData = getUserData;
+module.exports.getAllUsers = getAllUsers;
