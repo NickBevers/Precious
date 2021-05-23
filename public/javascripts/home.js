@@ -26,25 +26,47 @@ window.addEventListener("load", function(){
                 json.data.forEach(element => {
                     if(element.recipient == json.user.email){
                         let sender = splitEmail(element.sender);
-                        
-                        let transaction = `<li class="list__item">
-                            <p class="list__item--amount">+${element.amount}P</p>
-                            <p class="list__item--from-to">${sender[0] + " " + sender[1]}</p>
-                            <i class="fas fa-envelope list__item--message"></i>
-                        </li>
-                        <hr class="list__hr">`
-                        document.querySelector(".list").innerHTML += transaction;
+
+                        if(element.message == ""){
+                            let transaction = `<li class="list__item">
+                                <p class="list__item--amount">+${element.amount}P</p>
+                                <p class="list__item--from-to">${sender[0] + " " + sender[1]}</p>
+                                <p class="list__item--message" style="cursor:default"> </p>
+                            </li>
+                            <hr class="list__hr">`
+                            document.querySelector(".list").innerHTML += transaction;
+                        }
+
+                        else{
+                            let transaction = `<li class="list__item">
+                                <p class="list__item--amount">+${element.amount}P</p>
+                                <p class="list__item--from-to">${sender[0] + " " + sender[1]}</p>
+                                <i class="fas fa-envelope list__item--message"></i>
+                            </li>
+                            <hr class="list__hr">`
+                            document.querySelector(".list").innerHTML += transaction;
+                        }
                     }
                     else{
                         let recipient = splitEmail(element.recipient);
-
-                        let transaction = `<li class="list__item">
-                            <p class="list__item--amount--sent">-${element.amount}P</p>
-                            <p class="list__item--from-to">${recipient[0] + " " + recipient[1]}</p>
-                            <i class="fas fa-envelope list__item--message"></i>
-                        </li>
-                        <hr class="list__hr">`
-                        document.querySelector(".list").innerHTML += transaction;
+                        if(element.message == ""){
+                            let transaction = `<li class="list__item">
+                                <p class="list__item--amount--sent">-${element.amount}P</p>
+                                <p class="list__item--from-to">${recipient[0] + " " + recipient[1]}</p>
+                                <p class="list__item--message" style="cursor:default"> </p>
+                            </li>
+                            <hr class="list__hr">`
+                            document.querySelector(".list").innerHTML += transaction;
+                        }
+                        else{
+                            let transaction = `<li class="list__item">
+                                <p class="list__item--amount--sent">-${element.amount}P</p>
+                                <p class="list__item--from-to">${recipient[0] + " " + recipient[1]}</p>
+                                <i class="fas fa-envelope list__item--message"></i>
+                            </li>
+                            <hr class="list__hr">`
+                            document.querySelector(".list").innerHTML += transaction;
+                        }
                     }
                 });
             }
