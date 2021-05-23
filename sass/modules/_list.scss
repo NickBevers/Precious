@@ -65,3 +65,25 @@
     width: 10%;
     padding-left: 5%;
 }
+
+.recipientList{
+    background-color: #b0a7ff;
+    visibility: hidden;
+    position: absolute;
+    z-index: 5;
+    top: 195px;
+    width: calc(400px *0.8);
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .recipientList__item{
+    width: 100%;
+    height: 32px;
+    font-size: 20px;
+    box-sizing: border-box;
+    padding-top: 6px;
+    text-align: center;
+    cursor: pointer;
+  }
