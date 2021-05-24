@@ -41,3 +41,7 @@ Met een script is het makkelijker en sneller om sass te vinden en te laten werke
 ## Gulp
 Ook met Gulp wordt er gebruik gemaakt van een script: npm run gulp.
 Zo kan de gulp module bij iedereen gevonden worden en makkelijk gebruikt worden in de commandline.
+
+
+## Passwords {firstanem lastname; email; password}
+- Gandalf-account: {Gandalf The Gray; gandalf.thegray@middle-earth.be; Mithrandir}
