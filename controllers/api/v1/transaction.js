@@ -6,14 +6,76 @@ const User = require("../../../models/Users");
 
 var cron = require('node-cron');
 
-cron.schedule('* * 1 Sep * ', () => {
-  // give users coins
+// give coins on september 13 at 10 o' clock (programmer's day): 
+// Each users gets coins until they have 100
+// if they have more, they get 20
+cron.schedule('0 0 13 1 Sep * ', () => {
   User.updateMany({coins: {$gte: 100}}, {$inc: {coins: 20}});
   User.updateMany({coins: {$lt: 100}}, {$set: {coins: 100}});
 }, {
   scheduled: true,
   timezone: "Europe/Brussels"
 });
+
+// give coins on specific dates
+
+// give coins on march 31 -> international backup day
+cron.schedule('0 0 8 31 March *', () => {
+    specialTransfer(20, "International backup day. Don't forget to backup your files");
+}, {
+    scheduled: true,
+    timezone: "Europe/Brussels"
+});
+
+// give coins on june 8 -> international CAPS LOCK day
+cron.schedule('0 0 8 8 June *', () => {
+    specialTransfer(10, "CAPS LOCK DAY");
+}, {
+    scheduled: true,
+    timezone: "Europe/Brussels"
+});
+
+// give coins on july 28 -> sys admin appreciation day
+cron.schedule('0 0 8 28 July *', () => {
+    specialTransfer(15, "System admin appreciation day. Say 'Thank you'");
+}, {
+    scheduled: true,
+    timezone: "Europe/Brussels"
+});
+
+// give coins on september 15 -> launch of stackoverflow 2008
+cron.schedule('0 0 8 15 Sep *', () => {
+    specialTransfer(20, "StackOverflow launch today in 2008");
+}, {
+    scheduled: true,
+    timezone: "Europe/Brussels"
+});
+
+// give coins on september 22 -> hobbit day
+cron.schedule('0 0 8 22 Sep *', () => {
+    specialTransfer(30, "Praise the hobbits! It's hobbit day");
+}, {
+    scheduled: true,
+    timezone: "Europe/Brussels"
+});
+
+// give coins in december 4 -> official release of javascript 1995
+cron.schedule('0 0 8 4 Dec *', () => {
+    specialTransfer(15, "Javasctipt was launched on this day in 1995");
+}, {
+    scheduled: true,
+    timezone: "Europe/Brussels"
+});
+
+// give coins on december 17 -> initial release of css 1996
+cron.schedule('0 0 8 17 Dec *', () => {
+    specialTransfer(15, "CSS was launched on this day in 1996");
+}, {
+    scheduled: true,
+    timezone: "Europe/Brussels"
+});
+
+
 
 // POST new transaction
 function newTransaction(req, res){
@@ -113,7 +175,7 @@ function getTransactions(req, res){
 
         if(!err){
             let coins = doc.coins;
-            Transaction.find({$or: [{'recipient': user.email}, {'sender': user.email}]}, (err, doc) => {
+            Transaction.find({$or: [{'recipient': user.email}, {'recipient': "all@student.thomasmore.be"}, {'sender': user.email}]}, (err, doc) => {
                 if(err){
                     res.json({
                         status: "Error",
@@ -158,7 +220,7 @@ function getTransferById(req, res){
 
 // GET all users with #coins per user
 function getLeaderboard(req, res){
-    User.find({}, { "firstname": 1, "lastname": 1, "coins": 1}, (err, doc) =>{
+    User.find({email: {$not: /gandalf.thegray@middle-earth.be/}}, { "firstname": 1, "lastname": 1, "coins": 1}, (err, doc) =>{
         if(err){
             res.json({
                 status: "Error",
@@ -176,12 +238,54 @@ function getLeaderboard(req, res){
     }).sort({"coins": -1});
 }
 
+function specialTransfer(amount, message){
+    let transaction = new Transaction();
+    transaction.recipient = "all@student.thomasmore.be";
+    transaction.sender = randomUser();
+    transaction.amount = amount;
+    transaction.reason = "other";
+    transaction.message = message;
+
+    transaction.save((err, doc) => {
+        if(err){
+            res.json({
+                status: "Error",
+                message: "The transaction could not be sent"
+            })
+        }
+
+        if(!err){
+            User.updateMany({}, {$inc: {coins: amount}}, {returnNewDocument: true, useFindAndModify: false}, (err, doc) =>{
+                if(err){
+                    res.json({
+                        status: "Error",
+                        message: "The transaction could not be sent - Update failed"
+                    })
+                }
+
+                if(!err){
+                    res.json({
+                        status: "Success",
+                        message: "Transaction sent succesfully"
+                    })
+                }
+            })
+        }
+    })
+}
+
 function getUser(token){
     const tokenParts = token.split('.');
     const encodedPayload = tokenParts[1];
     const rawPayload = atob(encodedPayload);// atob zet versleutelde data om te zetten naar leesbare tekst
     const user = JSON.parse(rawPayload); // user uit token halen zonder dat je code nodig hebt.
     return user;
+}
+
+function randomUser(){
+    let users = ["gandalf.thegray@middle-earth.be"]
+    return "gandalf.thegray@middle-earth.be"
+    //return users[Math.floor(Math.random() * users.length)]
 }
 
 module.exports.newTransaction = newTransaction;
