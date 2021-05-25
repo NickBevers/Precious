@@ -26,3 +26,31 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
 }
+
+.nav__text{
+    color: $color--white;
+    display: none;
+}
+
+@media (min-width: 1080px){
+    .nav{
+        grid-row: 1 / span 1;
+        grid-column: 1 / span 12;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .nav__icon{
+        display: none;
+    }
+
+    .nav__text{
+        font-family: 'Lato', sans-serif;
+        font-size: 1.2em;
+        width: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+    }
+}

@@ -83,9 +83,9 @@
     height: fit-content;
     display: flex;
     flex-direction: column;
-  }
+}
   
-  .recipientList__item{
+.recipientList__item{
     width: 100%;
     height: 32px;
     font-size: 20px;
@@ -93,4 +93,23 @@
     padding-top: 6px;
     text-align: center;
     cursor: pointer;
-  }
+}
+
+@media (min-width: 1080px){
+    .list{
+        width: 100%;
+        height: 100%;
+        grid-column: 7 / span 4;
+        grid-row: 4 / span 6;
+    }
+
+    .list__item--amount, .list__item--amount--sent{
+        padding-left: 20px;
+    }
+
+    .recipientList{
+        top: calc((100vh / 12)*4 - 15px);
+        width: calc((100vw / 12)*2.4 + 2px);
+        grid-row: 5 / span 1;
+    }
+}

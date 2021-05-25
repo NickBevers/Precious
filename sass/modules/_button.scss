@@ -59,3 +59,9 @@
     border-top-left-radius: 0px;
     border-bottom-right-radius: 0px;
 }
+
+@media(min-width: 1080px){
+    .button--large{
+        display: none;
+    }
+}
