@@ -28,7 +28,7 @@ window.addEventListener("load", function(){
             if(json.status === "Success"){
                 user_email = json.user.email;
 
-                if (json.data.recipient == data.user){
+                if (json.data.recipient == data.user || json.data.recipient == "all@student.thomasmore.be"){
                     from_to.innerHTML = json.data.sender
                 }
                 else{
@@ -48,7 +48,7 @@ window.addEventListener("load", function(){
         })
 
         document.querySelector(".button--primary").addEventListener("click", () => {
-            this.window.history.back();
+            window.location.replace("home.html");
         })
     }
 });

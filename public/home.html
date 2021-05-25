@@ -38,20 +38,56 @@
             </li>
             <hr class="list__hr"> -->
         </ul>
+
+        <div class="form__container">
+            <div class="form form--large">
+            
+                <input class="recipient form__input" type="text" placeholder="Recipient" name="recipient" required>
+                <div class="recipientList"></div>
+                <!-- <ul class="recipients list"></ul> -->
+    
+                <input class="amount form__input form__input__number" type="number" placeholder="Amount" name="amount" required>
+    
+                <div class="form__input custom-dropdown__container">
+                    <select name="reason" class="custom-dropdown" required>
+                        <option value="" selected disabled hidden>Reason</option>
+                        <option value="dev_help">Development help</option><hr>
+                        <option value="design_help">Design help</option>
+                        <option value="feedback">Feedback</option>
+                        <option value="deadlines">Meeting deadlines</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <span class="custom-dropdown__arrow"></span>
+                </div>
+    
+                <textarea class="message form__textarea" name="message" class="message" placeholder="Message"></textarea>
+    
+                <div class="custom-checkbox">
+                    <input class="custom-checkbox__input" type="checkbox" name="terms_conditions">
+                    <label class="custom-checkbox__label" for="terms_conditions">Share on Discord/Slack</label>
+                </div>
+                
+                <button class="button button--primary button--form">Send coins</button>
+            </div>
+        </div>
             
             <!-- Bottom navigation -->
         <div class="nav">
 
             <!-- logout -->
+            <a href="login.html" class="nav__text">Sign out</a>
             <a href="login.html" class="nav__icon nav__icon-secondary signout"><i class="fas fa-sign-out-alt fa-2x"></i></a>
 
             <!-- homepage -->
+            <a href="home.html" class="nav__text">Home</a>
             <a href="home.html" class="nav__icon home"><i class="fas fa-home fa-2x"></i></a>
             
             <!-- leaderboard -->
+            <a href="leaderboard.html" class="nav__text">Leaderboard</a>
             <a href="leaderboard.html" class="nav__icon trophy"><i class="fa fa-trophy fa-2x"></i></a>
         </div>
     </div>
-<script src="./javascripts/home.js"></script>
+    <script src="./javascripts/primus.js"></script>
+    <script src="./javascripts/home.js"></script>
 </body>
 </html>

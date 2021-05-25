@@ -64,11 +64,12 @@ window.addEventListener("load", function(){
             let message = document.querySelector(".message").value;
             let tokencheck = localStorage.getItem("token");
 
-            if (recipient == undefined || recipient == null){
-                // Message with "Please fill in a user you want to send coins to"
+            if (recipient == undefined || recipient == null || amount == undefined || reason == undefined || reason == ""){
+                // Message with "Please fill in all fields (message is optional)"
+                this.alert("Fill in everything")
             }
 
-            console.log(recipient);
+            
             fetch("/api/v1/transfers", {
                 method: "post",
                 headers: {
@@ -87,6 +88,7 @@ window.addEventListener("load", function(){
                 if(json.status === "Success"){
                     //console.log("SUCCES - Transaction sent")
                     clearForm();
+                    window.location.replace("home.html");
                 }
                 
                 if(json.status === "Error"){
