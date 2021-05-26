@@ -221,6 +221,14 @@ function addTransaction(trans){
             <hr class="list__hr">`
             document.querySelector(".list").insertAdjacentHTML('afterbegin', transaction) //insertAdjacentHTML('afterend', transaction);
         }
+
+        let coins = document.querySelector(".coins").innerHTML.split(" ")[1];
+        let tempcoin = parseInt(coins);
+        console.log(tempcoin);
+
+        tempcoin += json.amount;
+        console.log(tempcoin);
+        document.querySelector(".coins").innerHTML = tempcoin;
     }
 }
 

@@ -6,7 +6,8 @@ const User = new Schema({
     firstname: String,
     lastname: String,
     email: String,
-    coins: Number
+    coins: Number,
+    coinsTransferred : Number
 });
 
 User.plugin(passportLocalMongoose, {usernameField: "email"});
