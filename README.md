@@ -1,21 +1,5 @@
 # Jobs to do:
 
-## Sarah:
-- MongoDB - Users (DONE)
-- Frontend - Login/Register (DONE)
-- SASS/BEM - Buttons (a-tags) (DONE)
-- SASS/BEM - Form Checkbox (DONE)
-- SASS/BEM - Navigation (DONE)
-- API - LEADERBOARD (DONE)
-
-
-## Nick:
-- MongoDB - Transactions (DONE)
-- Frontend - New Transaction (DONE)
-- SASS/BEM - Form fields (DONE)
-- SASS/BEM - Logo - 2 (DONE)
-- SASS/BEM - Transaction List items (DONE)
-
 ## TODO:
 - Layout op desktop maken
 - Deployment to heroku
@@ -25,7 +9,21 @@
 - Aanmaken account voor Joris
 
 
+
 ## DONE:
+- MongoDB - Users (DONE)
+- Frontend - Login/Register (DONE)
+- SASS/BEM - Buttons (a-tags) (DONE)
+- SASS/BEM - Form Checkbox (DONE)
+- SASS/BEM - Navigation (DONE)
+- API - LEADERBOARD (DONE)
+
+- MongoDB - Transactions (DONE)
+- Frontend - New Transaction (DONE)
+- SASS/BEM - Form fields (DONE)
+- SASS/BEM - Logo - 2 (DONE)
+- SASS/BEM - Transaction List items (DONE)
+
 - Transactionlist nakijken -> recipient wordt als sender aangegeven - DONE
 - Node-cron schedulling (ZIE DOCUMENT JORIS VOOR DATA) = EXTRA - DONE
 - Transaction controle (genoeg coins) - Nick - DONE
@@ -38,6 +36,8 @@
 
 ## Extra aandachtspunten bij jobs:
 Sarah: Als je bij de authenticatie van gebruikers met passport een webtoken aanmaakt, kan je dan de email van de gebruiker mee in die token zetten, want ik ga die nodig hebben voor het ophalen van de transacties (DONE)
+
+
 
 ## SASS
 Wij gebruiken sass met een script: npm run sass. 

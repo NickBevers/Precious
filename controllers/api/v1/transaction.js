@@ -192,7 +192,7 @@ function newTransaction(req, res){
                                     }
 
                                     else{
-                                        User.findOneAndUpdate({email: recipient}, {$inc: {coins: tempAmount}}, {returnNewDocument: true, useFindAndModify: false, upsert: true}, (err) =>{
+                                        User.findOneAndUpdate({email: recipient}, {$inc: {coins: tempAmount}}, {returnNewDocument: true, useFindAndModify: false}, (err) =>{ //, upsert: true
                                             if(err){
                                                 res.json({
                                                     status: "Error",
