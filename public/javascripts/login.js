@@ -15,6 +15,8 @@ let login = document.querySelector(".button").addEventListener("click", function
         return response.json();
     }).then(json => {
         if(json.status === "Success"){
+            let token = json.data.token;
+            localStorage.setItem("token", token);
             window.location.replace("home.html"); //route naar home pages
         }
     })
