@@ -18,6 +18,7 @@
     background-color: $color--white;
     color:  $color--link;
     border: 2px solid $color--link;
+    cursor: pointer;
 }
 
 .button--link{
@@ -32,6 +33,7 @@
     color: $color--background;
     background-color:rgba(201, 76, 76, 0.0); 
     border: none;
+    cursor: pointer;
 }
 
 .button--primary{
@@ -44,6 +46,7 @@
 .button--primary:hover{
     background-color: $color--link;
     color: $color--secondary;
+    cursor: pointer;
 }
 
 .button--large{

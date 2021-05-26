@@ -348,6 +348,7 @@
   background-color: white;
   color: #3A0CA3;
   border: 2px solid #3A0CA3;
+  cursor: pointer;
 }
 
 .button--link {
@@ -362,6 +363,7 @@
   color: #8478F5;
   background-color: rgba(201, 76, 76, 0);
   border: none;
+  cursor: pointer;
 }
 
 .button--primary {
@@ -374,6 +376,7 @@
 .button--primary:hover {
   background-color: #3A0CA3;
   color: #FF7446;
+  cursor: pointer;
 }
 
 .button--large {

@@ -22,8 +22,8 @@
 - Give user feedback to frontend - Sarah
 - Link Video met finale versie van de app (zie canvas)
 - check minify js files
-- Cursor op pointer bij buttons
 - Change nav on every html
+- Aanmaken account voor Joris
 
 
 ## DONE:
@@ -32,6 +32,7 @@
 - Transaction controle (genoeg coins) - Nick - DONE
 - Primus toevoegen (inkomende transacties op home.html && transactionlist.html) - DONE
 - Autocompletion - Nick - DONE
+- Cursor op pointer bij buttons - Sarah DONE
 
 
 
@@ -50,7 +51,7 @@ Ook met Gulp wordt er gebruik gemaakt van een script: npm run gulp.
 Zo kan de gulp module bij iedereen gevonden worden en makkelijk gebruikt worden in de commandline.
 
 
-## Passwords {firstanem lastname; email; password}
+## Passwords {firstname lastname; email; password}
 - Gandalf-account: {Gandalf The Grey; gandalf.thegray@middle-earth.be; Mithrandir}
 - Gandalf-gmail: {gandalf.precious@gmail.com; Mithrandir}
 - User.three@student.thomasmore.be; test
