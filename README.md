@@ -19,13 +19,14 @@
 ## TODO:
 - Layout op desktop maken
 - Deployment to heroku
-- Primus toevoegen (inkomende transacties)
+- Primus toevoegen (inkomende transacties op home.html && transactionlist.html)
 - Autocompletion - Nick - DONE
 - Transaction controle (genoeg coins) - Nick - DONE
 - Give user feedback to frontend - Sarah
 - Link Video met finale versie van de app (zie canvas)
 - check minify js files
-- Node-cron schedulling (ZIE DOCUMENT JORIS VOOR DATA) = EXTRA
+- Node-cron schedulling (ZIE DOCUMENT JORIS VOOR DATA) = EXTRA - DONE
+- Cursor op pointer bij buttons
 
 
 ## Extra aandachtspunten bij jobs:
@@ -45,3 +46,5 @@ Zo kan de gulp module bij iedereen gevonden worden en makkelijk gebruikt worden 
 
 ## Passwords {firstanem lastname; email; password}
 - Gandalf-account: {Gandalf The Gray; gandalf.thegray@middle-earth.be; Mithrandir}
+- Gandalf-gmail: {gandalf.precious@gmail.com; Mithrandir}
+- User.three@student.thoamsmore.be; test
