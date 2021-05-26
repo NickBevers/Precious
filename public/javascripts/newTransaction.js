@@ -108,6 +108,11 @@ window.addEventListener("load", function(){
                 }).then(json => {
                     if(json.status === "Success"){
                         //console.log("SUCCES - Transaction sent")
+                        primus.write({
+                            "action": "add_transaction",
+                            "data": json
+                        });
+                        
                         clearForm("hi");
                         window.location.replace("home.html");
                     }
