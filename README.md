@@ -27,6 +27,8 @@
 - check minify js files
 - Node-cron schedulling (ZIE DOCUMENT JORIS VOOR DATA) = EXTRA - DONE
 - Cursor op pointer bij buttons
+- Transactionliust nakjiken -> recipient wordt als sender aangegeven
+- Change nav on every html
 
 
 ## Extra aandachtspunten bij jobs:
@@ -45,6 +47,6 @@ Zo kan de gulp module bij iedereen gevonden worden en makkelijk gebruikt worden 
 
 
 ## Passwords {firstanem lastname; email; password}
-- Gandalf-account: {Gandalf The Gray; gandalf.thegray@middle-earth.be; Mithrandir}
+- Gandalf-account: {Gandalf The Grey; gandalf.thegray@middle-earth.be; Mithrandir}
 - Gandalf-gmail: {gandalf.precious@gmail.com; Mithrandir}
 - User.three@student.thoamsmore.be; test
