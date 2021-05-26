@@ -89,7 +89,7 @@ const postlogin = async (req, res, next) => {
             })
         }
         let token = jwt.sign({
-            uid: result.user._id,
+            // uid: result.user._id,
             email: result.user.email
         }, config.get("jwt.secret"));
         
