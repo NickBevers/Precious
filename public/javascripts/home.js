@@ -1,11 +1,4 @@
 let transactionData, user_email;
-/*let primus = Primus.connect("/", {
-    reconnect: {
-        max: Infinity,
-        min: 500,
-        retries: 10
-    }
-});*/
 
 window.addEventListener("load", function(){
     let tokencheck = localStorage.getItem("token");
@@ -15,10 +8,13 @@ window.addEventListener("load", function(){
     }
     else{
         //primus live feature /get frontend
-        
-
-        
-
+        let primus = Primus.connect("/", {
+            reconnect: {
+                max: Infinity,
+                min: 500,
+                retries: 10
+            }
+        });
         
         fetch("/api/v1/transfers", {
         method:"get",
@@ -86,8 +82,6 @@ window.addEventListener("load", function(){
 
         let userInput = document.querySelector(".recipient");
         let possibleRecipient = document.querySelector(".recipientList");
-        
-        clearForm();
 
         const searchUser = async (textToSearch) => {
             possibleRecipient.innerHTML = "";
@@ -174,6 +168,10 @@ window.addEventListener("load", function(){
 
             })
         });
+
+        primus.on("data", (data) => {
+            console.log(data);
+        });
         
 
         function clearForm(){
@@ -184,10 +182,6 @@ window.addEventListener("load", function(){
         }
     }
 });
-
-/*primus.on("data", (data) => {
-    console.log(data);
-});*/
 
 function splitEmail(mail){
     if (mail == undefined || mail == null || mail == ""){
