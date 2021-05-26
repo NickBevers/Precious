@@ -1,4 +1,4 @@
-let transactionData, user_email;
+let transactionData, recipient, currentUser;
 
 window.addEventListener("load", function(){
     let tokencheck = localStorage.getItem("token");
@@ -7,6 +7,7 @@ window.addEventListener("load", function(){
         window.location.replace("login.html");
     }
     else{
+        currentUser = getUser(tokencheck);
         //primus live feature /get frontend
         let primus = Primus.connect("/", {
             reconnect: {
@@ -14,6 +15,15 @@ window.addEventListener("load", function(){
                 min: 500,
                 retries: 10
             }
+        });
+
+        primus.on("data", (json) => {
+            if(json.action == "add_transaction"){
+                addTransaction(json.data);
+                //console.log(json);
+            }
+            
+            
         });
         
         fetch("/api/v1/transfers", {
@@ -29,7 +39,6 @@ window.addEventListener("load", function(){
                 document.querySelector(".coins").innerHTML += json.coins
                 
                 transactionData = json.data;
-                user_email = json.user.email;
 
                 json.data.forEach(element => {
                     if(element.recipient == json.user.email || element.recipient == "all@student.thomasmore.be"){
@@ -137,7 +146,8 @@ window.addEventListener("load", function(){
 
             if (recipient == undefined || recipient == null || amount == undefined || reason == undefined || reason == ""){
                 // Message with "Please fill in all fields (message is optional)"
-                this.alert("Fill in everything")
+                this.alert("Fill in everything");
+                return
             }
 
             
@@ -156,8 +166,14 @@ window.addEventListener("load", function(){
             }).then(response => {
                 return response.json();
             }).then(json => {
+                console.log(json);
                 if(json.status === "Success"){
-                    //console.log("SUCCES - Transaction sent")
+                    
+                    primus.write({
+                        "action": "add_transaction",
+                        "data": json
+                    })
+
                     clearForm();
                     window.location.replace("home.html");
                 }
@@ -167,10 +183,6 @@ window.addEventListener("load", function(){
                 }
 
             })
-        });
-
-        primus.on("data", (data) => {
-            console.log(data);
         });
         
 
@@ -182,6 +194,36 @@ window.addEventListener("load", function(){
         }
     }
 });
+
+function addTransaction(trans){
+    console.log(trans.data);
+    let json = trans.data;
+    console.log(json.recipient);
+    console.log(currentUser);
+    
+    if(json.recipient == currentUser.email){
+        let sender = splitEmail(json.sender);
+        if(json.message == ""){
+            let transaction = `<li class="list__item">
+                <p class="list__item--amount">+${json.amount}P</p>
+                <p class="list__item--from-to">${sender[0] + " " + sender[1]}</p>
+                <p class="list__item--message" style="cursor:default"> </p>
+            </li>
+            <hr class="list__hr">`
+            document.querySelector(".transList").innerHTML += transaction;
+        }
+        else{
+            let transaction = `<li class="list__item">
+                <p class="list__item--amount">+${json.amount}P</p>
+                <p class="list__item--from-to">${sender[0] + " " + sender[1]}</p>
+                <i class="fas fa-envelope list__item--message"></i>
+            </li>
+            <hr class="list__hr">`
+            document.querySelector(".list").insertAdjacentHTML('afterbegin', transaction) //insertAdjacentHTML('afterend', transaction);
+        }
+    }
+}
+
 
 function splitEmail(mail){
     if (mail == undefined || mail == null || mail == ""){
@@ -206,3 +248,11 @@ list.addEventListener("click", (e) => {
         window.location.replace("trans_detail.html");
     }
 });
+
+function getUser(token){
+    const tokenParts = token.split('.');
+    const encodedPayload = tokenParts[1];
+    const rawPayload = atob(encodedPayload);// atob zet versleutelde data om te zetten naar leesbare tekst
+    const user = JSON.parse(rawPayload); // user uit token halen zonder dat je code nodig hebt.
+    return user;
+}

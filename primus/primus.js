@@ -5,7 +5,12 @@ let go = (server) =>{
     
     primus.on('connection', (spark) => {
         console.log("recieved spark");
+
+        spark.on('data', (data) => {
+            primus.write(data);
+        });
     });
+
 };
 
 module.exports.go = go;
