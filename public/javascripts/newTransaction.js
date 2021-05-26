@@ -41,6 +41,7 @@ window.addEventListener("load", function(){
 
             if (userInput.value.length == 0){
                 matches = [];
+                recipient = null;
                 possibleRecipient.style.visibility = "hidden";
             }
             
@@ -76,10 +77,16 @@ window.addEventListener("load", function(){
             let message = document.querySelector(".message").value;
             let tokencheck = localStorage.getItem("token");
             
-            console.log(reason);
+            // console.log(userInput.value);
+            // console.log(typeof userInput.value);
             
-            if (recipient == undefined || recipient == null){
+            if(userInput.value == undefined || userInput.value == null || userInput.value == ""){
                 document.querySelector(".recipient").classList.add("form__input--error");
+                return
+            }
+            if (recipient == undefined || recipient == null || recipient == ""){
+                document.querySelector(".recipient").classList.add("form__input--error");
+                return
             } 
             if(amount == undefined|| amount == null || amount === ""){
                 document.querySelector(".amount").classList.add("form__input--error");
@@ -119,6 +126,12 @@ window.addEventListener("load", function(){
                     
                     if(json.status === "Error"){
                         //console.log(`${json.message}`)
+                        document.querySelector(".amount").classList.add("form__input--error");
+                        document.querySelector(".amount").insertAdjacentHTML("beforebegin",`<p class="errormes">${json.message}</p>`);
+                        this.setTimeout(()=>{
+                            document.querySelector(".errormes").remove();
+                            document.querySelector(".amount").classList.remove("form__input--error");
+                        }, 5000)
                     }
 
                 });
