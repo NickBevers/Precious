@@ -53,6 +53,11 @@
   color: #e7e7e7;
 }
 
+.form__input::-webkit-input-placeholder {
+  color: #e7e7e7;
+  opacity: 0.8;
+}
+
 .form__input {
   width: 80%;
   height: 50px;
@@ -81,6 +86,11 @@
   height: 145px;
   padding-bottom: 0;
   cursor: pointer;
+}
+
+.form__textarea::-webkit-input-placeholder {
+  color: #e7e7e7;
+  opacity: 0.8;
 }
 
 .moreTransactions {
@@ -147,7 +157,9 @@
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-  overflow: hidden;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .list--standard {
@@ -156,9 +168,6 @@
 
 .list--large {
   grid-row: 3/span 9;
-  overflow: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }
 
 .list--large::-webkit-scrollbar {
@@ -273,6 +282,7 @@
   appearance: none;
   background: url("../assets/check-circle-solid.svg");
   background-position: center;
+  background-repeat: no-repeat;
   margin-left: -40px;
   background-size: contain;
   width: 32px;
@@ -304,6 +314,7 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  text-align-last: center;
 }
 
 .custom-dropdown__container {
@@ -328,6 +339,8 @@
 .custom-dropdown * {
   background-color: #b0a7ff;
   color: #3A0CA3;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .button {
@@ -404,6 +417,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
   grid-row: 12/span 1;
+  z-index: 5;
 }
 
 .nav__icon {
