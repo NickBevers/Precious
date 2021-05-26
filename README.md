@@ -19,16 +19,20 @@
 ## TODO:
 - Layout op desktop maken
 - Deployment to heroku
-- Primus toevoegen (inkomende transacties op home.html && transactionlist.html)
-- Autocompletion - Nick - DONE
-- Transaction controle (genoeg coins) - Nick - DONE
 - Give user feedback to frontend - Sarah
 - Link Video met finale versie van de app (zie canvas)
 - check minify js files
-- Node-cron schedulling (ZIE DOCUMENT JORIS VOOR DATA) = EXTRA - DONE
 - Cursor op pointer bij buttons
-- Transactionliust nakjiken -> recipient wordt als sender aangegeven
 - Change nav on every html
+
+
+## DONE:
+- Transactionliust nakijken -> recipient wordt als sender aangegeven - DONE
+- Node-cron schedulling (ZIE DOCUMENT JORIS VOOR DATA) = EXTRA - DONE
+- Transaction controle (genoeg coins) - Nick - DONE
+- Primus toevoegen (inkomende transacties op home.html && transactionlist.html) - DONE
+- Autocompletion - Nick - DONE
+
 
 
 ## Extra aandachtspunten bij jobs:
