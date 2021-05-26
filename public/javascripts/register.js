@@ -8,17 +8,35 @@ let signup = document.querySelector(".button").addEventListener("click", functio
     let emailrestriction = email.indexOf("@student.thomasmore.be");
     let checkbox = document.querySelector(".custom-checkbox__input");
 
+    // let form = document.querySelector(".form__input");
     //regex check for email -> not r-mail but full name
 
-    if(emailrestriction === -1){
-        //console.log("Incorrect email");
+    document.querySelector(".firstname").classList.remove("form__input--error");
+    document.querySelector(".lastname").classList.remove("form__input--error");
+    document.querySelector(".email").classList.remove("form__input--error");
+    document.querySelector(".custom-checkbox").classList.remove("custom-checkbox__label--error");
+    document.querySelector(".password").classList.remove("form__input--error");
+    document.querySelector(".confirmpassword").classList.remove("form__input--error");
+
+    if(firstname === ""){
+        document.querySelector(".firstname").classList.add("form__input--error");
+    }
+    else if(lastname === ""){
+        document.querySelector(".lastname").classList.add("form__input--error");
+    }
+    else if(emailrestriction === -1 || email === " "){
+        console.log("Incorrect email");
+        document.querySelector(".email").classList.add("form__input--error");
+    }
+    else if(password === "" || password !== confirmpassword){
+        console.log("password confirm is incorrect");
+        document.querySelector(".password").classList.add("form__input--error");
+        document.querySelector(".confirmpassword").classList.add("form__input--error");
     }
     else if(checkbox.checked === false){
-        //console.log("check the checkbox");
-    }
-    else if(password !== confirmpassword){
-        //console.log("password confirm is incorrect");
-    }
+        console.log("check the checkbox");
+        document.querySelector(".custom-checkbox").classList.add("custom-checkbox__label--error");
+    }  
     else{
         fetch("/users/mail", {
             method: "post",

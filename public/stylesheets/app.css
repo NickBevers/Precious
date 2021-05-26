@@ -114,6 +114,10 @@
   display: none;
 }
 
+.form__input--error {
+  background-color: #FF7446;
+}
+
 @media (min-width: 1080px) {
   .form__container {
     display: block;
@@ -290,6 +294,10 @@
 .custom-checkbox__label {
   margin-left: 10px;
   text-align: center;
+}
+
+.custom-checkbox__label--error {
+  color: #FF7446;
 }
 
 .custom-dropdown {
