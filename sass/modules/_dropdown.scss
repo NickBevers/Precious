@@ -12,6 +12,7 @@
     -webkit-appearance: none;
     -moz-appearance: none;      
     appearance: none;
+    text-align-last:center;
 }
 
 .custom-dropdown__container{
@@ -37,4 +38,6 @@
 .custom-dropdown *{
     background-color: $color--custom;
     color: $color--link;
+    margin-left: auto;
+    margin-right: auto;
 }

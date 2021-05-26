@@ -24,6 +24,11 @@
     color: $color--primary;
 }
 
+.form__input::-webkit-input-placeholder{
+    color: $color--primary;
+    opacity: 0.8;
+}
+
 .form__input{
     width: 80%;
     height: 50px;
@@ -52,6 +57,11 @@
     height: 145px;
     padding-bottom: 0;
     cursor: pointer;
+}
+
+.form__textarea::-webkit-input-placeholder{
+    color: $color--primary;
+    opacity: 0.8;
 }
 
 .moreTransactions{

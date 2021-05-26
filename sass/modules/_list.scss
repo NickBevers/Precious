@@ -6,7 +6,9 @@
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-    overflow: hidden;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .list--standard{
@@ -15,9 +17,6 @@
 
 .list--large {
     grid-row: 3/ span 9;
-    overflow: scroll;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
 }
 
 .list--large::-webkit-scrollbar{
