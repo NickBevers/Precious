@@ -3,3 +3,5 @@ node_modules/*
 config
 /bug/*
 bug
+public/stylesheets/app.css.map
+/public/stylesheets/app.css.map

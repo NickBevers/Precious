@@ -4,7 +4,7 @@ let go = (server) =>{
     let primus = new Primus(server, {});
     
     primus.on('connection', (spark) => {
-        console.log("recieved spark");
+        console.log("received spark");
 
         spark.on('data', (data) => {
             primus.write(data);
