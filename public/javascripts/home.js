@@ -22,8 +22,6 @@ window.addEventListener("load", function(){
                 addTransaction(json.data);
                 //console.log(json);
             }
-            
-            
         });
         
         fetch("/api/v1/transfers", {
@@ -186,11 +184,18 @@ window.addEventListener("load", function(){
         });
         
 
-        function clearForm(){
-            userInput.value = "";
-            document.querySelector(".amount").value = "";
-            document.querySelector(".custom-dropdown").value = "Reason";
-            document.querySelector(".message").value = "";
+        function clearForm(reason){
+            if(reason){
+                userInput.value = "";
+                document.querySelector(".amount").value = "";
+                document.querySelector(".custom-dropdown").value = "Reason";
+                document.querySelector(".message").value = "";
+            }
+            else{
+                userInput.value = "";
+                document.querySelector(".amount").value = "";
+                document.querySelector(".message").value = "";
+            }
         }
     }
 });

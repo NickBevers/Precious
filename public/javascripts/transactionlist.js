@@ -5,6 +5,23 @@ window.addEventListener("load", function(){
         window.location.replace("login.html");
     }
     else{
+        currentUser = getUser(tokencheck);
+        //primus live feature /get frontend
+        let primus = Primus.connect("/", {
+            reconnect: {
+                max: Infinity,
+                min: 500,
+                retries: 10
+            }
+        });
+
+        primus.on("data", (json) => {
+            if(json.action == "add_transaction"){
+                addTransaction(json.data);
+                //console.log(json);
+            }
+        });
+
         fetch("/api/v1/transfers", {
             method:"get",
             headers: {
@@ -68,6 +85,44 @@ window.addEventListener("load", function(){
             })
     }
 });
+
+function addTransaction(trans){
+    console.log(trans.data);
+    let json = trans.data;
+    console.log(json.recipient);
+    console.log(currentUser);
+    
+    if(json.recipient == currentUser.email){
+        let sender = splitEmail(json.sender);
+        if(json.message == ""){
+            let transaction = `<li class="list__item">
+                <p class="list__item--amount">+${json.amount}P</p>
+                <p class="list__item--from-to">${sender[0] + " " + sender[1]}</p>
+                <p class="list__item--message" style="cursor:default"> </p>
+            </li>
+            <hr class="list__hr">`
+            document.querySelector(".list").innerHTML += transaction;
+        }
+        else{
+            let transaction = `<li class="list__item">
+                <p class="list__item--amount">+${json.amount}P</p>
+                <p class="list__item--from-to">${sender[0] + " " + sender[1]}</p>
+                <i class="fas fa-envelope list__item--message"></i>
+            </li>
+            <hr class="list__hr">`
+            document.querySelector(".list").insertAdjacentHTML('afterbegin', transaction) //insertAdjacentHTML('afterend', transaction);
+        }
+
+    }
+}
+
+function getUser(token){
+    const tokenParts = token.split('.');
+    const encodedPayload = tokenParts[1];
+    const rawPayload = atob(encodedPayload);// atob zet versleutelde data om te zetten naar leesbare tekst
+    const user = JSON.parse(rawPayload); // user uit token halen zonder dat je code nodig hebt.
+    return user;
+}
 
 function splitEmail(mail){
     if (mail == undefined || mail == null || mail == ""){

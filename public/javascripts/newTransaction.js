@@ -7,6 +7,14 @@ window.addEventListener("load", function(){
         window.location.replace("login.html");
     }
     else{
+        let primus = Primus.connect("/", {
+            reconnect: {
+                max: Infinity,
+                min: 500,
+                retries: 10
+            }
+        });
+
         let userInput = document.querySelector(".recipient");
         let possibleRecipient = document.querySelector(".recipientList");
         
@@ -86,8 +94,13 @@ window.addEventListener("load", function(){
                 return response.json();
             }).then(json => {
                 if(json.status === "Success"){
-                    //console.log("SUCCES - Transaction sent")
-                    clearForm();
+                    //console.log("SUCCES - Transaction sent");
+                    primus.write({
+                        "action": "add_transaction",
+                        "data": json
+                    });
+
+                    clearForm("reason");
                     window.location.replace("home.html");
                 }
                 
@@ -98,11 +111,20 @@ window.addEventListener("load", function(){
             })
         });
 
-        function clearForm(){
-            userInput.value = "";
-            document.querySelector(".amount").value = "";
-            document.querySelector(".custom-dropdown").value = "Reason";
-            document.querySelector(".message").value = "";
+        function clearForm(reason){
+            if(reason){
+                userInput.value = "";
+                document.querySelector(".amount").value = "";
+                document.querySelector(".custom-dropdown").value = "Reason";
+                document.querySelector(".message").value = "";
+            }
+            else{
+                userInput.value = "";
+                document.querySelector(".amount").value = "";
+                document.querySelector(".message").value = "";
+            }
+            
         }
+
     }
 });
