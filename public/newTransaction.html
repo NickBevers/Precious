@@ -45,8 +45,8 @@
             <textarea class="message form__textarea" name="message" class="message" placeholder="Message"></textarea>
 
             <div class="custom-checkbox">
-                <input class="custom-checkbox__input" type="checkbox" name="terms_conditions">
-                <label class="custom-checkbox__label" for="terms_conditions">Share on Discord/Slack</label>
+                <input class="custom-checkbox__input" type="checkbox" name="share_discord">
+                <label class="custom-checkbox__label" for="share_discord">Share on Discord/Slack</label>
             </div>
             
             <button class="button button--primary">Send coins</button>
@@ -56,15 +56,19 @@
         <!-- Bottom navigation -->
         <div class="nav">
             <!-- logout -->
+            <a href="login.html" class="nav__text">Sign out</a>
             <a href="login.html" class="nav__icon nav__icon-secondary signout"><i class="fas fa-sign-out-alt fa-2x"></i></a>
 
             <!-- homepage -->
+            <a href="home.html" class="nav__text">Home</a>
             <a href="home.html" class="nav__icon home"><i class="fas fa-home fa-2x"></i></a>
             
             <!-- leaderboard -->
+            <a href="leaderboard.html" class="nav__text">Leaderboard</a>
             <a href="leaderboard.html" class="nav__icon trophy"><i class="fa fa-trophy fa-2x"></i></a>
         </div>
     </div>
 </body>
+<script src="./javascripts/primus.js"></script>
 <script src="./javascripts/newTransaction.js"></script>
 </html>
