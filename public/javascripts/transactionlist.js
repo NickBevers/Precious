@@ -69,7 +69,7 @@ window.addEventListener("load", function(){
                                 </li>
                                 <hr class="list__hr">`
                                 document.querySelector(".list").innerHTML += transaction;
-                            }
+                            } 
                             else{
                                 let transaction = `<li class="list__item">
                                     <p class="list__item--amount--sent">-${element.amount}P</p>

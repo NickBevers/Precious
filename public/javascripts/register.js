@@ -45,7 +45,7 @@ let signup = document.querySelector(".button").addEventListener("click", functio
             },
             body: JSON.stringify({
                 "email": email
-            })
+            }) 
         }).then(response => {
             return response.json();
         }).then(json => {

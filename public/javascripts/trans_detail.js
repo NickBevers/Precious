@@ -21,7 +21,7 @@ window.addEventListener("load", function(){
         headers: {
             "Content-Type": "application/json",
             'Authorization': `Bearer ${tokencheck}`
-        }
+        } 
         }).then(response => {
             return response.json();
         }).then(json => {

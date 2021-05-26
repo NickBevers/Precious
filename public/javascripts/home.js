@@ -249,7 +249,7 @@ function splitEmail(mail){
         if(!name[1]){name[1] = " ";}
         
         return name
-    }
+    } 
 }
 
 let list = document.querySelector(".list");

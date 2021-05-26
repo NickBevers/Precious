@@ -13,7 +13,7 @@ window.addEventListener("load", function(){
                 'Authorization': `Bearer ${tokencheck}`
             }
             }).then(response => {
-                return response.json();
+                return response.json(); 
             }).then(json => {
                 if(json.status === "Success"){
                     leaderboardData = json.data;

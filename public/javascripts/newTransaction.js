@@ -22,7 +22,7 @@ window.addEventListener("load", function(){
         document.querySelector(".recipient").classList.remove("form__input--error");
         document.querySelector(".amount").classList.remove("form__input--error");
         document.querySelector(".custom-dropdown").classList.remove("form__input--error");
-        
+         
         const searchUser = async (textToSearch) => {
             possibleRecipient.innerHTML = "";
             let res = await fetch("/users/getdata", {

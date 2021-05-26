@@ -22,7 +22,7 @@ let login = document.querySelector(".button").addEventListener("click", function
             body: JSON.stringify({
                 "email": email,
                 "password": password
-            })
+            }) 
         }).then(response => {
             return response.json();
         }).then(json => {
