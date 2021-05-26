@@ -19,7 +19,6 @@
 ## TODO:
 - Layout op desktop maken
 - Deployment to heroku
-- Give user feedback to frontend - Sarah
 - Link Video met finale versie van de app (zie canvas)
 - check minify js files
 - Change nav on every html
@@ -27,12 +26,13 @@
 
 
 ## DONE:
-- Transactionliust nakijken -> recipient wordt als sender aangegeven - DONE
+- Transactionlist nakijken -> recipient wordt als sender aangegeven - DONE
 - Node-cron schedulling (ZIE DOCUMENT JORIS VOOR DATA) = EXTRA - DONE
 - Transaction controle (genoeg coins) - Nick - DONE
 - Primus toevoegen (inkomende transacties op home.html && transactionlist.html) - DONE
 - Autocompletion - Nick - DONE
 - Cursor op pointer bij buttons - Sarah DONE
+- Give user feedback to frontend - Sarah DONE
 
 
 
@@ -51,7 +51,7 @@ Ook met Gulp wordt er gebruik gemaakt van een script: npm run gulp.
 Zo kan de gulp module bij iedereen gevonden worden en makkelijk gebruikt worden in de commandline.
 
 
-## Passwords {firstname lastname; email; password}
+## Passwords {firstname, lastname, email, password}
 - Gandalf-account: {Gandalf The Grey; gandalf.thegray@middle-earth.be; Mithrandir}
 - Gandalf-gmail: {gandalf.precious@gmail.com; Mithrandir}
 - User.three@student.thomasmore.be; test
