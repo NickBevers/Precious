@@ -49,4 +49,4 @@ Zo kan de gulp module bij iedereen gevonden worden en makkelijk gebruikt worden 
 ## Passwords {firstanem lastname; email; password}
 - Gandalf-account: {Gandalf The Grey; gandalf.thegray@middle-earth.be; Mithrandir}
 - Gandalf-gmail: {gandalf.precious@gmail.com; Mithrandir}
-- User.three@student.thoamsmore.be; test
+- User.three@student.thomasmore.be; test
