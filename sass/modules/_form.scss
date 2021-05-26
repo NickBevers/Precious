@@ -95,6 +95,10 @@
     display: none;
 }
 
+.form__input--error{
+    background-color: $color--secondary;
+}
+
 @media (min-width: 1080px){
     .form__container{
         display: block;
