@@ -210,7 +210,7 @@ function addTransaction(trans){
                 <p class="list__item--message" style="cursor:default"> </p>
             </li>
             <hr class="list__hr">`
-            document.querySelector(".transList").innerHTML += transaction;
+            document.querySelector(".list").innerHTML += transaction;
         }
         else{
             let transaction = `<li class="list__item">
