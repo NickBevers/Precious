@@ -11,7 +11,10 @@ window.addEventListener("load", function(){
         let possibleRecipient = document.querySelector(".recipientList");
         
         clearForm();
-
+        document.querySelector(".recipient").classList.remove("form__input--error");
+        document.querySelector(".amount").classList.remove("form__input--error");
+        document.querySelector(".custom-dropdown").classList.remove("form__input--error");
+        
         const searchUser = async (textToSearch) => {
             possibleRecipient.innerHTML = "";
             let res = await fetch("/users/getdata", {
@@ -58,19 +61,29 @@ window.addEventListener("load", function(){
             searchUser(userInput.value);
         });
 
-        document.querySelector(".button").addEventListener("click", async () => {
+        document.querySelector(".button").addEventListener("click", async (event) => {
+            event.preventDefault();
             let amount = document.querySelector(".amount").value;
             let reason = document.querySelector(".custom-dropdown").value;
             let message = document.querySelector(".message").value;
             let tokencheck = localStorage.getItem("token");
-
-            if (recipient == undefined || recipient == null || amount == undefined || reason == undefined || reason == ""){
+            
+            console.log(reason);
+            
+            if (recipient == undefined || recipient == null){
+                document.querySelector(".recipient").classList.add("form__input--error");
+            } 
+            if(amount == undefined|| amount == null || amount === ""){
+                document.querySelector(".amount").classList.add("form__input--error");
+            } 
+            if(reason == undefined || reason == null || reason === ""){
+                document.querySelector(".custom-dropdown").classList.add("form__input--error");
                 // Message with "Please fill in all fields (message is optional)"
                 this.alert("Fill in everything")
-            }
-
-            
-            fetch("/api/v1/transfers", {
+                console.log(reason);
+            }            
+            else {
+                fetch("/api/v1/transfers", {
                 method: "post",
                 headers: {
                     'Content-Type': 'application/json',
@@ -82,27 +95,35 @@ window.addEventListener("load", function(){
                     "reason": reason,
                     "message": message
                 })
-            }).then(response => {
-                return response.json();
-            }).then(json => {
-                if(json.status === "Success"){
-                    //console.log("SUCCES - Transaction sent")
-                    clearForm();
-                    window.location.replace("home.html");
-                }
-                
-                if(json.status === "Error"){
-                    //console.log(`${json.message}`)
-                }
+                }).then(response => {
+                    return response.json();
+                }).then(json => {
+                    if(json.status === "Success"){
+                        //console.log("SUCCES - Transaction sent")
+                        clearForm("hi");
+                        window.location.replace("home.html");
+                    }
+                    
+                    if(json.status === "Error"){
+                        //console.log(`${json.message}`)
+                    }
 
-            })
+                });
+            }
         });
 
-        function clearForm(){
-            userInput.value = "";
-            document.querySelector(".amount").value = "";
-            document.querySelector(".custom-dropdown").value = "Reason";
-            document.querySelector(".message").value = "";
+        function clearForm(reason){
+            if(reason){
+                userInput.value = "";
+                document.querySelector(".amount").value = "";
+                document.querySelector(".custom-dropdown").value = "Reason";
+                document.querySelector(".message").value = "";
+            }
+            else{
+                userInput.value = "";
+                document.querySelector(".amount").value = "";
+                document.querySelector(".message").value = "";
+            }
         }
     }
 });
