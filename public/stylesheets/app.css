@@ -489,7 +489,8 @@
 
   .coins {
     grid-row: 3/span 1;
-    grid-column: 3/span 1;
+    grid-column: 2/span 3;
+    text-align: center;
     margin-top: 0;
   }
 }
