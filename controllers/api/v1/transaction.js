@@ -17,11 +17,58 @@ cron.schedule('0 0 13 1 Sep * ', () => {
   timezone: "Europe/Brussels"
 });
 
+
+// give users their coins back on the first of each month
+cron.schedule('0 0 8 1 * *', () => {
+    User.find({}, {email: 1, coinsTransferred: 1}, (err, doc) => {
+        if(!err){
+            doc.forEach(u => {
+                User.updateOne({email: u.email}, {$and: [{$inc: {coins: u.coinsTransferred}}, {coinsTransferred: 0}]})
+            })
+        }
+    })
+}, {
+    scheduled: true,
+    timezone: "Europe/Brussels"
+});
+
+
 // give coins on specific dates
+// test
+cron.schedule('0 15 13 24 May *', () => {
+    specialTransfer(1, "BONUS FEATURE WORKS");
+}, {
+    scheduled: true,
+    timezone: "Europe/Brussels"
+});
+
+// give coins on march 31 -> international backup day
+cron.schedule('0 0 8 3 Jan *', () => {
+    specialTransfer(40, "The birthday of J.R.R. Tolkien");
+}, {
+    scheduled: true,
+    timezone: "Europe/Brussels"
+});
 
 // give coins on march 31 -> international backup day
 cron.schedule('0 0 8 31 March *', () => {
     specialTransfer(20, "International backup day. Don't forget to backup your files");
+}, {
+    scheduled: true,
+    timezone: "Europe/Brussels"
+});
+
+// give coins on may 17 -> release nodejs 2009
+cron.schedule('0 0 8 17 May *', () => {
+    specialTransfer(10, "Nodejs was released on this day in 2009. Praise the developers");
+}, {
+    scheduled: true,
+    timezone: "Europe/Brussels"
+});
+
+// give coins on may 25 -> release nodejs 2009
+cron.schedule('0 0 8 25 May *', () => {
+    specialTransfer(15, "Geek pride day. Be proud of who you are");
 }, {
     scheduled: true,
     timezone: "Europe/Brussels"
@@ -82,12 +129,13 @@ function newTransaction(req, res){
     let transaction = new Transaction();
     let user = getUser(req.headers.authorization);
     let amount = req.body.amount;
-    let recipient = req.body.recipient
+    let recipient = req.body.recipient;
+    let reason = req.body.reason;
 
     transaction.recipient = recipient;
     transaction.sender = user.email;
     transaction.amount = amount;
-    transaction.reason = req.body.reason;
+    transaction.reason = reason;
     transaction.message = req.body.message;
     // transaction.date = new Date().toUTCString(); // leesbare string vr jj-mm-dd-uu-minmin-secsec
 
@@ -123,21 +171,41 @@ function newTransaction(req, res){
                                 }
 
                                 if(!err){
-                                    User.findOneAndUpdate({email: recipient}, {$inc: {coins: tempAmount}}, {returnNewDocument: true, useFindAndModify: false}, (err, doc) =>{
-                                        if(err){
-                                            res.json({
-                                                status: "Error",
-                                                message: "The transaction could not be sent - Update failed"
-                                            })
-                                        }
-        
-                                        if(!err){
-                                            res.json({
-                                                status: "Success",
-                                                message: "Transaction sent succesfully"
-                                            })
-                                        }
-                                    })
+                                    if(reason == "Buying IMD Swag"){
+                                        User.findOneAndUpdate({email: recipient}, {$inc: {coins: tempAmount}}, {returnNewDocument: true, useFindAndModify: false}, (err, doc) =>{
+                                            if(err){
+                                                res.json({
+                                                    status: "Error",
+                                                    message: "The transaction could not be sent - Update failed"
+                                                })
+                                            }
+            
+                                            if(!err){
+                                                res.json({
+                                                    status: "Success",
+                                                    message: "Transaction sent succesfully"
+                                                })
+                                            }
+                                        })
+                                    }
+
+                                    else{
+                                        User.findOneAndUpdate({email: recipient}, {$inc: {coinsTransferred: tempAmount}}, {returnNewDocument: true, useFindAndModify: false, upsert: true}, (err, doc) =>{
+                                            if(err){
+                                                res.json({
+                                                    status: "Error",
+                                                    message: "The transaction could not be sent - Update failed"
+                                                })
+                                            }
+            
+                                            if(!err){
+                                                res.json({
+                                                    status: "Success",
+                                                    message: "Transaction sent succesfully"
+                                                })
+                                            }
+                                        })
+                                    }
                                 }
                             })
                             
@@ -264,15 +332,14 @@ function specialTransfer(amount, message){
                 }
 
                 if(!err){
-                    res.json({
-                        status: "Success",
-                        message: "Transaction sent succesfully"
-                    })
+                    console.log("Success");
                 }
             })
         }
     })
 }
+
+
 
 function getUser(token){
     const tokenParts = token.split('.');
