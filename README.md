@@ -5,8 +5,9 @@
 - Deployment to heroku
 - Link Video met finale versie van de app (zie canvas)
 - check minify js files
-- Change nav on every html
 - Aanmaken account voor Joris
+- Accounts precious opschonen
+- Accounts van characters aanmaken
 
 
 
@@ -31,6 +32,7 @@
 - Autocompletion - Nick - DONE
 - Cursor op pointer bij buttons - Sarah DONE
 - Give user feedback to frontend - Sarah DONE
+- Change nav on every html - DONE
 
 
 
@@ -54,4 +56,5 @@ Zo kan de gulp module bij iedereen gevonden worden en makkelijk gebruikt worden 
 ## Passwords {firstname, lastname, email, password}
 - Gandalf-account: {Gandalf The Grey; gandalf.thegray@middle-earth.be; Mithrandir}
 - Gandalf-gmail: {gandalf.precious@gmail.com; Mithrandir}
+- User2 account: {User Two; user.two@student.thoamsmore.be; user2}
 - User.three@student.thomasmore.be; test
