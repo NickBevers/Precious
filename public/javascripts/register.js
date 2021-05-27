@@ -5,11 +5,10 @@ let signup = document.querySelector(".button").addEventListener("click", functio
     let password = document.querySelector(".password").value;
     let confirmpassword = document.querySelector(".confirmpassword").value;
 
-    let emailrestriction = email.indexOf("@student.thomasmore.be");
+    let regex = /[A-Za-z\.]+@(student\.thomasmore\.be)/g;
+    let result = email.match(regex);
+    
     let checkbox = document.querySelector(".custom-checkbox__input");
-
-    // let form = document.querySelector(".form__input");
-    //regex check for email -> not r-mail but full name
 
     document.querySelector(".firstname").classList.remove("form__input--error");
     document.querySelector(".lastname").classList.remove("form__input--error");
@@ -24,7 +23,7 @@ let signup = document.querySelector(".button").addEventListener("click", functio
     else if(lastname === ""){
         document.querySelector(".lastname").classList.add("form__input--error");
     }
-    else if(emailrestriction === -1 || email === " "){
+    else if(!result){
         console.log("Incorrect email");
         document.querySelector(".email").classList.add("form__input--error");
     }
