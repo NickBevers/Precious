@@ -147,4 +147,14 @@
         margin-top: -15px;
         width: calc((100vw / 12)*2.4);
     }
+
+    .form--small{
+        grid-row: 5 / span 6;
+        grid-column: 5 / span 3;
+    }
+
+    .form--medium{
+        grid-row: 5 / span 7;
+        grid-column: 5 / span 3;
+    }
 } 
