@@ -94,8 +94,9 @@ window.addEventListener("load", function(){
             if(reason == undefined || reason == null || reason === ""){
                 document.querySelector(".custom-dropdown").classList.add("form__input--error");
                 // Message with "Please fill in all fields (message is optional)"
-                this.alert("Fill in everything")
-                console.log(reason);
+                // this.alert("Fill in everything")
+                // console.log(reason);
+                return
             }            
             else {
                 fetch("/api/v1/transfers", {

@@ -90,6 +90,11 @@ window.addEventListener("load", function(){
         let userInput = document.querySelector(".recipient");
         let possibleRecipient = document.querySelector(".recipientList");
 
+        clearForm();
+        document.querySelector(".recipient").classList.remove("form__input--error");
+        document.querySelector(".amount").classList.remove("form__input--error");
+        document.querySelector(".custom-dropdown").classList.remove("form__input--error");
+
         const searchUser = async (textToSearch) => {
             possibleRecipient.innerHTML = "";
             let res = await fetch("/users/getdata", {
@@ -142,53 +147,89 @@ window.addEventListener("load", function(){
             let message = document.querySelector(".message").value;
             let tokencheck = localStorage.getItem("token");
 
-            if (recipient == undefined || recipient == null || amount == undefined || reason == undefined || reason == ""){
-                // Message with "Please fill in all fields (message is optional)"
-                this.alert("Fill in everything");
+            if(userInput.value == undefined || userInput.value == null || userInput.value == ""){
+                document.querySelector(".recipient").classList.add("form__input--error");
                 return
             }
-
-            
-            fetch("/api/v1/transfers", {
-                method: "post",
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${tokencheck}`
-                },
-                body: JSON.stringify({
-                    "recipient": recipient,
-                    "amount": amount,
-                    "reason": reason,
-                    "message": message
-                })
-            }).then(response => {
-                return response.json();
-            }).then(json => {
-                console.log(json);
-                if(json.status === "Success"){
-                    
-                    primus.write({
-                        "action": "add_transaction",
-                        "data": json
+            if (recipient == undefined || recipient == null || recipient == ""){
+                document.querySelector(".recipient").classList.add("form__input--error");
+                return
+            } 
+            if(amount == undefined|| amount == null || amount === ""){
+                document.querySelector(".amount").classList.add("form__input--error");
+            } 
+            if(reason == undefined || reason == null || reason === ""){
+                document.querySelector(".custom-dropdown").classList.add("form__input--error");
+                this.setTimeout(()=>{
+                    document.querySelector(".custom-dropdown").classList.remove("form__input--error");
+                }, 2000)
+                // Message with "Please fill in all fields (message is optional)"
+                // this.alert("Fill in everything")
+                // console.log(reason);
+                return
+            }
+            else{
+                fetch("/api/v1/transfers", {
+                    method: "post",
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${tokencheck}`
+                    },
+                    body: JSON.stringify({
+                        "recipient": recipient,
+                        "amount": amount,
+                        "reason": reason,
+                        "message": message
                     })
+                }).then(response => {
+                    return response.json();
+                }).then(json => {
+                    console.log(json);
+                    if(json.status === "Success"){
+                        
+                        primus.write({
+                            "action": "add_transaction",
+                            "data": json
+                        })
+    
+                        clearForm("hi");
+                        window.location.replace("home.html");
+                    }
+                    
+                    if(json.status === "Error"){
+                        //console.log(`${json.message}`)
+                        document.querySelector(".amount").classList.add("form__input--error");
+                        document.querySelector(".amount").insertAdjacentHTML("beforebegin",`<p class="errormes">${json.message}</p>`);
+                        this.setTimeout(()=>{
+                            document.querySelector(".errormes").remove();
+                            document.querySelector(".amount").classList.remove("form__input--error");
+                        }, 5000)
+                    }
+    
+                })
 
-                    clearForm();
-                    window.location.replace("home.html");
+                function clearForm(reason){
+                    if(reason){
+                        userInput.value = "";
+                        document.querySelector(".amount").value = "";
+                        document.querySelector(".custom-dropdown").value = "Reason";
+                        document.querySelector(".message").value = "";
+                    }
+                    else{
+                        userInput.value = "";
+                        document.querySelector(".amount").value = "";
+                        document.querySelector(".message").value = "";
+                    }
                 }
-                
-                if(json.status === "Error"){
-                    //console.log(`${json.message}`)
-                }
-
-            })
+            }
         });
         
 
-        function clearForm(reason){
-            if(reason){
+        function clearForm(a){
+            if(a){
                 userInput.value = "";
                 document.querySelector(".amount").value = "";
-                document.querySelector(".custom-dropdown").value = "Reason";
+                document.querySelector(".custom-dropdown").value = "";
                 document.querySelector(".message").value = "";
             }
             else{
