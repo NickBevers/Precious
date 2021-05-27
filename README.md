@@ -54,7 +54,7 @@ Zo kan de gulp module bij iedereen gevonden worden en makkelijk gebruikt worden 
 
 
 ## Accounts {firstname, lastname, email, password}
-- Gandalf-account: {Gandalf The Grey; gandalf.thegray@middle-earth.be; Mithrandir}
-- Gandalf-gmail: {gandalf.precious@gmail.com; Mithrandir}
+- Gandalf-account: Gandalf The Grey; gandalf.thegray@middle-earth.be; Mithrandir
+- Gandalf-gmail: gandalf.precious@gmail.com; Mithrandir
 - Bilbo Baggins; bilbo.baggins@student.thomasmore.be; Bilbo123
-- Thorin Oakenshield; thorin.oakenshield@student.thomasmore.be; Thorin123
+- Thorin Oakenshield; thorin.oakenshield@student.thomasmore.be; Thorin123 
