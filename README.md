@@ -5,7 +5,6 @@
 - Deployment to heroku
 - Link Video met finale versie van de app (zie canvas)
 - check minify js files
-- Aanmaken account voor Joris
 - Accounts precious opschonen
 - Accounts van characters aanmaken
 
@@ -33,6 +32,7 @@
 - Cursor op pointer bij buttons - Sarah DONE
 - Give user feedback to frontend - Sarah DONE
 - Change nav on every html - DONE
+- Aanmaken account voor Joris - DONE
 
 
 
