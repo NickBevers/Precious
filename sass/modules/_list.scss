@@ -99,7 +99,11 @@
         width: 100%;
         height: 100%;
         grid-column: 7 / span 4;
-        grid-row: 4 / span 6;
+        grid-row: 3 / span 7;
+    }
+
+    .list--standard{
+        height: calc(59px*10);
     }
 
     .list__item--amount, .list__item--amount--sent{
@@ -112,3 +116,10 @@
         grid-row: 5 / span 1;
     }
 } 
+
+
+@media(min-height: 1100px){
+    .list--standard{
+        height: calc(59px*12);
+    }
+}

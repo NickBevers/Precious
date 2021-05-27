@@ -111,18 +111,6 @@
     }
 
     .moreTransactions{
-        position: relative;
-        left: 0;
-        top: 0;
-        padding: 0;
-        width: 60%;
-        height: 60%;
-        margin-left: 40%;
-        margin-top: 20%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        grid-column: 10 / span 1;
-        grid-row: 3 / span 1;
+        display: none;
     }
 } 
