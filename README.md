@@ -1,7 +1,6 @@
 # Jobs to do:
 
 ## TODO:
-- Layout op desktop maken
 - Deployment to heroku
 - Link Video met finale versie van de app (zie canvas)
 - check minify js files
@@ -33,6 +32,7 @@
 - Give user feedback to frontend - Sarah DONE
 - Change nav on every html - DONE
 - Aanmaken account voor Joris - DONE
+- Layout op desktop maken - DONE
 
 
 
@@ -53,8 +53,7 @@ Ook met Gulp wordt er gebruik gemaakt van een script: npm run gulp.
 Zo kan de gulp module bij iedereen gevonden worden en makkelijk gebruikt worden in de commandline.
 
 
-## Passwords {firstname, lastname, email, password}
+## Accounts {firstname, lastname, email, password}
 - Gandalf-account: {Gandalf The Grey; gandalf.thegray@middle-earth.be; Mithrandir}
 - Gandalf-gmail: {gandalf.precious@gmail.com; Mithrandir}
-- User2 account: {User Two; user.two@student.thoamsmore.be; user2}
-- User.three@student.thomasmore.be; test
+- Bilbo Baggins; bilbo.baggins@student.thomasmore.be; Bilbo123
