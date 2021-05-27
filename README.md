@@ -4,8 +4,6 @@
 - Deployment to heroku
 - Link Video met finale versie van de app (zie canvas)
 - check minify js files
-- Accounts precious opschonen
-- Accounts van characters aanmaken
 
 
 
@@ -33,6 +31,8 @@
 - Change nav on every html - DONE
 - Aanmaken account voor Joris - DONE
 - Layout op desktop maken - DONE
+- Accounts precious opschonen - DONE
+- Accounts van characters aanmaken - DONE
 
 
 
