@@ -148,3 +148,7 @@ list.addEventListener("click", (e) => {
         window.location.replace("trans_detail.html");
     }
 });
+
+function signout(){
+    localStorage.removeItem("token");
+}

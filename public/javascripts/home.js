@@ -269,3 +269,7 @@ function getUser(token){
     const user = JSON.parse(rawPayload); // user uit token halen zonder dat je code nodig hebt.
     return user;
 }
+
+function signout(){
+    localStorage.removeItem("token");
+}

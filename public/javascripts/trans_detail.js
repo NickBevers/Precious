@@ -53,4 +53,6 @@ window.addEventListener("load", function(){
     }
 });
 
-
+function signout(){
+    localStorage.removeItem("token");
+}
