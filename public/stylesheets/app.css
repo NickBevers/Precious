@@ -31,7 +31,7 @@
 @media (min-width: 1080px) {
   .logo {
     position: absolute;
-    top: -2.5px;
+    top: 5px;
     left: 20px;
     width: 20%;
   }
@@ -131,14 +131,41 @@
   display: none;
 }
 
+.recipientList {
+  background-color: #b0a7ff;
+  visibility: hidden;
+  position: absolute;
+  z-index: 5;
+  top: 195px;
+  width: calc(400px *0.8);
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.recipientList__item {
+  width: 100%;
+  height: 32px;
+  font-size: 20px;
+  box-sizing: border-box;
+  padding-top: 6px;
+  text-align: center;
+  cursor: pointer;
+}
+
 .form__input--error {
   background-color: #FF7446;
+}
+
+.errormes {
+  font-family: "Lato", sans-serif;
+  font-size: 20px;
 }
 
 @media (min-width: 1080px) {
   .form__container {
     display: block;
-    grid-row: 4/span 7;
+    grid-row: 5/span 7;
     grid-column: 2/span 3;
   }
 
@@ -148,6 +175,13 @@
 
   .moreTransactions {
     display: none;
+  }
+
+  .recipientList {
+    position: absolute;
+    top: calc((100vh / 12)* 5);
+    margin-top: -15px;
+    width: calc((100vw / 12)*2.4);
   }
 }
 .list {
@@ -222,26 +256,8 @@
   padding-left: 5%;
 }
 
-.recipientList {
-  background-color: #b0a7ff;
-  visibility: hidden;
-  position: absolute;
-  z-index: 5;
-  top: 195px;
-  width: calc(400px *0.8);
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-}
-
-.recipientList__item {
-  width: 100%;
-  height: 32px;
-  font-size: 20px;
-  box-sizing: border-box;
-  padding-top: 6px;
-  text-align: center;
-  cursor: pointer;
+.title {
+  display: none;
 }
 
 @media (min-width: 1080px) {
@@ -249,21 +265,33 @@
     width: 100%;
     height: 100%;
     grid-column: 7/span 4;
-    grid-row: 3/span 7;
+    grid-row: 4/span 7;
   }
 
   .list--standard {
     height: calc(59px*10);
   }
 
+  .list--large {
+    grid-column: 5/span 4;
+    height: calc((59px*12) - 5px);
+  }
+
   .list__item--amount, .list__item--amount--sent {
     padding-left: 20px;
   }
 
-  .recipientList {
-    top: calc((100vh / 12)*4 - 15px);
-    width: calc((100vw / 12)*2.4 + 2px);
-    grid-row: 5/span 1;
+  .title {
+    display: block;
+    grid-row: 3/span 1;
+    grid-column: 5/span 4;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 42px;
+    font-weight: bold;
+    font-family: "Lato", sans-serif;
+    margin-top: calc((100vh/12) * 0.25);
+    color: #3A0CA3;
   }
 }
 @media (min-height: 1100px) {
@@ -353,6 +381,10 @@
   color: #3A0CA3;
   margin-left: auto;
   margin-right: auto;
+}
+
+.custom-dropdown.form__input--error {
+  background-color: #FF7446;
 }
 
 .button {
