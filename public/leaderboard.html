@@ -16,9 +16,9 @@
     <div class="container">
         <div class="translistgrid">
             <!-- Logo -->
-            <!-- <div class="logo"> -->
-                <img src="./assets/logo.png" alt="Precious Coin" class="logo__vector--medium"> <!--logo__vector--small-->
-            <!-- </div>         -->
+            <div class="logo">
+                <img src="./assets/logo.png" alt="Precious Coin" class="logo__vector--small">
+            </div>         
 
             <!-- Send coins -> new transaction -->
             <button class="button button--primary button--secondary" >Send Coins</button> <!--href="./newTransaction.html" -->
@@ -30,81 +30,21 @@
                 <p class="list__item--amount">+5P</p>
                 <p class="list__item--from-to">Gollum</p>
             </li>
-            <hr class="list__hr">
-
-            <li class="list__item">
-                <p class="list__item--ranking">2</p>
-                <p class="list__item--amount">+5P</p>
-                <p class="list__item--from-to">Gollum</p>
-            </li>
-            <hr class="list__hr">
-
-            <li class="list__item">
-                <p class="list__item--ranking">3</p>
-                <p class="list__item--amount">+5P</p>
-                <p class="list__item--from-to">Gollum</p>
-            </li>
-            <hr class="list__hr">
-
-            <li class="list__item">
-                <p class="list__item--ranking">4</p>
-                <p class="list__item--amount">+5P</p>
-                <p class="list__item--from-to">Gollum</p>
-            </li>
-            <hr class="list__hr">
-
-            <li class="list__item">
-                <p class="list__item--ranking">5</p>
-                <p class="list__item--amount">+5P</p>
-                <p class="list__item--from-to">Gollum</p>
-            </li>
-            <hr class="list__hr">
-
-            <li class="list__item">
-                <p class="list__item--ranking">6</p>
-                <p class="list__item--amount">+5P</p>
-                <p class="list__item--from-to">Gollum</p>
-            </li>
-            <hr class="list__hr">
-
-            <li class="list__item">
-                <p class="list__item--ranking">7</p>
-                <p class="list__item--amount">+5P</p>
-                <p class="list__item--from-to">Gollum</p>
-            </li>
-            <hr class="list__hr">
-
-            <li class="list__item">
-                <p class="list__item--ranking">8</p>
-                <p class="list__item--amount">+5P</p>
-                <p class="list__item--from-to">Gollum</p>
-            </li>
-            <hr class="list__hr">
-
-            <li class="list__item">
-                <p class="list__item--ranking">9</p>
-                <p class="list__item--amount">+5P</p>
-                <p class="list__item--from-to">Gollum</p>
-            </li>
-            <hr class="list__hr">
-
-            <li class="list__item">
-                <p class="list__item--ranking">10</p>
-                <p class="list__item--amount">+5P</p>
-                <p class="list__item--from-to">Gollum</p>
-            </li>
-            <hr class="list__hr"> -->
+            <hr class="list__hr"> -->            
         </ul>
 
         <!-- Bottom navigation -->
         <div class="nav">
             <!-- logout -->
-            <a href="login.html" class="nav__icon nav__icon-secondary signout"><i class="fas fa-sign-out-alt fa-2x"></i></a>
+            <a href="login.html" class="nav__text" onclick="signout()">Sign out</a>
+            <a href="login.html" class="nav__icon nav__icon-secondary signout" onclick="signout()"><i class="fas fa-sign-out-alt fa-2x"></i></a>
 
             <!-- homepage -->
+            <a href="home.html" class="nav__text">Home</a>
             <a href="home.html" class="nav__icon home"><i class="fas fa-home fa-2x"></i></a>
             
             <!-- leaderboard -->
+            <a href="leaderboard.html" class="nav__text">Leaderboard</a>
             <a href="leaderboard.html" class="nav__icon trophy"><i class="fa fa-trophy fa-2x"></i></a>
         </div>
     </div>
