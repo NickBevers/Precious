@@ -3,7 +3,15 @@ const User = require("../../../models/Users");
 const jwt = require("jsonwebtoken");
 const mongoose = require('mongoose');
 const config = require("config");
-const atob = require('atob');
+const nodemailer = require('nodemailer');
+
+const transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+      user: process.env.gmail_user || config.get("gmail.gmail_user"),
+      pass: process.env.gmail_password || config.get("gmail.gmail_password"),
+    },
+});
 
 const emailauth = (req, res, next) => {
     let emaildb = req.body.email;
@@ -31,19 +39,10 @@ const emailauth = (req, res, next) => {
                 })
             }
         }
-    });
-    
+    });   
 }
 
 const postsignup = async (req, res, next) => {
-    //signup
-    //username uit request halen
-    //password uit request halen
-    //email uit request halen?
-    //bcrypt encrypt
-    //databank
-    console.log(req.body);
-
     let firstname = req.body.firstname;
     let lastname = req.body.lastname;
     let email = req.body.email;
@@ -53,13 +52,17 @@ const postsignup = async (req, res, next) => {
     const user = new User({firstname: firstname, lastname: lastname, email: email, coins: coins}); 
     await user.setPassword(password);
     await user.save().then(result =>{
-        // console.log(result._id);
-        console.log(result.email);
-
         let token = jwt.sign({
             // uid: result._id,
             email: result.email
         }, process.env.jwtsecret || config.get("jwt.secret"));
+
+        const url = `https://precious-coins.herokuapp.com/users/confirmation/${token}`;
+        transporter.sendMail({
+            to: result.email,
+            subject: 'Confirm Precious account',
+            html: `Please click this email to confirm your email: <a href="${url}" target="_blank">${url}</a>`,
+        });
 
         res.json({
             "status": "Success",
@@ -72,7 +75,6 @@ const postsignup = async (req, res, next) => {
             "status": "Error",
             "message": error
         })
-        console.log(error);
     });
 }
 
@@ -126,8 +128,21 @@ function getAllUsers(req, res){
     })
 }
 
+async function confirmUser(req, res){
+    try{
+        const user = jwt.verify(req.params.token, process.env.jwtsecret || config.get("jwt.secret"));
+        console.log(user);
+        await User.findOneAndUpdate({email:`${user.email}`}, {isVerified: true});
+    }
+    catch (e){
+        console.log("Error: " + e);
+    }
+    return res.redirect('https://precious-coins.herokuapp.com/login.html');
+}
+
 
 module.exports.postsignup = postsignup;
 module.exports.postlogin = postlogin;
 module.exports.emailauth = emailauth;
 module.exports.getAllUsers = getAllUsers;
+module.exports.confirmUser = confirmUser;

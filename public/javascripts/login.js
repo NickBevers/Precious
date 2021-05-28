@@ -31,6 +31,10 @@ let login = document.querySelector(".button").addEventListener("click", function
                 localStorage.setItem("token", token);
                 window.location.replace("home.html"); //route naar home pages
             }
+
+            if(json.status == "NotVerified"){
+                alert(`${json.message}`);
+            }
         })
     }
     
