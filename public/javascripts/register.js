@@ -74,6 +74,10 @@ let signup = document.querySelector(".button").addEventListener("click", functio
                         alert("please confirm your email");
                         // window.location.replace("home.html"); // deze locatie waarschijnlijk nog aanpassen
                     }
+
+                    if(answer.status == "Error"){
+                        alert(`Could not register u, please try again`);
+                    }
                 })
             }
         })       

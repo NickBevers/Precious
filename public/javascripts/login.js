@@ -38,6 +38,7 @@ let login = document.querySelector(".button").addEventListener("click", function
 
             if(json.status == "Error"){
                 console.log(json.message);
+                alert(`${json.message}`);
             }
         })
     }
