@@ -19,7 +19,7 @@ window.addEventListener("load", function(){
         if(document.querySelector(".custom-checkbox__input").checked){
             console.log("CHECKED");
 
-            let bot_token = "xoxb-2126898775153-2107515768182-bZ6S9YHIBXAQKxig2rAG3uLi";
+            let bot_token = "xoxb-2126898775153-2107515768182-lbFjw7KuJaq0ec54jtCXQecn";
 
             const payload = {
                 "blocks": [
@@ -44,7 +44,7 @@ window.addEventListener("load", function(){
                         'Accept': 'application/json',
                         "Content-Type": "application/json",
                         "Content-Length": payload.length,
-                        "Authorization": `Bearer xoxb-2126898775153-2107515768182-bZ6S9YHIBXAQKxig2rAG3uLi`,
+                        "Authorization": `Bearer ${bot_token}`,
                     },
                 }).then(res =>{
                     if(!res.ok){
