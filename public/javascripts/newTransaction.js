@@ -1,4 +1,5 @@
 let recipient;
+const SLACKTOKEN = "xoxb-2126898775153-2107515768182-QApgPncVIRcjJW2RchF6CMap";
 window.addEventListener("load", function(){
     let tokencheck = localStorage.getItem("token");
 
@@ -18,21 +19,15 @@ window.addEventListener("load", function(){
         console.log(this.document.querySelector(".custom-checkbox__input"))
         if(document.querySelector(".custom-checkbox__input").checked){
             console.log("CHECKED");
-
             const payload = {
-                "blocks": [
-                    {
-                        "type": "section",
-                        "text": {
-                            "type": "mrkdwn",
-                            "text": `NICK sent 20 coins to SARAH for NO REASON`
-                        }
-                    },
-                    {
-                        "type": "divider"
-                    }
-                ]
-            }
+                channel: "random-channel",
+                attachments: [{
+                    title: "My first Slack Message",
+                    text: "Random example message text",
+                    author_name: "try_bot",
+                    color: "#00FF00",
+                }],
+              };
             
             try{
                 fetch("https://slack.com/api/chat.postMessage", {
@@ -42,7 +37,7 @@ window.addEventListener("load", function(){
                         'Accept': 'application/json',
                         "Content-Type": "application/json",
                         "Content-Length": payload.length,
-                        "Authorization": `Bearer ${process.env.bot_token}`,
+                        "Authorization": `Bearer ${SLACKTOKEN}`,
                     },
                 }).then(res =>{
                     if(!res.ok){
