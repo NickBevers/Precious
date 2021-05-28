@@ -76,6 +76,7 @@ const postsignup = async (req, res, next) => {
             "status": "Error",
             "message": error
         })
+        console.log("Error: " + error);
     });
 }
 

@@ -35,6 +35,10 @@ let login = document.querySelector(".button").addEventListener("click", function
             if(json.status == "NotVerified"){
                 alert(`${json.message}`);
             }
+
+            if(json.status == "Error"){
+                console.log(json.message);
+            }
         })
     }
     
