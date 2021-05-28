@@ -58,3 +58,9 @@ Zo kan de gulp module bij iedereen gevonden worden en makkelijk gebruikt worden 
 - Gandalf-gmail: gandalf.precious@gmail.com; Mithrandir
 - Bilbo Baggins; bilbo.baggins@student.thomasmore.be; Bilbo123
 - Thorin Oakenshield; thorin.oakenshield@student.thomasmore.be; Thorin123 
+- Frodo Baggins; frodo.baggins@student.thomasmore.be; Ringbearer
+- Samwise Gamgee; samwise.gamgee@student.thomasmore.be; MrFrodo
+- Legolas Greenleaf; legolas.greenleaf@student.thomasmore.be; Legolas123
+- Gollum Sméagol; gollum.sméagol@student.thomasmore.be; MyPrecious
+- Gimli Son of Gloin; gimli.sonofgloin@student.thomasmore.be; Gimli123
+- Arwen Undómiel; arwen.undómiel@student.thomasmore.be; Evenstar
