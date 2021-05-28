@@ -590,6 +590,18 @@
   font-family: "Lato", sans-serif;
 }
 
+.container--secondary {
+  width: 400px;
+  height: 720px;
+  max-width: 400px;
+  max-height: 720px;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: repeat(12, 60px);
+  font-family: "Lato", sans-serif;
+  background-image: url("./../public/assets/Precious.jpg");
+}
+
 .coins {
   grid-row: 2/span 2;
   font-size: 5em;
