@@ -15,6 +15,47 @@ window.addEventListener("load", function(){
             }
         });
 
+        console.log(this.document.querySelector(".custom-checkbox__input"))
+        if(document.querySelector(".custom-checkbox__input").checked){
+            console.log("CHECKED");
+
+            let bot_token = "xoxb-2126898775153-2107515768182-bZ6S9YHIBXAQKxig2rAG3uLi";
+
+            const payload = {
+                "blocks": [
+                    {
+                        "type": "section",
+                        "text": {
+                            "type": "mrkdwn",
+                            "text": `NICK sent 20 coins to SARAH for NO REASON`
+                        }
+                    },
+                    {
+                        "type": "divider"
+                    }
+                ]
+            }
+            
+            try{
+                fetch("https://slack.com/api/chat.postMessage", {
+                    method: "POST",
+                    body: JSON.stringify(payload),
+                    headers: {
+                        'Accept': 'application/json',
+                        "Content-Type": "application/json",
+                        "Content-Length": payload.length,
+                        "Authorization": `Bearer xoxb-2126898775153-2107515768182-bZ6S9YHIBXAQKxig2rAG3uLi`,
+                    },
+                }).then(res =>{
+                    if(!res.ok){
+                        throw new Error(`SERVER ERROR ${res.status}`)
+                    }
+
+                    return res.json();
+                })
+            }catch(e){console.log("Error: " + e)}
+        }
+
         let userInput = document.querySelector(".recipient");
         let possibleRecipient = document.querySelector(".recipientList");
         
@@ -120,6 +161,37 @@ window.addEventListener("load", function(){
                             "action": "add_transaction",
                             "data": json
                         });
+
+                        // if(document.querySelector("custom-checkbox__input").checked){
+                        //     console.log("CHECKED");
+        
+                        //     const payload = {
+                        //         channel: "precious-coin",
+                        //         attachments: [
+                        //           {
+                        //             title: "New Transfer",
+                        //             text: `${json.sender} send ${json.amount} coins to ${json.recipient}. \nThe reason is: ${json.reason}`,
+                        //             author_name: "Gollum",
+                        //             color: "#00FF00",
+                        //           },
+                        //         ],
+                        //       };
+        
+                        //     fetch("https://hooks.slack.com/services/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", {
+                        //         method: "POST",
+                        //         body: JSON.stringify(payload),
+                        //         headers: {
+                        //           "Content-Type": "application/json; charset=utf-8",
+                        //           "Content-Length": payload.length,
+                        //           Authorization: `Bearer ${SLACK_BOT_TOKEN}`,
+                        //           Accept: "application/json",
+                        //         },
+                        //     })
+                            
+                        // }
+                        // else{
+                        //     console.log("NOOOOOOOO IT DOESN'T WORK")
+                        // }
                         
                         clearForm("hi");
                         window.location.replace("home.html");
