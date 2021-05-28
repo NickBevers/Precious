@@ -82,31 +82,39 @@ const postlogin = async (req, res, next) => {
     console.log("Gollum login?");
     console.log(req.body.email, req.body.password);
 
-    const user = await User.authenticate()(req.body.email, req.body.password).then(result => {
-
-        if(!result.user){
-            return res.json({
-                "status": "failed",
-                "message": "Login failed"
-            })
-        }
-        let token = jwt.sign({
-            // uid: result.user._id,
-            email: result.user.email
-        }, process.env.jwtsecret || config.get("jwt.secret"));
-        
+    const user = await User.findOne({email: req.body.email});
+    if (!user.isVerified){
         return res.json({
-            "status": "Success",
-            "data": {
-                "token": token
-            }
-        });
-    }).catch(error => {
-        res.json({
-            "status": "Error",
-            "message": error
+            status: "NotVerified",
+            message: "You have not verified your email. Please check your inbox and verify yourself"
         })
-    });
+    }
+    else{
+        await User.authenticate()(req.body.email, req.body.password).then(result => {
+            if(!result.user){
+                return res.json({
+                    "status": "failed",
+                    "message": "Login failed"
+                })
+            }
+            let token = jwt.sign({
+                // uid: result.user._id,
+                email: result.user.email
+            }, config.get("jwt.secret"));
+            
+            return res.json({
+                "status": "Success",
+                "data": {
+                    "token": token
+                }
+            });
+        }).catch(error => {
+            res.json({
+                "status": "Error",
+                "message": error
+            })
+        });
+    }
 } 
 
 function getAllUsers(req, res){
