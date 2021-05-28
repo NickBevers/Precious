@@ -127,37 +127,6 @@ window.addEventListener("load", function(){
                             "action": "add_transaction",
                             "data": json
                         });
-
-                        // if(document.querySelector("custom-checkbox__input").checked){
-                        //     console.log("CHECKED");
-        
-                        //     const payload = {
-                        //         channel: "precious-coin",
-                        //         attachments: [
-                        //           {
-                        //             title: "New Transfer",
-                        //             text: `${json.sender} send ${json.amount} coins to ${json.recipient}. \nThe reason is: ${json.reason}`,
-                        //             author_name: "Gollum",
-                        //             color: "#00FF00",
-                        //           },
-                        //         ],
-                        //       };
-        
-                        //     fetch("https://hooks.slack.com/services/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", {
-                        //         method: "POST",
-                        //         body: JSON.stringify(payload),
-                        //         headers: {
-                        //           "Content-Type": "application/json; charset=utf-8",
-                        //           "Content-Length": payload.length,
-                        //           Authorization: `Bearer ${SLACK_BOT_TOKEN}`,
-                        //           Accept: "application/json",
-                        //         },
-                        //     })
-                            
-                        // }
-                        // else{
-                        //     console.log("NOOOOOOOO IT DOESN'T WORK")
-                        // }
                         
                         clearForm("hi");
                         window.location.replace("home.html");

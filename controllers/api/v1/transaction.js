@@ -3,8 +3,9 @@ const Transaction = require('../../../models/Transactions');
 const atob = require('atob');
 const ObjectId = require('mongodb').ObjectId;
 const User = require("../../../models/Users");
-const request = require('request');
+const request = require('request-promise');
 var cron = require('node-cron');
+const hook = "T023QSENT4H/B023D804DUK/KuGr6mtvpEq4z3gtTCQ2wla8";
 
 // give coins on september 1 at 11 o' clock (programmer's day): 
 // Each users gets coins until they have 100
@@ -202,12 +203,22 @@ function newTransaction(req, res){
     let amount = req.body.amount;
     let recipient = req.body.recipient;
     let reason = req.body.reason;
+    let message = req.body.message;
+    let slack = req.body.slack;
+
+    let send = user.email.split('@')[0];
+    let recieve = recipient.split('@')[0];
+
+    let sfn = send.split('.')[0];
+    let sln = send.split('.')[1];
+    let rfn = recieve.split('.')[0];
+    let rln = recieve.split('.')[1];
 
     transaction.recipient = recipient;
     transaction.sender = user.email;
     transaction.amount = amount;
     transaction.reason = reason;
-    transaction.message = req.body.message;
+    transaction.message = message;
     // transaction.date = new Date().toUTCString(); // leesbare string vr jj-mm-dd-uu-minmin-secsec
 
     User.findOne({email: user.email}, {"coins": 1}, (err, doc) => {
@@ -243,7 +254,7 @@ function newTransaction(req, res){
 
                                 if(!err){
                                     if(reason == "Buying IMD Swag"){
-                                        User.findOneAndUpdate({email: recipient}, {$inc: {coins: tempAmount}}, {returnNewDocument: true, useFindAndModify: false}, (err) =>{
+                                        User.findOneAndUpdate({email: recipient}, {$inc: {coins: tempAmount}}, {returnNewDocument: true, useFindAndModify: false}, async (err) =>{
                                             if(err){
                                                 res.json({
                                                     status: "Error",
@@ -252,7 +263,9 @@ function newTransaction(req, res){
                                             }
             
                                             if(!err){
-                                                await sendSlackMessage();
+                                                if(reason == 'other'){reason = message}
+                                                if(slack){await sendSlackMessage(sfn, sln, amount, rfn, rln, reason);}
+                                                
                                                 res.json({
                                                     status: "Success",
                                                     message: "Transaction sent succesfully",
@@ -264,7 +277,7 @@ function newTransaction(req, res){
                                     }
 
                                     else{
-                                        User.findOneAndUpdate({email: recipient}, {$inc: {coins: tempAmount}}, {returnNewDocument: true, useFindAndModify: false}, (err) =>{ //, upsert: true
+                                        User.findOneAndUpdate({email: recipient}, {$inc: {coins: tempAmount}}, {returnNewDocument: true, useFindAndModify: false}, async (err) =>{ //, upsert: true
                                             if(err){
                                                 res.json({
                                                     status: "Error",
@@ -273,7 +286,8 @@ function newTransaction(req, res){
                                             }
             
                                             if(!err){
-                                                await sendSlackMessage();
+                                                if(reason == 'other'){reason = message}
+                                                if(slack){await sendSlackMessage(sfn, sln, amount, rfn, rln, reason);}
                                                 res.json({
                                                     status: "Success",
                                                     message: "Transaction sent succesfully",
@@ -416,31 +430,27 @@ function specialTransfer(amount, message){
     })
 }
 
-function sendSlackMessage(){
-    let slackMessage = {
-        text: `Test message`,
-        blocks: [
-            {
-                "type": "section",
-                "text": {
-                    "type": "mrkdwn",
-                    "text": `NICK sent 20 coins to SARAH for NO REASON`
-                }
-            },
-            {
-                "type": "divider"
-            }
-        ]
+async function sendSlackMessage(sfn, sln, amount, rfn, rln, reason){
+    try{
+        let slackMessage = {
+            text: `${sfn} ${sln} sent ${amount} coins to ${rfn} ${rln}.\nReason: ${reason}`,
+        }
+
+        await request({
+            url: `https://hooks.slack.com/services/${hook}`,
+            method: 'POST',
+            body: slackMessage,
+            json: true
+        }).then(res => {
+            console.log("HALLLLLOOOOOOO" + res);
+        });
+    }catch(e){
+        console.log("ERROR: " + e)
     }
 
-    const slackSucces = await request({
-        url: "https://hooks.slack.com/services/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",
-        method: "POST",
-        body: slackMessage,
-        json: true
-    });
+    
 
-    console.log(slackSucces);
+    
 }
 
 function getUser(token){
