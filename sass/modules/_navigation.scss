@@ -55,5 +55,10 @@
         align-items: center;
         justify-content: center;
         text-decoration: none;
+        color: $color--secondary;
+    }
+
+    .nav__text:hover{
+        color: $color--white;
     }
 } 

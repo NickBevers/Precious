@@ -576,6 +576,11 @@
     align-items: center;
     justify-content: center;
     text-decoration: none;
+    color: #FF7446;
+  }
+
+  .nav__text:hover {
+    color: white;
   }
 }
 .container {
