@@ -1,9 +1,7 @@
 # Jobs to do:
 
 ## TODO:
-- Deployment to heroku
 - Link Video met finale versie van de app (zie canvas)
-- check minify js files
 
 
 
@@ -33,6 +31,8 @@
 - Layout op desktop maken - DONE
 - Accounts precious opschonen - DONE
 - Accounts van characters aanmaken - DONE
+- Deployment to heroku - DONE
+- check minify js files - DONE
 
 
 
@@ -54,7 +54,7 @@ Zo kan de gulp module bij iedereen gevonden worden en makkelijk gebruikt worden 
 
 
 ## Accounts {firstname, lastname, email, password}
-- Gandalf-account: {Gandalf The Grey; gandalf.thegray@middle-earth.be; Mithrandir}
-- Gandalf-gmail: {gandalf.precious@gmail.com; Mithrandir}
+- Gandalf-account: Gandalf The Grey; gandalf.thegray@middle-earth.be; Mithrandir
+- Gandalf-gmail: gandalf.precious@gmail.com; Mithrandir
 - Bilbo Baggins; bilbo.baggins@student.thomasmore.be; Bilbo123
-- Thorin Oakenshield; thorin.oakenshield@student.thomasmore.be; Thorin123
+- Thorin Oakenshield; thorin.oakenshield@student.thomasmore.be; Thorin123 

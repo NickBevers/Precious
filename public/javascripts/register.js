@@ -71,7 +71,8 @@ let signup = document.querySelector(".button").addEventListener("click", functio
         
                         let token = answer.data.token;
                         localStorage.setItem("token", token);
-                        window.location.replace("home.html"); // deze locatie waarschijnlijk nog aanpassen
+                        alert("please confirm your email");
+                        // window.location.replace("home.html"); // deze locatie waarschijnlijk nog aanpassen
                     }
                 })
             }

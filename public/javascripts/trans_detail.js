@@ -1,8 +1,8 @@
 window.addEventListener("load", function(){
     let tokencheck = localStorage.getItem("token");
     if (!tokencheck) {
-        alert("wrong page");
-        window.location.replace("login.html");
+        alert("Please log in");
+        window.location.href = "login.html";
     }
     else{
         let data = JSON.parse(localStorage.getItem("transactionID"));

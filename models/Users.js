@@ -7,7 +7,11 @@ const User = new Schema({
     lastname: String,
     email: String,
     coins: Number,
-    coinsTransferred : Number
+    coinsTransferred : Number,
+    isVerified: {
+        type: Boolean,
+        defaultValue: false
+    }
 });
 
 User.plugin(passportLocalMongoose, {usernameField: "email"});
