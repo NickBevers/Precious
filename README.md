@@ -2,7 +2,6 @@
 
 ## TODO:
 - Link Video met finale versie van de app (zie canvas)
-- check minify js files
 
 
 
@@ -33,6 +32,7 @@
 - Accounts precious opschonen - DONE
 - Accounts van characters aanmaken - DONE
 - Deployment to heroku - DONE
+- check minify js files - DONE
 
 
 
