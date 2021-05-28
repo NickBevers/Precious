@@ -29,13 +29,13 @@ function jsminify(done){
 }
 
 
-function cached(done){
-    return src("./public/javascripts/*.js")
-    .pipe(cache('linting'))
-    .pipe(jshint())
-    .pipe(jshint.reporter())
-    done()
-}
+// function cached(done){
+//     return src("./public/javascripts/*.js")
+//     .pipe(cache('linting'))
+//     .pipe(jshint())
+//     .pipe(jshint.reporter())
+//     done()
+// }
 
 function cssminify(done){
     return src("./public/stylesheets/*.css").pipe(cleancss({compatibility: "ie8"})).pipe(dest("./public/cssminify"));
