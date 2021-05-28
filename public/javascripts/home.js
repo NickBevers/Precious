@@ -146,6 +146,12 @@ window.addEventListener("load", function(){
             let reason = document.querySelector(".custom-dropdown").value;
             let message = document.querySelector(".message").value;
             let tokencheck = localStorage.getItem("token");
+            if(document.querySelector(".custom-checkbox__input").checked){
+                slack = true;       
+            }
+            else{
+                slack = false
+            }
 
             if(userInput.value == undefined || userInput.value == null || userInput.value == ""){
                 document.querySelector(".recipient").classList.add("form__input--error");
@@ -179,7 +185,8 @@ window.addEventListener("load", function(){
                         "recipient": recipient,
                         "amount": amount,
                         "reason": reason,
-                        "message": message
+                        "message": message,
+                        "slack": slack
                     })
                 }).then(response => {
                     return response.json();
