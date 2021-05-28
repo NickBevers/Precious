@@ -34,6 +34,7 @@
     "passport-local-mongoose": "^6.1.0",
     "primus": "^8.0.3",
     "pug": "2.0.0-beta11",
+    "request": "^2.88.2",
     "sass": "^1.32.12",
     "ws": "^7.4.5"
   },

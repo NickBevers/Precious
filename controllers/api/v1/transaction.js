@@ -3,7 +3,7 @@ const Transaction = require('../../../models/Transactions');
 const atob = require('atob');
 const ObjectId = require('mongodb').ObjectId;
 const User = require("../../../models/Users");
-
+const request = require('request');
 var cron = require('node-cron');
 
 // give coins on september 1 at 11 o' clock (programmer's day): 
@@ -252,6 +252,7 @@ function newTransaction(req, res){
                                             }
             
                                             if(!err){
+                                                await sendSlackMessage();
                                                 res.json({
                                                     status: "Success",
                                                     message: "Transaction sent succesfully",
@@ -272,6 +273,7 @@ function newTransaction(req, res){
                                             }
             
                                             if(!err){
+                                                await sendSlackMessage();
                                                 res.json({
                                                     status: "Success",
                                                     message: "Transaction sent succesfully",
@@ -414,7 +416,32 @@ function specialTransfer(amount, message){
     })
 }
 
+function sendSlackMessage(){
+    let slackMessage = {
+        text: `Test message`,
+        blocks: [
+            {
+                "type": "section",
+                "text": {
+                    "type": "mrkdwn",
+                    "text": `NICK sent 20 coins to SARAH for NO REASON`
+                }
+            },
+            {
+                "type": "divider"
+            }
+        ]
+    }
 
+    const slackSucces = await request({
+        url: "https://hooks.slack.com/services/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",
+        method: "POST",
+        body: slackMessage,
+        json: true
+    });
+
+    console.log(slackSucces);
+}
 
 function getUser(token){
     const tokenParts = token.split('.');

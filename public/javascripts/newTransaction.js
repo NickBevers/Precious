@@ -1,5 +1,4 @@
-let recipient;
-const SLACKTOKEN = "xoxb-2126898775153-2107515768182-QApgPncVIRcjJW2RchF6CMap";
+let recipient, slack;
 window.addEventListener("load", function(){
     let tokencheck = localStorage.getItem("token");
 
@@ -15,39 +14,6 @@ window.addEventListener("load", function(){
                 retries: 10
             }
         });
-
-        console.log(this.document.querySelector(".custom-checkbox__input"))
-        if(document.querySelector(".custom-checkbox__input").checked){
-            console.log("CHECKED");
-            const payload = {
-                channel: "random-channel",
-                attachments: [{
-                    title: "My first Slack Message",
-                    text: "Random example message text",
-                    author_name: "try_bot",
-                    color: "#00FF00",
-                }],
-              };
-            
-            try{
-                fetch("https://slack.com/api/chat.postMessage", {
-                    method: "POST",
-                    body: JSON.stringify(payload),
-                    headers: {
-                        'Accept': 'application/json',
-                        "Content-Type": "application/json",
-                        "Content-Length": payload.length,
-                        "Authorization": `Bearer ${SLACKTOKEN}`,
-                    },
-                }).then(res =>{
-                    if(!res.ok){
-                        throw new Error(`SERVER ERROR ${res.status}`)
-                    }
-
-                    return res.json();
-                })
-            }catch(e){console.log("Error: " + e)}
-        }
 
         let userInput = document.querySelector(".recipient");
         let possibleRecipient = document.querySelector(".recipientList");
@@ -110,6 +76,12 @@ window.addEventListener("load", function(){
             let reason = document.querySelector(".custom-dropdown").value;
             let message = document.querySelector(".message").value;
             let tokencheck = localStorage.getItem("token");
+            if(document.querySelector(".custom-checkbox__input").checked){
+                slack = true;       
+            }
+            else{
+                slack = false
+            }
             
             // console.log(userInput.value);
             // console.log(typeof userInput.value);
@@ -143,7 +115,8 @@ window.addEventListener("load", function(){
                     "recipient": recipient,
                     "amount": amount,
                     "reason": reason,
-                    "message": message
+                    "message": message,
+                    "slack": slack
                 })
                 }).then(response => {
                     return response.json();
