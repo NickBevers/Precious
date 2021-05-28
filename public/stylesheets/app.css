@@ -516,6 +516,10 @@
   .button--secondary {
     display: none;
   }
+
+  .button--link {
+    font-size: 20px;
+  }
 }
 .nav {
   background-color: #3A0CA3;
