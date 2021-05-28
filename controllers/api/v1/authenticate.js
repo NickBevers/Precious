@@ -58,7 +58,7 @@ const postsignup = async (req, res, next) => {
         }, process.env.jwtsecret || config.get("jwt.secret"));
 
         // const url = `http://localhost:3000/users/confirmation/${token}`;
-        const url = `https://precious-coins.herokuapp.com/users/confirmation/${token}`;
+        const url = `https://preciouscoin.herokuapp.com/users/confirmation/${token}`;
         transporter.sendMail({
             to: result.email,
             subject: 'Confirm Precious account',
@@ -148,7 +148,7 @@ async function confirmUser(req, res){
         console.log("Error: " + e);
     }
     // return res.redirect('http://localhost:3000/login.html');
-    return res.redirect('https://precious-coins.herokuapp.com/login.html');
+    return res.redirect('https://preciouscoin.herokuapp.com/login.html');
 }
 
 
