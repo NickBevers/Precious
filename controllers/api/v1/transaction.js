@@ -6,7 +6,7 @@ const User = require("../../../models/Users");
 
 var cron = require('node-cron');
 
-// give coins on september 13 at 10 o' clock (programmer's day): 
+// give coins on september 1 at 11 o' clock (programmer's day): 
 // Each users gets coins until they have 100
 // if they have more, they get 20
 cron.schedule('0 0 13 1 Sep * ', () => {
@@ -42,7 +42,7 @@ cron.schedule('0 2 9 26 May *', () => {
     timezone: "Europe/Brussels"
 });
 
-// give coins on march 31 -> international backup day
+// give coins on march 31 -> birthday of Tolkien
 cron.schedule('0 0 8 3 Jan *', () => {
     specialTransfer(40, "The birthday of J.R.R. Tolkien");
 }, {
@@ -66,7 +66,7 @@ cron.schedule('0 0 8 17 May *', () => {
     timezone: "Europe/Brussels"
 });
 
-// give coins on may 25 -> release nodejs 2009
+// give coins on may 25 -> Geek pride
 cron.schedule('0 0 8 25 May *', () => {
     specialTransfer(15, "Geek pride day. Be proud of who you are");
 }, {
@@ -122,6 +122,77 @@ cron.schedule('0 0 8 17 Dec *', () => {
     timezone: "Europe/Brussels"
 });
 
+// give coins on March 25 -> tolkien reading day
+cron.schedule('0 0 8 25 March *', () => {
+    specialTransfer(25, "International Tolkien Reading Day");
+}, {
+    scheduled: true,
+    timezone: "Europe/Brussels"
+});
+
+// give coins on August 1 -> World wide web day
+cron.schedule('0 0 8 1 8 *', () => {
+    specialTransfer(35, "We are celebrating world wide web day!!");
+}, {
+    scheduled: true,
+    timezone: "Europe/Brussels"
+});
+
+// give coins on October 3 -> Techies Day
+cron.schedule('0 0 8 3 10 *', () => {
+    specialTransfer(10, "Congratulations Techie! Today we celebrate you!");
+}, {
+    scheduled: true,
+    timezone: "Europe/Brussels"
+});
+
+// give coins on April 15 - 21 -> Coin Week
+cron.schedule('0 0 8 15-21 4 *', () => {
+    specialTransfer(5, "It is coin week! Expect a special gift each day!");
+}, {
+    scheduled: true,
+    timezone: "Europe/Brussels"
+});
+
+// give coins on August 26 -> WebMistress Day
+cron.schedule('0 0 8 26 8 *', () => {
+    specialTransfer(15, "Celebrating female developpers, give a shoutout to your colleague!");
+}, {
+    scheduled: true,
+    timezone: "Europe/Brussels"
+});
+
+// give coins on October 21 -> Get smart about credit day
+cron.schedule('0 0 8 21 10 *', () => {
+    specialTransfer(10, "Today is Get Smart About Credit Day, be sure to invest your precious coins!");
+}, {
+    scheduled: true,
+    timezone: "Europe/Brussels"
+});
+
+// give coins on May 20 -> Be a Millionaire Day
+cron.schedule('0 0 8 20 5 *', () => {
+    specialTransfer(20, "Today is is be a Millionaire Day! Be sure to give yourself some self care and invest in something you like!");
+}, {
+    scheduled: true,
+    timezone: "Europe/Brussels"
+});
+
+// give coins on April 1 -> One cent Day
+cron.schedule('0 0 8 1 4 *', () => {
+    specialTransfer(1, "No, it isn't an April fools joke, today is One cent Day!");
+}, {
+    scheduled: true,
+    timezone: "Europe/Brussels"
+});
+
+// give coins on May 23 -> Lucky Penny Day
+cron.schedule('0 0 20 23 5 *', () => {
+    specialTransfer(1, "Haven't found a penny today, Here is a coin from us, Happy Lucky Penny Day!");
+}, {
+    scheduled: true,
+    timezone: "Europe/Brussels"
+});
 
 
 // POST new transaction
