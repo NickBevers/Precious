@@ -49,7 +49,7 @@ const postsignup = async (req, res, next) => {
     let password = req.body.password;
     let coins = 100;
 
-    const user = new User({firstname: firstname, lastname: lastname, email: email, coins: coins}); 
+    const user = new User({firstname: firstname, lastname: lastname, email: email, coins: coins, coinsTransferred: false, isVerified: false}); 
     await user.setPassword(password);
     await user.save().then(result =>{
         let token = jwt.sign({
@@ -57,6 +57,7 @@ const postsignup = async (req, res, next) => {
             email: result.email
         }, process.env.jwtsecret || config.get("jwt.secret"));
 
+        // const url = `http://localhost:3000/users/confirmation/${token}`;
         const url = `https://precious-coins.herokuapp.com/users/confirmation/${token}`;
         transporter.sendMail({
             to: result.email,
@@ -79,8 +80,8 @@ const postsignup = async (req, res, next) => {
 }
 
 const postlogin = async (req, res, next) => {
-    console.log("Gollum login?");
-    console.log(req.body.email, req.body.password);
+    // console.log("Gollum login?");
+    // console.log(req.body.email, req.body.password);
 
     const user = await User.findOne({email: req.body.email});
     if (!user.isVerified){
@@ -145,6 +146,7 @@ async function confirmUser(req, res){
     catch (e){
         console.log("Error: " + e);
     }
+    // return res.redirect('http://localhost:3000/login.html');
     return res.redirect('https://precious-coins.herokuapp.com/login.html');
 }
 
