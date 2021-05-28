@@ -220,17 +220,17 @@
 
   .form--small {
     grid-row: 5/span 6;
-    grid-column: 5/span 3;
+    grid-column: 5/span 4;
   }
 
   .form--medium {
     grid-row: 5/span 7;
-    grid-column: 5/span 3;
+    grid-column: 5/span 4;
   }
 
   .form--large {
     grid-row: 5/span 7;
-    grid-column: 5/span 3;
+    grid-column: 5/span 4;
   }
 
   .trans_detail_title {
@@ -238,7 +238,7 @@
     margin-left: auto;
     margin-right: auto;
     grid-row: 3/span 1;
-    grid-column: 5/span 3;
+    grid-column: 5/span 4;
     font-size: 42px;
   }
 }
@@ -599,7 +599,7 @@
   grid-template-columns: 100%;
   grid-template-rows: repeat(12, 60px);
   font-family: "Lato", sans-serif;
-  background-image: url("./../public/assets/Precious.jpg");
+  background-image: url("../public/assets/precious.png");
 }
 
 .coins {
