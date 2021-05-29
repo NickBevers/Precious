@@ -1,7 +1,7 @@
 window.addEventListener("load", function(){
     let tokencheck = localStorage.getItem("token");
     if(!tokencheck){
-        alert("Please log in");
+        // alert("Please log in");
         window.location.href = "login.html";
     }
     else{
