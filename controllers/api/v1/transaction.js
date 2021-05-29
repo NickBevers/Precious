@@ -7,7 +7,7 @@ const request = require('request-promise');
 var cron = require('node-cron');
 const hook = "T023QSENT4H/B023D804DUK/KuGr6mtvpEq4z3gtTCQ2wla8";
 
-// give coins on september 1 at 11 o' clock (programmer's day): 
+// give coins on september 1 at 13 o' clock (programmer's day): 
 // Each users gets coins until they have 100
 // if they have more, they get 20
 cron.schedule('0 0 13 1 Sep * ', () => {
@@ -24,7 +24,7 @@ cron.schedule('0 0 8 1 * *', () => {
     User.find({}, {email: 1, coinsTransferred: 1}, (err, doc) => {
         if(!err){
             doc.forEach(u => {
-                User.updateOne({email: u.email}, {$and: [{$inc: {coins: u.coinsTransferred}}, {coinsTransferred: 0}]})
+                User.updateOne({email: u.email}, {$and: [{$inc: {coins: u.coinsTransferred}}, {$set: {coinsTransferred: 0}}]})
             })
         }
     })
