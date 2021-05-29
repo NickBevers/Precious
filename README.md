@@ -1,7 +1,6 @@
 # Jobs to do:
 
 ## TODO:
-- Link Video met finale versie van de app (zie canvas)
 
 
 
@@ -33,6 +32,8 @@
 - Accounts van characters aanmaken - DONE
 - Deployment to heroku - DONE
 - check minify js files - DONE
+
+- Link Video met finale versie van de app (zie canvas)
 
 
 
