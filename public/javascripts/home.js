@@ -198,10 +198,16 @@ window.addEventListener("load", function(){
                             "action": "add_transaction",
                             "data": json
                         })
-    
+                        
+                        let data = json.data;
+                        removeTransaction(data.amount, data.recipient, data.message);
+
                         clearForm("hi");
                         let message = "<p class='errormes'>Transaction was sent</p>" 
                         document.querySelector(".recipient").insertAdjacentHTML("beforebegin", message);
+                        this.setTimeout(()=>{
+                            document.querySelector(".errormes").remove();
+                        }, 5000)
                         // window.location.replace("home.html");
                     }
                     
@@ -289,6 +295,33 @@ function addTransaction(trans){
     }
 }
 
+function removeTransaction(amount, recipient, message){
+    let name = splitEmail(recipient);
+        if(message == ""){
+            let transaction = `<li class="list__item">
+                <p class="list__item--amount--sent">-${amount}P</p>
+                <p class="list__item--from-to">${name[0] + " " + name[1]}</p>
+                <p class="list__item--message" style="cursor:default"> </p>
+            </li>
+            <hr class="list__hr">`
+            document.querySelector(".list").innerHTML += transaction;
+        }
+        else{
+            let transaction = `<li class="list__item">
+                <p class="list__item--amount--sent">-${amount}P</p>
+                <p class="list__item--from-to">${name[0] + " " + name[1]}</p>
+                <i class="fas fa-envelope list__item--message"></i>
+            </li>
+            <hr class="list__hr">`
+            document.querySelector(".list").insertAdjacentHTML('afterbegin', transaction) //insertAdjacentHTML('afterend', transaction);
+        }
+
+        let coins = document.querySelector(".coins").innerHTML.split(" ")[1];
+        let tempcoin = parseInt(coins);
+
+        tempcoin -= amount;
+        document.querySelector(".coins").innerHTML = tempcoin;
+}
 
 function splitEmail(mail){
     if (mail == undefined || mail == null || mail == ""){
