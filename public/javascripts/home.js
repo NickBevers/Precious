@@ -200,7 +200,9 @@ window.addEventListener("load", function(){
                         })
     
                         clearForm("hi");
-                        window.location.replace("home.html");
+                        let message = "<p class='errormes'>Transaction was sent</p>" 
+                        document.querySelector(".recipient").insertAdjacentHTML("beforebegin", message);
+                        // window.location.replace("home.html");
                     }
                     
                     if(json.status === "Error"){
@@ -221,11 +223,13 @@ window.addEventListener("load", function(){
                         document.querySelector(".amount").value = "";
                         document.querySelector(".custom-dropdown").value = "Reason";
                         document.querySelector(".message").value = "";
+                        document.querySelector(".custom-checkbox__input").checked = false;
                     }
                     else{
                         userInput.value = "";
                         document.querySelector(".amount").value = "";
                         document.querySelector(".message").value = "";
+                        document.querySelector(".custom-checkbox__input").checked = false;
                     }
                 }
             }
