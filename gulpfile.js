@@ -65,7 +65,7 @@ exports.default = function(done){
 
 exports.test = test;
 exports.sass2css = sass2css;
-exports.cached = cached;
+// exports.cached = cached;
 exports.purge = purge;
 exports.checkChangedFiles = checkChangedFiles;
 exports.jsminify = jsminify;
