@@ -197,7 +197,7 @@ cron.schedule('0 0 20 23 5 *', () => {
 
 
 // POST new transaction
-function newTransaction(req, res){
+async function newTransaction(req, res){
     let transaction = new Transaction();
     let user = getUser(req.headers.authorization);
     let amount = req.body.amount;
