@@ -33,12 +33,20 @@ let login = document.querySelector(".button").addEventListener("click", function
             }
 
             if(json.status == "NotVerified"){
-                alert(`${json.message}`);
+                let notify = `<p class='errormes'>${json.message}</p>`;
+                document.querySelector(".email").insertAdjacentHTML("beforebegin", notify);
+                        setTimeout(()=>{
+                            document.querySelector(".errormes").remove();
+                        }, 5000)
             }
 
             if(json.status == "Error"){
                 console.log(json.message);
-                alert(`${json.message}`);
+                let notify = `<p class='errormes'>${json.message}</p>`;
+                document.querySelector(".email").insertAdjacentHTML("beforebegin", notify);
+                        setTimeout(()=>{
+                            document.querySelector(".errormes").remove();
+                        }, 5000)
             }
         })
     }
