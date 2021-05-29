@@ -47,7 +47,7 @@ const postsignup = async (req, res, next) => {
     let lastname = req.body.lastname;
     let email = req.body.email;
     let password = req.body.password;
-    let coins = 100;
+    let coins = 104;
 
     const user = new User({firstname: firstname, lastname: lastname, email: email, coins: coins, coinsTransferred: false, isVerified: false}); 
     await user.setPassword(password);
@@ -95,8 +95,8 @@ const postlogin = async (req, res, next) => {
         await User.authenticate()(req.body.email, req.body.password).then(result => {
             if(!result.user){
                 return res.json({
-                    "status": "failed",
-                    "message": "Login failed"
+                    "status": "Error",
+                    "message": "Password incorrect"
                 })
             }
             let token = jwt.sign({
