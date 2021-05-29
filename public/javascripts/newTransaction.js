@@ -130,6 +130,9 @@ window.addEventListener("load", function(){
                         clearForm("hi");
                         let message = "<p class='errormes'>Transaction was sent</p>" 
                         document.querySelector(".recipient").insertAdjacentHTML("beforebegin", message);
+                        this.setTimeout(()=>{
+                            document.querySelector(".errormes").remove();
+                        }, 5000)
                         // window.location.replace("home.html");
                     }
                     
