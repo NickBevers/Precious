@@ -244,16 +244,34 @@ function newTransaction(req, res){
                         if(!err){
                             let tempAmount = parseInt(amount);
                             let negTempAmount = parseInt(`-${amount}`);
-                            User.findOneAndUpdate({email: user.email}, {$inc: {coins: negTempAmount, coinsTransferred: tempAmount}}, {returnNewDocument: true, useFindAndModify: false}, (err) =>{
-                                if(err){
-                                    res.json({
-                                        status: "Error",
-                                        message: "The transaction could not be sent - Update failed"
-                                    })
-                                }
-
-                                if(!err){
-                                    if(reason == "Buying IMD Swag"){
+                            if(reason == "Buying IMD Swag"){
+                                User.findOneAndUpdate({email: user.email}, {$inc: {coins: negTempAmount}}, {returnNewDocument: true, useFindAndModify: false}, (err) =>{
+                                    if(err){
+                                        res.json({
+                                            status: "Error",
+                                            message: "The transaction could not be sent - Update failed"
+                                        })
+                                    }
+    
+                                    if(!err){
+                                        await boughtSlackMessage(sfn, sln, amount);
+                                        res.json({
+                                            status: "Success",
+                                            message: "Bought (PRECIOUS) IMD SWAG"
+                                        })
+                                    }
+                                })
+                            }
+                            else{
+                                User.findOneAndUpdate({email: user.email}, {$inc: {coins: negTempAmount, coinsTransferred: tempAmount}}, {returnNewDocument: true, useFindAndModify: false}, (err) =>{
+                                    if(err){
+                                        res.json({
+                                            status: "Error",
+                                            message: "The transaction could not be sent - Update failed"
+                                        })
+                                    }
+    
+                                    if(!err){
                                         User.findOneAndUpdate({email: recipient}, {$inc: {coins: tempAmount}}, {returnNewDocument: true, useFindAndModify: false}, async (err) =>{
                                             if(err){
                                                 res.json({
@@ -275,31 +293,8 @@ function newTransaction(req, res){
                                             }
                                         })
                                     }
-
-                                    else{
-                                        User.findOneAndUpdate({email: recipient}, {$inc: {coins: tempAmount}}, {returnNewDocument: true, useFindAndModify: false}, async (err) =>{ //, upsert: true
-                                            if(err){
-                                                res.json({
-                                                    status: "Error",
-                                                    message: "The transaction could not be sent - Update failed"
-                                                })
-                                            }
-            
-                                            if(!err){
-                                                if(reason == 'other'){reason = message}
-                                                if(slack){await sendSlackMessage(sfn, sln, amount, rfn, rln, reason);}
-                                                res.json({
-                                                    status: "Success",
-                                                    message: "Transaction sent succesfully",
-                                                    user: user,
-                                                    data: doc
-                                                })
-                                            }
-                                        })
-                                    }
-                                }
-                            })
-                            
+                                })
+                            }
                         }
                     })
                 }
@@ -442,15 +437,30 @@ async function sendSlackMessage(sfn, sln, amount, rfn, rln, reason){
             body: slackMessage,
             json: true
         }).then(res => {
-            console.log("HALLLLLOOOOOOO" + res);
+            // console.log("HALLLLLOOOOOOO" + res);
         });
     }catch(e){
         console.log("ERROR: " + e)
     }
+}
 
-    
+async function boughtSlackMessage(sfn, sln, amount){
+    try{
+        let slackMessage = {
+            text: `${sfn} ${sln} bought Precious IMD Swag for ${amount} coins.`,
+        }
 
-    
+        await request({
+            url: `https://hooks.slack.com/services/${hook}`,
+            method: 'POST',
+            body: slackMessage,
+            json: true
+        }).then(res => {
+            // console.log("HALLLLLOOOOOOO" + res);
+        });
+    }catch(e){
+        console.log("ERROR: " + e)
+    }
 }
 
 function getUser(token){
