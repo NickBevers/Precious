@@ -65,3 +65,4 @@ Zo kan de gulp module bij iedereen gevonden worden en makkelijk gebruikt worden 
 - Gimli Son of Gloin; gimli.sonofgloin@student.thomasmore.be; Gimli123
 - Arwen Undómiel; arwen.undómiel@student.thomasmore.be; Evenstar
 - Treebeard Eldest; treebeard.eldest@student.thomasmore.be; ENT23
+- Gandalf The White; gandalf.thewhite@student.thomasmore.be; Youshallnotpass!
