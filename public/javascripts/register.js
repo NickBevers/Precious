@@ -49,7 +49,11 @@ let signup = document.querySelector(".button").addEventListener("click", functio
             return response.json();
         }).then(json => {
             if(json.status === "Error"){
-                alert("email alreadt exists!")
+                let notify = `<p class='errormes'>Email alreadt exists!</p>`;
+                document.querySelector(".firstname").insertAdjacentHTML("beforebegin", notify);
+                setTimeout(()=>{
+                    document.querySelector(".errormes").remove();
+                }, 5000)
             }
             else{
                 fetch("/users/signup", {
@@ -71,12 +75,19 @@ let signup = document.querySelector(".button").addEventListener("click", functio
         
                         let token = answer.data.token;
                         localStorage.setItem("token", token);
-                        alert("please confirm your email");
-                        // window.location.replace("home.html"); // deze locatie waarschijnlijk nog aanpassen
+                        let notify = `<p class='errormes'>Please confirm your email</p>`;
+                        document.querySelector(".firstname").insertAdjacentHTML("beforebegin", notify);
+                        setTimeout(()=>{
+                            document.querySelector(".errormes").remove();
+                        }, 5000)
                     }
 
                     if(answer.status == "Error"){
-                        alert(`Could not register u, please try again`);
+                        let notify = `<p class='errormes'>Could not register you, please try again.</p>`;
+                        document.querySelector(".firstname").insertAdjacentHTML("beforebegin", notify);
+                        setTimeout(()=>{
+                            document.querySelector(".errormes").remove();
+                        }, 5000)
                     }
                 })
             }
