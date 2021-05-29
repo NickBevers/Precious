@@ -99,11 +99,10 @@ window.addEventListener("load", function(){
             } 
             if(reason == undefined || reason == null || reason === ""){
                 document.querySelector(".custom-dropdown").classList.add("form__input--error");
-                // Message with "Please fill in all fields (message is optional)"
-                // this.alert("Fill in everything")
-                // console.log(reason);
-                return
-            }            
+                this.setTimeout(()=>{
+                    document.querySelector(".custom-dropdown").classList.remove("form__input--error");
+                }, 2000);
+            }           
             else {
                 fetch("/api/v1/transfers", {
                 method: "post",
@@ -129,7 +128,9 @@ window.addEventListener("load", function(){
                         });
                         
                         clearForm("hi");
-                        window.location.replace("home.html");
+                        let message = "<p class='errormes'>Transaction was sent</p>" 
+                        document.querySelector(".recipient").insertAdjacentHTML("beforebegin", message);
+                        // window.location.replace("home.html");
                     }
                     
                     if(json.status === "Error"){
@@ -152,11 +153,13 @@ window.addEventListener("load", function(){
                 document.querySelector(".amount").value = "";
                 document.querySelector(".custom-dropdown").value = "Reason";
                 document.querySelector(".message").value = "";
+                document.querySelector(".custom-checkbox__input").checked = false;
             }
             else{
                 userInput.value = "";
                 document.querySelector(".amount").value = "";
                 document.querySelector(".message").value = "";
+                document.querySelector(".custom-checkbox__input").checked = false;
             }
         }
 
